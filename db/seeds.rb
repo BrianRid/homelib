@@ -7,62 +7,63 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 puts 'Cleaning database...'
-Workers.destroy_all
-puts 'all workers destroyed'
-Rents.destroy_all
-puts 'all rents destroyed'
-Works.destroy_all
-puts 'all works destroyed'
-UserWorkers.destroy_all
-puts 'all userworkers destroyed'
-Rentals.destroy_all
-puts 'all rentals destroyed'
-Incidents.destroy_all
-puts 'all incidents destroyed'
-Flats.destroy_all
+# Workers.destroy_all
+# puts 'all workers destroyed'
+# Rents.destroy_all
+# puts 'all rents destroyed'
+# Works.destroy_all
+# puts 'all works destroyed'
+# UserWorkers.destroy_all
+# puts 'all userworkers destroyed'
+# Rentals.destroy_all
+# puts 'all rentals destroyed'
+# Incidents.destroy_all
+# puts 'all incidents destroyed'
+Flat.destroy_all
 puts 'all flats destroyed'
+User.destroy_all
+puts 'all users destroyed'
 
 puts 'all records destroyed'
-puts 'Creating 5 of each...'
+puts 'Creating some of each...'
 
 
 rock = User.create!({
   email:  "rf@gmail.com",
   password: "123456",
   first_name: "Rock",
-  last_name: "FELLER"
-  adress: "55 rue Singer, 75016 Paris"
-  phone: "06 14 14 14 14"
+  last_name: "FELLER",
+  address: "55 rue Singer, 75016 Paris",
+  phone: "06 14 14 14 14",
 })
 
 alain = User.create!({
   email:  "ad@gmail.com",
   password: "123456",
   first_name: "Alain",
-  last_name: "DELOIN"
-  adress: "33 rue du Laos"
-  phone: "06 14 14 14 14"
+  last_name: "DELOIN",
+  address: "33 rue du Laos",
+  phone: "06 14 14 14 14",
 })
 
 robert = User.create!({
   email:  "rr@gmail.com",
   password: "123456",
   first_name: "Robert",
-  last_name: "Redford"
-  adress: "10 rue de la Paix"
-  phone: "06 12 64 34 22"
+  last_name: "Redford",
+  address: "10 rue de la Paix",
+  phone: "06 12 64 34 22",
 })
 
 
 f1 = Flat.create!({
-create_table "flats", force: :cascade do |t|
-  user_id: rock.id
-  address: "35 avenue Mac Mahon"
-  description: "Très lumineux, parquer, moulure, cheminée"
-  nb_rooms: 2
-  area: "64 m2"
-  furnished: false
-  syndic_name: ""
+  user_id: rock.id,
+  address: "35 avenue Mac Mahon",
+  description: "Très lumineux, parquer, moulure, cheminée",
+  nb_rooms: 2,
+  area: "64 m2",
+  furnished: false,
+  syndic_name: "",
   syndic_phone: "",
   syndic_email: "",
 })
