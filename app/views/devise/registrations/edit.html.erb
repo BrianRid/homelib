@@ -1,4 +1,4 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2>Editer <%= resource_name.to_s.humanize %></h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
@@ -7,29 +7,41 @@
     <%= f.input :email, required: true, autofocus: true %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+      <p>En attente de confirmation pour: <%= resource.unconfirmed_email %></p>
     <% end %>
 
     <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
+                hint: "laisser blanc si vous ne désirez pas le modifer",
                 required: false,
-                input_html: { autocomplete: "new-password" } %>
+                input_html: { autocomplete: "nouveau password" } %>
     <%= f.input :password_confirmation,
                 required: false,
-                input_html: { autocomplete: "new-password" } %>
+                input_html: { autocomplete: "nouveau password" } %>
     <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
+                hint: "nous avons besoin de votre password actuel pour confirmer vos changements",
                 required: true,
-                input_html: { autocomplete: "current-password" } %>
+                input_html: { autocomplete: "actuel password" } %>
+    <%= f.input :first_name,
+                required: true,
+                input_html: { autocomplete: "Prénom" } %>
+    <%= f.input :last_name,
+                required: true,
+                input_html: { autocomplete: "Nom de Famille" } %>
+    <%= f.input :address,
+                required: false,
+                input_html: { autocomplete: "Adresse" } %>
+    <%= f.input :telephone,
+                required: false,
+                input_html: { autocomplete: "Téléphone" } %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Update" %>
+    <%= f.button :submit, "Mettre à jour" %>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<h3>Annuler mon compte</h3>
 
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p>Insatisfait? <%= link_to "Annuler mon compte", registration_path(resource_name), data: { confirm: "Etes vous certain?" }, method: :delete %></p>
 
-<%= link_to "Back", :back %>
+<%= link_to "Retour", :back %>
