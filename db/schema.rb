@@ -30,15 +30,6 @@ ActiveRecord::Schema.define(version: 2019_11_26_101903) do
     t.index ["user_id"], name: "index_flats_on_user_id"
   end
 
-  create_table "user_workers", force: :cascade do |t|
-    t.bigint "worker_id"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_user_workers_on_user_id"
-    t.index ["worker_id"], name: "index_user_workers_on_worker_id"
-  end
-
   create_table "incidents", force: :cascade do |t|
     t.bigint "flat_id"
     t.date "date"
@@ -70,6 +61,15 @@ ActiveRecord::Schema.define(version: 2019_11_26_101903) do
     t.index ["rental_id"], name: "index_rents_on_rental_id"
   end
 
+  create_table "user_workers", force: :cascade do |t|
+    t.bigint "worker_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_user_workers_on_user_id"
+    t.index ["worker_id"], name: "index_user_workers_on_worker_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -96,9 +96,9 @@ ActiveRecord::Schema.define(version: 2019_11_26_101903) do
   end
 
   add_foreign_key "flats", "users"
-  add_foreign_key "user_workers", "users"
-  add_foreign_key "user_workers", "workers"
   add_foreign_key "incidents", "flats"
   add_foreign_key "rentals", "flats"
   add_foreign_key "rentals", "users"
+  add_foreign_key "user_workers", "users"
+  add_foreign_key "user_workers", "workers"
 end
