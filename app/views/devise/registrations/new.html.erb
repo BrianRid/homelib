@@ -8,7 +8,7 @@
                 label: "Email",
                 required: true,
                 autofocus: true,
-                input_html: { autocomplete: "email" }%>
+                input_html: { autocomplete: "email" } %>
     <%= f.input :password,
                 label: "Mot de passe",
                 required: true,
@@ -30,7 +30,7 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Enregistrer" %>
+    <%= f.button :submit, "Enregistrer", class: 'btn btn-primary' %>
   </div>
 <% end %>
 
