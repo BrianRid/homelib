@@ -10,10 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_25_164334) do
+ActiveRecord::Schema.define(version: 2019_11_26_104927) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
 
   create_table "flats", force: :cascade do |t|
     t.bigint "user_id"
@@ -61,6 +82,15 @@ ActiveRecord::Schema.define(version: 2019_11_25_164334) do
     t.index ["rental_id"], name: "index_rents_on_rental_id"
   end
 
+  create_table "user_workers", force: :cascade do |t|
+    t.bigint "worker_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_user_workers_on_user_id"
+    t.index ["worker_id"], name: "index_user_workers_on_worker_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -77,8 +107,20 @@ ActiveRecord::Schema.define(version: 2019_11_25_164334) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "workers", force: :cascade do |t|
+    t.string "name"
+    t.string "phone"
+    t.string "email"
+    t.string "categories"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "flats", "users"
   add_foreign_key "incidents", "flats"
   add_foreign_key "rentals", "flats"
   add_foreign_key "rentals", "users"
+  add_foreign_key "user_workers", "users"
+  add_foreign_key "user_workers", "workers"
 end
