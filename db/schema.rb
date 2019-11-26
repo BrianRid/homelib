@@ -138,5 +138,4 @@ ActiveRecord::Schema.define(version: 2019_11_26_140534) do
   add_foreign_key "user_workers", "workers"
   add_foreign_key "works", "incidents"
   add_foreign_key "works", "workers"
-
 end
