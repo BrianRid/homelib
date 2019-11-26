@@ -5,4 +5,6 @@ Rails.application.routes.draw do
 
 
     get '/dashboard', to: 'pages#dashboard'
+
+    resources :rents, only: [:update]
 end
