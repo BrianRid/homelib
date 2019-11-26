@@ -4,14 +4,21 @@ function hideTabBodies(){
   })
 }
 
+function removeUnderlineProfil(){
+  document.querySelectorAll(".profil-link").forEach((link) => {
+    link.classList.remove("profil-link-active")
+  })
+}
+
 
 function animateHomeContentTabs(){
   if (document.querySelector("#concept")){
     document.querySelectorAll(".profil-link").forEach((link) => {
       link.addEventListener("click", function(e){
-        console.log(e.currentTarget)
+        removeUnderlineProfil()
+        e.currentTarget.classList.add("profil-link-active")
         hideTabBodies()
-        let bodyId = `${e.currentTarget.id}-body`;
+        const bodyId = `${e.currentTarget.id}-body`;
         document.querySelector(`#${bodyId}`).classList.remove("d-none");
       })
     });
