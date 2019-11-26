@@ -14,7 +14,6 @@ function animateHomeContentTabs(){
         let bodyId = `${e.currentTarget.id}-body`;
         document.querySelector(`#${bodyId}`).classList.remove("d-none");
       })
-
     });
   }
 };

@@ -4,8 +4,9 @@
   font-family: $body-font;
 }
 
-.inline-border {
-  border-bottom: solid 15px $grey;
+#concept-row {
+  border-bottom: solid 2px $grey;
+  margin-bottom:15px;
 }
 
 #concept h1 {
@@ -15,13 +16,12 @@
 
 .profil-link {
   color: $light-green;
-  margin: 10px;
-  margin-bottom:15px;
+  padding: 10px;
 }
 
-.profil-link:active {
+.profil-link-active {
   color: $hover-green;
-  border-bottom: solid $grey;
+  border-bottom: solid $dark-green;
 
 }
 
@@ -43,7 +43,10 @@
   text-align: center;
 }
 
+.concept-title{
+  color: $hover-green;
+}
+
 .text-green{
   color: $hover-green;
-
 }
