@@ -13,6 +13,7 @@ gem 'redis'
 # OWN GEMS
 gem 'cloudinary', '~> 1.12.0'
 gem 'money-rails'
+gem 'pundit'
 
 # ASSETS
 gem 'autoprefixer-rails'
