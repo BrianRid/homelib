@@ -116,6 +116,18 @@ ActiveRecord::Schema.define(version: 2019_11_26_104927) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "works", force: :cascade do |t|
+    t.float "price"
+    t.string "comment"
+    t.date "date"
+    t.bigint "incident_id"
+    t.bigint "worker_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["incident_id"], name: "index_works_on_incident_id"
+    t.index ["worker_id"], name: "index_works_on_worker_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "flats", "users"
   add_foreign_key "incidents", "flats"
@@ -123,4 +135,6 @@ ActiveRecord::Schema.define(version: 2019_11_26_104927) do
   add_foreign_key "rentals", "users"
   add_foreign_key "user_workers", "users"
   add_foreign_key "user_workers", "workers"
+  add_foreign_key "works", "incidents"
+  add_foreign_key "works", "workers"
 end
