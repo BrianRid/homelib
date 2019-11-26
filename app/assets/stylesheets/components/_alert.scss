@@ -1,6 +1,31 @@
+@keyframes go_from_right_to_left {
+    0% {
+        transform: translateX(240px);
+    }
+
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+@keyframes go_from_left_to_right {
+    0% {
+        transform: translateX(0px);
+    }
+
+    100% {
+        transform: translateX(240px);
+    }
+}
+
 .alert {
   position: fixed;
-  bottom: 16px;
+  top: 86px;
   right: 16px;
   z-index: 1000;
+  animation: go_from_right_to_left 0.5s;
+}
+
+.leave {
+  animation: go_from_left_to_right 0.5s;
 }
