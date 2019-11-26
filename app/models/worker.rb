@@ -1,5 +1,4 @@
 class Worker < ApplicationRecord
-  has_many :workers
   has_many :works
   has_many :user_workers
 
