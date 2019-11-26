@@ -1,0 +1,65 @@
+
+<!-- conteneur général de toute la page -->
+<div class="container">
+
+<!-- contener de la partie haute -->
+  <div class="upper-part">
+    <div class="upper left">
+      <div class="tab">
+        <button class="tablinks btn btn-success" id="defaultOpen" onclick="openCity(event, 'RENTER')" > OPTION 1</button>
+        <button class="tablinks btn btn-success" onclick="openCity(event, 'OWNER')" > OPTION 2</button>
+      </div>
+      <div id="RENTER" class="product-container tabcontent bg-white">
+        Propriétaire 1
+      </div>
+      <div id="OWNER" class="product-container tabcontent bg-white">
+        Propriétaire 2
+      </div>
+    </div>
+    <div class="upper right">
+      Loyers
+    </div>
+  </div>
+
+
+<!-- Partie basse des tuiles responsive -->
+  <h1>Déclarer un sinistre</h1>
+  <div class="cards">
+    <div class="card-incident" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+      Feu
+    </div>
+    <div class="card-incident" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+      Fuite
+    </div>
+    <div class="card-incident" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+      Electricité
+    </div>
+    <div class="card-incident" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+      Fenêtre
+    </div>
+    <div class="card-incident" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+      Cerrure
+    </div>
+    <div class="card-incident" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+      AUTRE
+    </div>
+  </div>
+</div>
+
+
+<script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+document.getElementById("defaultOpen").click();
+</script>
