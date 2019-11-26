@@ -1,5 +1,6 @@
 class Worker < ApplicationRecord
   has_many :workers
+  has_many :works
 
   validates :name, presence: true, uniqueness: true
   validates :phone, :description, presence: true
