@@ -77,6 +77,15 @@ ActiveRecord::Schema.define(version: 2019_11_25_164334) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "workers", force: :cascade do |t|
+    t.string "name"
+    t.string "phone"
+    t.string "email"
+    t.string "categories"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "flats", "users"
   add_foreign_key "incidents", "flats"
   add_foreign_key "rentals", "flats"
