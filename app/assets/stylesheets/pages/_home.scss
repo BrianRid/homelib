@@ -1,1 +1,49 @@
 // Specific CSS for your home-page
+
+.container-fluid {
+  font-family: $body-font;
+}
+
+.inline-border {
+  border-bottom: solid 15px $grey;
+}
+
+#concept h1 {
+  color: $dark-green;
+  margin-top: 10px;
+}
+
+.profil-link {
+  color: $light-green;
+  margin: 10px;
+  margin-bottom:15px;
+}
+
+.profil-link:active {
+  color: $hover-green;
+  border-bottom: solid $grey;
+
+}
+
+.concept-number-rounded {
+  color: $dark-green;
+  font-size: 24px;
+  border: solid;
+  width: 40px;
+  border-radius: 50%;
+  text-align: center;
+  align-self: center;
+  margin-bottom: 10px;
+}
+
+.concept-column {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  text-align: center;
+}
+
+.text-green{
+  color: $hover-green;
+
+}
