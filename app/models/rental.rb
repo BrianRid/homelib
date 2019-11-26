@@ -4,6 +4,6 @@ class Rental < ApplicationRecord
   has_many :rents
 
   validates :start_date, presence: true
-  validates :start_date_after_today?
-  validates :rental_period_is_free?
+  # validates :start_date_after_today?
+  # validates :rental_period_is_free?
 end

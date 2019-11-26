@@ -7,15 +7,15 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 puts 'Cleaning database...'
-Workers.destroy_all
+Worker.destroy_all
 puts 'all workers destroyed'
-Rents.destroy_all
+Rent.destroy_all
 puts 'all rents destroyed'
-Works.destroy_all
+Work.destroy_all
 puts 'all works destroyed'
-UserWorkers.destroy_all
+UserWorker.destroy_all
 puts 'all userworkers destroyed'
-Rentals.destroy_all
+Rental.destroy_all
 puts 'all rentals destroyed'
 Incident.destroy_all
 puts 'all incidents destroyed'
@@ -85,7 +85,7 @@ i1 = Incident.create!({
   date: Date.new(2019,12,15),
   status: "finalisé",
   dispo: "matin tôt",
-  types: "plomberie",
+  type: "plomberie",
 })
 
 i2 = Incident.create!({
@@ -93,7 +93,7 @@ i2 = Incident.create!({
   date: Date.new(2019,12,15),
   status: "finalisé",
   dispo: "matin tôt",
-  types: "plomberie",
+  type: "plomberie",
 })
 
 i3 = Incident.create!({
@@ -101,7 +101,7 @@ i3 = Incident.create!({
   date: Date.new(2015,7,11),
   status: "finalisé",
   dispo: "matin tôt",
-  types: "serrurerie",
+  type: "serrurerie",
 })
 
 i4 = Incident.create!({
@@ -109,7 +109,7 @@ i4 = Incident.create!({
   date: Date.new(2017,4,22),
   status: "finalisé",
   dispo: "soir tard",
-  types: "plomberie",
+  type: "plomberie",
 })
 
 puts 'Creating rantal 1 AND RENTS...'
