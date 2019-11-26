@@ -1,7 +1,7 @@
 class Incident < ApplicationRecord
   belongs_to :flat
-<<<<<<< HEAD
   has_many :incidents
-=======
->>>>>>> 909b213a7637a156643db1d9d9cb1dc609cf988a
+
+  validates :dispo, presence: true
+  validates :types, presence: true, inclusion: { in: ["plomberie", "électricité", "serrurerie", "chauffage", "vitrerie", "petits travaux", "jardinage", "peinture", "sols", "électroménager"]}
 end
