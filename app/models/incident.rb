@@ -3,5 +3,5 @@ class Incident < ApplicationRecord
   has_many :incidents
   has_many :works
   validates :dispo, presence: true
-  validates :types, presence: true, inclusion: { in: ["plomberie", "électricité", "serrurerie", "chauffage", "vitrerie", "petits travaux", "jardinage", "peinture", "sols", "électroménager"]}
+  validates :category, presence: true, inclusion: { in: ["plomberie", "électricité", "serrurerie", "chauffage", "vitrerie", "petits travaux", "jardinage", "peinture", "sols", "électroménager"]}
 end

@@ -85,7 +85,7 @@ i1 = Incident.create!({
   date: Date.new(2019,12,15),
   status: "finalisé",
   dispo: "matin tôt",
-  type: "plomberie",
+  category: "plomberie",
 })
 
 i2 = Incident.create!({
@@ -93,7 +93,7 @@ i2 = Incident.create!({
   date: Date.new(2019,12,15),
   status: "finalisé",
   dispo: "matin tôt",
-  type: "plomberie",
+  category: "plomberie",
 })
 
 i3 = Incident.create!({
@@ -101,7 +101,7 @@ i3 = Incident.create!({
   date: Date.new(2015,7,11),
   status: "finalisé",
   dispo: "matin tôt",
-  type: "serrurerie",
+  category: "serrurerie",
 })
 
 i4 = Incident.create!({
@@ -109,7 +109,7 @@ i4 = Incident.create!({
   date: Date.new(2017,4,22),
   status: "finalisé",
   dispo: "soir tard",
-  type: "plomberie",
+  category: "plomberie",
 })
 
 puts 'Creating rantal 1 AND RENTS...'
@@ -149,36 +149,36 @@ end
 puts 'Creating workers'
 w1 = Worker.new({
   name: "Ets CLAIRON",
-  pone: "01 34 45 63 34",
+  phone: "01 34 45 63 34",
   email: "contact@clairon.fr",
   categories: "plomberie, électricité",
 })
 w2 = Worker.new({
   name: "La CLef D'OR",
-  pone: "01 24 55 93 43",
+  phone: "01 24 55 93 43",
   email: "patron@laclefdor.fr",
   categories: "serrurerie",
 })
 
 puts 'Creating user worker relationship'
-uw1= UserWorker.new({
+uw1 = UserWorker.new({
   worker_id: w1.id,
   user_id:rock.id,
 })
 
-uw2= UserWorker.new({
+uw2 = UserWorker.new({
   worker_id: w2.id,
   user_id:rock.id,
 })
 
-wi1 Work.new({
+wi1 = Work.new({
   price: 156,
   comment: "Il m'a sauvé la vie, merci beaucoup !",
   date: Date.new(2019,12,18),
   incident_id: i1.id,
   worker_id: w1.id,
 })
-wi2 Work.new({
+wi2 = Work.new({
   price: 700,
   comment: "Beau travail, merci",
   date: Date.new(2015,9,05),
