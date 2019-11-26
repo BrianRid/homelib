@@ -81,5 +81,4 @@ ActiveRecord::Schema.define(version: 2019_11_25_164334) do
   add_foreign_key "incidents", "flats"
   add_foreign_key "rentals", "flats"
   add_foreign_key "rentals", "users"
-
 end
