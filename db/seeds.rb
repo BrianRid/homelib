@@ -7,14 +7,14 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 puts 'Cleaning database...'
+UserWorker.destroy_all
+puts 'all userworkers destroyed'
+Work.destroy_all
+puts 'all works destroyed'
 Worker.destroy_all
 puts 'all workers destroyed'
 Rent.destroy_all
 puts 'all rents destroyed'
-Work.destroy_all
-puts 'all works destroyed'
-UserWorker.destroy_all
-puts 'all userworkers destroyed'
 Rental.destroy_all
 puts 'all rentals destroyed'
 Incident.destroy_all
@@ -121,7 +121,7 @@ r1 = Rental.create!({
   rent: 1770,
 })
 d1 = r1.start_date
-until d1 = Date.new(2019, DateTime.now().month - 1, 01) do
+until d1 == Date.new(2019, DateTime.now().month - 1, 01) do
   d1 += 1.month
   Rent.create!({
     rental_id: r1.id,
@@ -138,8 +138,8 @@ r2 = Rental.create!({
   rent: 970,
 })
 d2 = r2.start_date
-until d2 = Date.new(2019, DateTime.now().month - 1, 01) do
-  d1 += 1.month
+until d2 == Date.new(2019, DateTime.now().month - 1, 01) do
+  d2 += 1.month
   Rent.create!({
     rental_id: r2.id,
     date: d2
@@ -147,13 +147,15 @@ until d2 = Date.new(2019, DateTime.now().month - 1, 01) do
 end
 
 puts 'Creating workers'
-w1 = Worker.new({
+
+work1 = Worker.create!({
   name: "Ets CLAIRON",
   phone: "01 34 45 63 34",
   email: "contact@clairon.fr",
-  categories: "plomberie, électricité",
+  categories: "plomberie",
 })
-w2 = Worker.new({
+
+work2 = Worker.create!({
   name: "La CLef D'OR",
   phone: "01 24 55 93 43",
   email: "patron@laclefdor.fr",
@@ -161,27 +163,28 @@ w2 = Worker.new({
 })
 
 puts 'Creating user worker relationship'
-uw1 = UserWorker.new({
-  worker_id: w1.id,
+uw1 = UserWorker.create!({
+  worker_id: work1.id,
   user_id:rock.id,
 })
 
-uw2 = UserWorker.new({
-  worker_id: w2.id,
+uw2 = UserWorker.create!({
+  worker_id: work2.id,
   user_id:rock.id,
 })
 
-wi1 = Work.new({
+wi1 = Work.create!({
   price: 156,
   comment: "Il m'a sauvé la vie, merci beaucoup !",
   date: Date.new(2019,12,18),
   incident_id: i1.id,
-  worker_id: w1.id,
+  worker_id: work1.id,
 })
-wi2 = Work.new({
+wi2 = Work.create!({
   price: 700,
   comment: "Beau travail, merci",
   date: Date.new(2015,9,05),
   incident_id: i3.id,
-  worker_id: w2.id,
+  worker_id: work2.id,
 })
+puts 'FINISHED'
