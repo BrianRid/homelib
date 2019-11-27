@@ -6,14 +6,31 @@
   <div class="upper-part">
     <div class="upper left">
       <div class="tab">
-        <button class="tablinks btn btn-success" id="defaultOpen" onclick="openCity(event, 'RENTER')" > OPTION 1</button>
-        <button class="tablinks btn btn-success" onclick="openCity(event, 'OWNER')" > OPTION 2</button>
+        <button class="tablinks btn btn btn-success" id="defaultOpen" onclick="openCity(event, 'appart')" >Mon Appart</button>
+        <button class="tablinks btn btn-success" onclick="openCity(event, 'document')" >Mes documents</button>
+        <button class="tablinks btn btn-success" onclick="openCity(event, 'edl')" >Etat des lieux</button>
       </div>
-      <div id="RENTER" class="product-container tabcontent bg-white">
-        Propriétaire 1
+      <div id="appart" class="product-container tabcontent bg-white">
+        <% if @flat %>
+
+          <%= @flat.address %>
+          <%= @flat.description %>
+          <%= @flat.area %>
+
+          <%= @flat.syndic_name %>
+          <%= @flat.syndic_phone %>
+          <%= @flat.syndic_email %>
+
+
+        <% else %>
+          Pas de location en cours
+        <% end %>
       </div>
-      <div id="OWNER" class="product-container tabcontent bg-white">
-        Propriétaire 2
+      <div id="document" class="product-container tabcontent bg-white">
+        DOCUMENTS
+      </div>
+      <div id="edl" class="product-container tabcontent bg-white">
+        ETAT des LIEUX
       </div>
     </div>
 
@@ -39,6 +56,8 @@
             </tbody>
           </table>
         </div>
+      <% else %>
+        Pas de location en cours
       <% end %>
     </div>
   </div>

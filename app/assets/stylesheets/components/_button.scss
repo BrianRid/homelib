@@ -3,23 +3,55 @@
   color: white;
   padding: 4px 24px;
   border-radius: 4px;
-  font-weight: bold;
+  // font-weight: bold;
   background: linear-gradient(#1D4D4F, #236063);
   transition: background 0.3s ease;
   border: 1px solid #0F60C4;
 }
 
 .payer {
-  color: white;
-  padding: 4px 24px;
-  border-radius: 4px;
-  font-weight: bold;
   background: linear-gradient(#FF5722, #d0471c);
-  transition: background 0.3s ease;
-  border: 1px solid #0F60C4;
 }
 
 .btn-gradient:hover {
   background: linear-gradient(#6BA8A9, #6BA8A9);
   color: white;
+}
+
+.tab {
+  overflow: hidden;
+  // border: 1px solid #ccc;
+  background-color: #d5ffed;
+  border-radius: 5px;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #1EDD88;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background: linear-gradient(#1D4D4F, #236063);
+}
+
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 10px 22px;
+  // border: 1px solid #ccc;
+  border-top: none;
 }
