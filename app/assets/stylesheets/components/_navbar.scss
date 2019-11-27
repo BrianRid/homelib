@@ -1,3 +1,16 @@
+// custom style for active or hover link
+/* line 215, node_modules/bootstrap/scss/_navbar.scss */
+.navbar-light .navbar-nav .show > .nav-link,
+.navbar-light .navbar-nav .active > .nav-link,
+.navbar-light .navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link:focus {
+  color: #6ca8a9;
+  border-bottom: solid;
+}
+
+// general style
 .navbar-lewagon {
   justify-content: space-between;
 }
@@ -18,16 +31,21 @@
   }
 }
 
+.navbar-lewagon .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-lewagon .navbar-brand img {
+  width: 40px;
+}
+
+// specific style when page start with a banner element
 .navbar-lewagon-banner {
-  background-color: rgba(0,0,0,0.2);
+  background-color: transparent;
   transition: 0.5s background-color ease;
 
   .navbar-brand {
     color: white;
-  }
-
-  p {
-    color:white;
   }
 
   .nav-item .nav-link {
@@ -40,12 +58,4 @@
     margin-right: 235px;
     font-weight: bold;
   }
-}
-
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
 }
