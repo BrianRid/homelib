@@ -1,16 +1,10 @@
 <!-- banner -->
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1462899006636-339e08d1844e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80);">
-  <div class="container text-center">
-    <h1>Libérez vous des contraintes de votre logement</h1>
-
-  </div>
-
-</div>
+<%= render 'shared/banner' %>
 
 <!-- Présentation du concept -->
 
 <div class="container" id="concept">
-  <h1 class="text-center">Comment ca marche ? </h1>
+  <h1 class="concept-title text-center">Comment ca marche ? </h1>
 
   <div class="row text-center justify-content-center" id="concept-row">
     <div id="owner" class="profil-link profil-link-active">
@@ -24,7 +18,7 @@
   <div class="row justify-content-center">
     <div id="owner-body" class='profil-body'>
       <div class="row justify-content-between">
-        <div class="col-3 concept-column">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-3 concept-column">
           <div class="concept-number-rounded">
             1
           </div>
@@ -32,48 +26,48 @@
             <h4>Gestion réactive et moderne</h4>
           </div>
           <div class="concept-description">
-             Votre <span class="text-green">espace en ligne</span> vous permet de suivre toutes les opérations et de <span class="text-green">contacter facilement</span> votre locataire.
-          </div>
+           Votre <span class="text-green">espace en ligne</span> vous permet de suivre toutes les opérations et de <span class="text-green">contacter facilement</span> votre locataire.
+         </div>
+       </div>
+       <div class="col-12 col-sm-12 col-md-6 col-lg-3 concept-column">
+        <div class="concept-number-rounded">
+          2
         </div>
-        <div class="col-3 concept-column">
-          <div class="concept-number-rounded">
-            2
-          </div>
-          <div class="concept-title">
-            <h4>Centralisation de vos biens</h4>
-          </div>
-          <div class="concept-description">
-             L'ensemble de vos appartements <span class="text-green">accessibles en un clic</span> dans une plateforme <span class="text-green">unique et intuitive.</span>
-          </div>
+        <div class="concept-title">
+          <h4>Centralisation de vos biens</h4>
         </div>
-        <div class="col-3 concept-column">
-          <div class="concept-number-rounded">
-            3
-          </div>
-          <div class="concept-title">
-            <h4>Autonomisation de vos locataires</h4>
-          </div>
-          <div class="concept-description">
-             Identifiez des <span class="text-green">artisans de confiance</span> et permettez à vos locataires de <span class="text-green">gérer les incidents en toute autonomie.</span>
-          </div>
-        </div>
-        <div class="col-3 concept-column">
-          <div class="concept-number-rounded">
-            4
-          </div>
-          <div class="concept-title">
-            <h4>Réalisation d'économie</h4>
-          </div>
-          <div class="concept-description">
-             Optez pour <span class="text-green">Homelib</span> et affranchissez vous des coûts exorbitants pratiqués par les agences immobilières locales.
-          </div>
-        </div>
+        <div class="concept-description">
+         L'ensemble de vos appartements <span class="text-green">accessibles en un clic</span> dans une plateforme <span class="text-green">unique et intuitive.</span>
+       </div>
+     </div>
+     <div class="col-12 col-sm-12 col-md-6 col-lg-3 concept-column">
+      <div class="concept-number-rounded">
+        3
       </div>
-
+      <div class="concept-title">
+        <h4>Autonomisation de vos locataires</h4>
+      </div>
+      <div class="concept-description">
+       Identifiez des <span class="text-green">artisans de confiance</span> et permettez à vos locataires de <span class="text-green">gérer les incidents en toute autonomie.</span>
+     </div>
+   </div>
+   <div class="col-12 col-sm-12 col-md-6 col-lg-3 concept-column">
+    <div class="concept-number-rounded">
+      4
     </div>
+    <div class="concept-title">
+      <h4>Réalisation d'économie</h4>
+    </div>
+    <div class="concept-description">
+     Optez pour <span class="text-green">Homelib</span> et affranchissez vous des coûts exorbitants pratiqués par les agences immobilières locales.
+   </div>
+ </div>
+</div>
+</div>
+</div>
     <div id="renter-body" class='profil-body d-none'>
       <div class="row justify-content-between">
-        <div class="col-3 concept-column">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-3 concept-column">
           <div class="concept-number-rounded">
             1
           </div>
@@ -84,7 +78,7 @@
              Votre <span class="text-green">espace en ligne</span> vous permet de déclarer <span class="text-green">un incident</span> en quelques clics.
           </div>
         </div>
-        <div class="col-3 concept-column">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-3 concept-column">
           <div class="concept-number-rounded">
             2
           </div>
@@ -95,7 +89,7 @@
             La plateforme vous <span class="text-green">aide à identifier clairement</span> le problème et vous oriente vers un <span class="text-green">artisan de confiance validé par votre propriétaire</span>.
           </div>
         </div>
-        <div class="col-3 concept-column">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-3 concept-column">
           <div class="concept-number-rounded">
             3
           </div>
@@ -106,7 +100,7 @@
              Stockez l'ensemble des documents et contrats dans <span class="text-green">votre espace sécurisé</span> et accédez directement à vos quittances de loyer.
           </div>
         </div>
-        <div class="col-3 concept-column">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-3 concept-column">
           <div class="concept-number-rounded">
             4
           </div>
@@ -118,41 +112,37 @@
           </div>
         </div>
     </div>
-  </div>
+ </div>
 </div>
 
 <!-- Encart témoignages clients -->
 
-<div class="container d-flex">
-  <div class="arrow-left">
-    <i class="fas fa-arrow-circle-left"></i>
+<div class="container mt-5">
+  <div class="title text-center mb-5">
+    <h1><span class="text-green">Nos clients témoignent</span></h1>
   </div>
-
   <div class="grid-wrapper justify-content-center">
     <div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
+      <img src="https://ichef.bbci.co.uk/news/660/cpsprodpb/F8C6/production/_103568636_gettyimages-1036307366.jpg" class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <h5 class="card-title">65 millions de locataires gérés en 1 clic</h5>
+        <p class="card-text"> Avec Homelib j'ai enfin trouvé une solution simple et rapide pour rendre autonome mes locataires façe à leurs problèmes du quotidien</p>
       </div>
     </div>
     <div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
+      <img src="https://img.aws.la-croix.com/2019/04/02/1201013023/chanteuse-Angele-dernieres-Victoires-musique_0_728_486.jpg" class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <h5 class="card-title">Balance ton agence !</h5>
+        <p class="card-text"> Avant mon agence m'appelait toutes les semaines pour un problème avec mes apparts.. Maitenant je suis sur Homelib et mon locataire gère seul !</p>
       </div>
     </div>
     <div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
+      <img src="https://assets.about.me/background/users/e/d/o/edouardfoussier_1521739259_661.jpg" class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <h5 class="card-title">J'ai arrêté de me poser des questions</h5>
+        <p class="card-text">Ah !!! Homelib me permet de savoir directement si je vais devoir payer les conneries de mes potes en after ou si mon proprio est responsable !</p>
       </div>
     </div>
-  </div>
-  <div class="arrow-right">
-    <i class="fas fa-arrow-circle-right"></i>
   </div>
 </div>
 

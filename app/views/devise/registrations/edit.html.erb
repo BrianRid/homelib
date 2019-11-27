@@ -1,4 +1,9 @@
-<h2>Editer <%= resource_name.to_s.humanize %></h2>
+<h2>
+  Edit <%= resource_name.to_s.humanize %>
+  <% if current_user.avatar.attached? %>
+    <%= cl_image_tag current_user.avatar.key ,crop: :fill, class: "avatar-large" %>
+  <% end %>
+</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
@@ -30,9 +35,13 @@
     <%= f.input :address,
                 required: false,
                 input_html: { autocomplete: "Adresse" } %>
-    <%= f.input :telephone,
+    <%= f.input :phone,
                 required: false,
                 input_html: { autocomplete: "Téléphone" } %>
+    <%= f.input :avatar,
+                as: :file,
+                label: "Photo de profil",
+                required: false %>
   </div>
 
   <div class="form-actions">

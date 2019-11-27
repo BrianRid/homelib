@@ -11,7 +11,7 @@
 
 #concept h1 {
   color: $dark-green;
-  margin-top: 10px;
+  margin-top: 38px;
 }
 
 .profil-link {
@@ -59,3 +59,19 @@
   grid-gap: 10px;
   grid-auto-rows: minmax(100px, auto);
 }
+
+.fas {
+  align-self: center;
+}
+
+.card-title {
+  color: $dark-green;
+}
+
+.card img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+}
+
+
