@@ -1,22 +1,3 @@
-.table {
-  border-top: 1px solid #ddd;
-  padding: 0.75rem;
-  font-weight: normal;
-  overflow: scroll;
-  td {
-    font-size : 20px;
-    padding : 6px;
-  }
-
-}
-
-.upper-part {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 16px;
-
-}
-
 .upper {
   background-size: cover;
   background-position: center;
@@ -26,14 +7,55 @@
   // justify-content: center;
   // align-items: center;
   color: white;
-  font-size: 24px;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 18px;
+  // font-weight: bold;
+  // text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
-.left{
+.table {
+  border-top: 1px solid #ddd;
+  padding: 0.75rem;
+  font-weight: normal;
+  overflow: scroll;
+  td {
+    font-size : 20px;
+    padding : 6px;
+  }
+}
+
+.left {
+  overflow: scroll;
+  font-size: 14px;
+  color: $dark-green;
+  .carrac {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    span {
+      border-top: 1px solid rgba(140,140,140,0.2)
+    }
+  }
+  h1{
+    font-weight: bold;
+    font-size: 14px;
+  }
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: flex;
+  padding: 10px 22px;
+  font-size: 20 px;
+  border-top: none;
+}
+
+.upper-part {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px;
 
 }
-/* Style the tab */
+
+
