@@ -1,11 +1,5 @@
 <!-- banner -->
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1462899006636-339e08d1844e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80);">
-  <div class="container text-center">
-    <h1>Libérez vous des contraintes de votre logement</h1>
-
-  </div>
-
-</div>
+<%= render 'shared/banner' %>
 
 <!-- Présentation du concept -->
 
@@ -123,37 +117,33 @@
 
 <!-- Encart témoignages clients -->
 
-<div class="container d-flex">
-  <div class="arrow-left">
-    <i class="fas fa-arrow-circle-left"></i>
+<div class="container mt-5">
+  <div class="title text-center">
+    <h1><span class="text-green">Nos clients témoignent</span></h1>
   </div>
-
-  <div class="grid-wrapper justify-content-center">
-    <div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <div class="grid-wrapper justify-content-center">
+      <div class="card" style="width: 18rem;">
+        <img src="https://ichef.bbci.co.uk/news/660/cpsprodpb/F8C6/production/_103568636_gettyimages-1036307366.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">65 millions de locataires gérés en 1 clic</h5>
+          <p class="card-text"> Avec Homelib j'ai enfin trouvé une solution simple et rapide pour rendre autonome mes locataires façe à leurs problèmes du quotidien</p>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem;">
+        <img src="https://assets.about.me/background/users/e/d/o/edouardfoussier_1521739259_661.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">J'ai arrêté de me poser des questions</h5>
+          <p class="card-text">Ah !!! Homelib, me permet de savoir directement si je vais devoir payer les conneries de mes potes en after ou si mon proprio est responsable !</p>
+        </div>
       </div>
     </div>
-    <div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      </div>
-    </div>
-  </div>
-  <div class="arrow-right">
-    <i class="fas fa-arrow-circle-right"></i>
-  </div>
 </div>
 
 <!-- Encart presse -->
