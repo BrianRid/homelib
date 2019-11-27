@@ -123,12 +123,13 @@ r1 = Rental.create!({
 d1 = r1.start_date
 until d1 == Date.new(2019, DateTime.now().month, 01) do
   d1 += 1.month
+    if d1 <= Date.new(2019, DateTime.now().month - 2, 01)
+      status = "Payé"
+    end
   Rent.create!({
     rental_id: r1.id,
     date: d1,
-    if d1 <= Date.new(2019, DateTime.now().month - 2, 01)
-      status: "Payé"
-    end
+    status: nil
   })
 end
 
