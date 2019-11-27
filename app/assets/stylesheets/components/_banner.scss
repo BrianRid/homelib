@@ -1,9 +1,8 @@
 .banner {
   background-size: cover;
   background-position: center;
-  padding: 150px 0;
-  width: 100%;
-  height: 400px;
+  height: 250px;
+  padding: 300px 0;
 }
 
 .banner h1 {
@@ -12,6 +11,7 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 32px;
   font-weight: bold;
+  text-align: center;
 }
 
 .banner p {
@@ -19,4 +19,9 @@
   color: white;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.banner .btn {
+  width: 150px;
+  margin-left: 12px;
 }
