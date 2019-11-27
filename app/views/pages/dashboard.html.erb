@@ -11,7 +11,20 @@
         <button class="tablinks btn btn-success" onclick="openCity(event, 'edl')" >Etat des lieux</button>
       </div>
       <div id="appart" class="product-container tabcontent bg-white">
-        APPARTEMENT 1
+        <% if @flat %>
+
+          <%= @flat.address %>
+          <%= @flat.description %>
+          <%= @flat.area %>
+
+          <%= @flat.syndic_name %>
+          <%= @flat.syndic_phone %>
+          <%= @flat.syndic_email %>
+
+
+        <% else %>
+          Pas de location en cours
+        <% end %>
       </div>
       <div id="document" class="product-container tabcontent bg-white">
         DOCUMENTS
@@ -43,6 +56,8 @@
             </tbody>
           </table>
         </div>
+      <% else %>
+        Pas de location en cours
       <% end %>
     </div>
   </div>
