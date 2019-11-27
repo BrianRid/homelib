@@ -4,7 +4,7 @@ class PagesController < ApplicationController
   def dashboard
     @rental = current_user.rentals.last
     @flat = @rental.flat
+    @last_rents = @rental.rents.order("date DESC").first(3)
     @incident = Incident.new
-    @last_rents = @rental.rents.order("date DESC").last(3)
   end
 end

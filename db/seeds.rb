@@ -118,18 +118,19 @@ r1 = Rental.create!({
   flat_id: f1.id,
   start_date: Date.new(2015,11,01),
   duration: 3,
-  rent: 1770,
+  loyer: 1770,
 })
 d1 = r1.start_date
 until d1 == Date.new(2019, DateTime.now().month, 01) do
   d1 += 1.month
-    if d1 <= Date.new(2019, DateTime.now().month - 2, 01)
-      status = "Payé"
-    end
+  status = ""
+  if d1 <= Date.new(2019, DateTime.now().month - 1, 01)
+    status = "Payé"
+  end
   Rent.create!({
     rental_id: r1.id,
     date: d1,
-    status: nil
+    status: status,
   })
 end
 
@@ -139,17 +140,19 @@ r2 = Rental.create!({
   flat_id: f2.id,
   start_date: Date.new(2018,8,01),
   duration: 3,
-  rent: 970,
+  loyer: 970,
 })
 d2 = r2.start_date
 until d2 == Date.new(2019, DateTime.now().month, 01) do
   d2 += 1.month
+  status = ""
+  if d2 <= Date.new(2019, DateTime.now().month - 1, 01)
+    status = "Payé"
+  end
   Rent.create!({
     rental_id: r2.id,
     date: d2,
-    if d2 <= Date.new(2019, DateTime.now().month - 2, 01)
-      status: "Payé",
-    end
+    status: status,
   })
 end
 
