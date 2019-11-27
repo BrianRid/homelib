@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_26_140534) do
+ActiveRecord::Schema.define(version: 2019_11_27_115542) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2019_11_26_140534) do
     t.bigint "flat_id"
     t.date "start_date"
     t.integer "duration", default: 3
-    t.integer "rent"
+    t.integer "loyer"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["flat_id"], name: "index_rentals_on_flat_id"
@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 2019_11_26_140534) do
 
   create_table "rents", force: :cascade do |t|
     t.bigint "rental_id"
-    t.string "status", default: "pending"
+    t.string "status"
     t.date "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

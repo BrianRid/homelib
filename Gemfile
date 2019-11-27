@@ -14,6 +14,7 @@ gem 'redis'
 gem 'cloudinary', '~> 1.12.0'
 gem 'money-rails'
 gem 'pundit'
+gem 'wicked_pdf'
 
 # ASSETS
 gem 'autoprefixer-rails'
