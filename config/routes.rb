@@ -11,4 +11,7 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'pages#dashboard'
 
   resources :rents, only: [:update]
+  resources :flats do
+    resources :incidents, only: [:create]
+  end
 end

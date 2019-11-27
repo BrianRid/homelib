@@ -1,0 +1,17 @@
+// Here you generate *JavaScript* that would be executed in the browser
+function refreshForm(innerHTML) {
+  const newIncidentForm = document.getElementById('new_incident');
+  newIncidentForm.innerHTML = innerHTML;
+}
+
+function addIncident(incidentHTML) {
+  const incidents = document.getElementById('incidents');
+  incidents.insertAdjacentHTML('beforeend', incidentHTML);
+}
+
+<% if @incident.errors.any? %>
+  refreshForm('<%= j render "incidents/form", flat: @flat, incident: @incident %>');
+<% else %>
+  addIncident('<%= j render "incidents/show", incident: @incident %>');
+  refreshForm('<%= j render "incidents/form", flat: @flat, incident: Incident.new %>');
+<% end %>
