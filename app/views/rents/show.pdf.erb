@@ -1,2 +1,36 @@
-<h1>Ceci est une facture</h1>
-<p><%= @rent.status %></p>
+ <header>
+  <h1 class="center bold border2">Quittance de loyer</h1>
+</header>
+<section>
+  <br /><br />
+  <p>
+    Quittance de loyer du mois de <%= @rent.date %>
+  </p>
+  <br />
+  <div id="layout_adress" class="border1">
+    <span class="bold underline">Adresse de l'appartement':</span><br /><br />
+    <%= @rent.flat.address %><br />
+  </div>
+  <br /><br />
+  <p>
+    Je soussigné <%= @rent.flat.user_id.full_name %>, propriétaire du logement désigné ci-dessus, déclare avoir reçu de <%= @rent.rental.user_id.full_name %>,
+    la somme de  <%= @rent.rental.loyer %> euros , au titre du paiement du loyer et des charges et lui en donne quittance, sous réserve de tous mes droits.
+  </p>
+  <br /><br />
+  <div id="detail" class="border1">
+    <span class="bold underline">Détail du règlement :</span><br /><br />
+    Loyer : <%= @rent.rental.loyer %> euros <br />
+    Total du loyer : <%= @rent.rental.loyer %> euros <br />
+    Date du paiement: le <%= Time.now.strftime("%d/%m/%Y") %>
+  </div>
+  <br />
+  <p id="done">
+    Fait à Paris, le <%= Time.now.strftime("%d/%m/%Y") %>
+  </p>
+  <br />
+  <p id="signature" class="border1"></p>
+  <br /><br />
+</section>
+<footer class="bold center">
+  Cette quittance annule tous les reçus qui auraient pu être établis précédemment en cas de paiement partiel du montant du présent terme. Elle est à conserver pendant cinq ans par le locataire (article 2224 du Code civil).
+</footer>

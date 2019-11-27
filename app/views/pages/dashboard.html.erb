@@ -3,45 +3,45 @@
 <div class="container">
 
 <!-- contener de la partie haute -->
-  <div class="upper-part">
-    <div class="upper left">
-      <div class="tab">
-        <button class="tablinks btn btn-success" id="defaultOpen" onclick="openCity(event, 'RENTER')" > OPTION 1</button>
-        <button class="tablinks btn btn-success" onclick="openCity(event, 'OWNER')" > OPTION 2</button>
-      </div>
-      <div id="RENTER" class="product-container tabcontent bg-white">
-        Propriétaire 1
-      </div>
-      <div id="OWNER" class="product-container tabcontent bg-white">
-        Propriétaire 2
-      </div>
+<div class="upper-part">
+  <div class="upper left">
+    <div class="tab">
+      <button class="tablinks btn btn-success" id="defaultOpen" onclick="openCity(event, 'RENTER')" > OPTION 1</button>
+      <button class="tablinks btn btn-success" onclick="openCity(event, 'OWNER')" > OPTION 2</button>
     </div>
-
-    <div class="upper right">
-      <% if @rental %>
-        <div class='loyers'>
-          <table class="table-Loyers table">
-            <h1>Mes Loyers</h1>
-            <tbody>
-            <% @last_rents.each do |rent| %>
-              <tr>
-                <td><%= rent.date.strftime('%B') %></td>
-                <td><%= @rental.loyer %></td>
-                <% if rent.status == "Payé" %>
-                  <td><i class="fas fa-check-circle text-success"></i></td>
-                  <td><%= link_to "Quittence", "#", class: "btn btn-gradient" %></td>
-                <% else %>
-                  <td><i class="fas fa-times-circle text-danger" ></i></td>
-                  <td><%= link_to "Payer", "#", class: "btn btn-gradient payer" %></td>
-                <% end %>
-              </tr>
-            <% end %>
-            </tbody>
-          </table>
-        </div>
-      <% end %>
+    <div id="RENTER" class="product-container tabcontent bg-white">
+      Propriétaire 1
+    </div>
+    <div id="OWNER" class="product-container tabcontent bg-white">
+      Propriétaire 2
     </div>
   </div>
+
+  <div class="upper right">
+    <% if @rental %>
+    <div class='loyers'>
+      <table class="table-Loyers table">
+        <h1>Mes Loyers</h1>
+        <tbody>
+          <% @last_rents.each do |rent| %>
+          <tr>
+            <td><%= rent.date.strftime('%B') %></td>
+            <td><%= @rental.loyer %></td>
+            <% if rent.status == "Payé" %>
+            <td><i class="fas fa-check-circle text-success"></i></td>
+            <td><%= link_to "Quittence", rent_path(rent, format: :pdf), class: "btn btn-gradient" %></td>
+            <% else %>
+            <td><i class="fas fa-times-circle text-danger" ></i></td>
+            <td><%= link_to "Payer", "#", class: "btn btn-gradient payer" %></td>
+            <% end %>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <% end %>
+  </div>
+</div>
 
 
 <!-- Partie basse des tuiles responsive -->
