@@ -8,6 +8,9 @@ Bundler.require(*Rails.groups)
 
 module Homelib
   class Application < Rails::Application
+    # accept AJAX form
+    config.action_view.embed_authenticity_token_in_remote_forms = true
+
     config.generators do |generate|
           generate.assets false
           generate.helper false
