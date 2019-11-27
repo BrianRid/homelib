@@ -5,9 +5,10 @@ const text = document.querySelector('#banner-typed-text');
 const loadDynamicBannerText = () => {
   if (text) {
     new Typed('#banner-typed-text', {
-      strings: ["Libérez vous des contraintes de votre logement"],
-      typeSpeed: 50,
-      loop: false
+      strings: ["Libérez vous des contraintes de votre appartement"],
+      typeSpeed: 45,
+      loop: false,
+      showCursor: false
     });
   }
 }
