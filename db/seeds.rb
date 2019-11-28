@@ -25,6 +25,37 @@ puts 'all users destroyed'
 puts 'all records destroyed'
 puts 'Creating some of each...'
 
+puts 'Creating workers'
+i = 1
+plombiers.each_value do |plombier|
+  # clé en STRING car provient d'un json!!
+  wx = Worker.create!({
+    name: plombier["name"],
+    description: plombier["description"],
+    address: plombier["address"],
+    phone: plombier["phone"],
+    email: Faker::Internet.email,
+    categories: "plomberie",
+  })
+  puts "photo #{i}"
+  wx.photos.attach(
+    io: URI.open('https://source.unsplash.com/random/?{bathroom}'),
+    filename: "worker_#{i}",
+    content_type: 'image/jpg',
+  )
+  puts "avatar #{i}"
+  wx.avatar.attach(
+    io: URI.open("app/assets/images/p#{i}.jpg"),
+    filename: "worker_avatar_#{i}",
+    content_type: 'image/jpg',
+  )
+
+
+
+  puts "Create #{i}"
+  i += 1
+end
+
 puts 'Creating users...'
 puts 'rock'
 rock = User.create!({
@@ -229,7 +260,7 @@ r2.photos.attach(
   filename: "f1_5",
   content_type: 'image/jpg',
 )
-f1.photos.attach(
+r2.photos.attach(
   io: URI.open('https://v.seloger.com/s/width/800/visuels/0/9/e/n/09encdazj2ifehomwr81yub3b6zco3ks6n7f51is4.jpg'),
   filename: "f1_6",
   content_type: 'image/jpg',
@@ -258,21 +289,6 @@ end
 
 
 
-puts 'Creating workers'
-i = 1
-plombiers.each_value do |plombier|
-  # clé en STRING car provient d'un json!!
-  Worker.create!({
-    name: plombier["name"],
-    description: plombier["description"],
-    address: plombier["address"],
-    phone: plombier["phone"],
-    email: Faker::Internet.email,
-    categories: "plomberie",
-  })
-  puts "Create #{i}"
-  i += 1
-end
 
 work1 = Worker.create!({
   name: "Ets CLAIRON",
@@ -280,6 +296,11 @@ work1 = Worker.create!({
   email: "contact@clairon.fr",
   categories: "plomberie",
 })
+work1.photos.attach(
+    io: URI.open('https://source.unsplash.com/random/?{bathroom}'),
+    filename: "worker_18",
+    content_type: 'image/jpg',
+  )
 
 work2 = Worker.create!({
   name: "La CLef D'OR",
@@ -287,6 +308,15 @@ work2 = Worker.create!({
   email: "patron@laclefdor.fr",
   categories: "serrurerie",
 })
+work2.photos.attach(
+    io: URI.open('https://source.unsplash.com/random/?{bathroom}'),
+    filename: "worker_19",
+    content_type: 'image/jpg',
+  )
+
+
+
+
 
 puts 'Creating user worker relationship'
 uw1 = UserWorker.create!({
