@@ -9,5 +9,8 @@
 @import "font-awesome";
 
 // Your CSS partials
+// general css
+@import "layout/main";
+// specific css
 @import "components/index";
 @import "pages/index";
