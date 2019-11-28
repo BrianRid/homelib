@@ -21,15 +21,6 @@ class RentsController < ApplicationController
     end
   end
 
-  # def quittance
-  #   respond_to do |format|
-  #     format.html { render :quittance }
-  #     format.pdf {
-  #       render :pdf => "quittance", :layout => 'pdf.html'
-  #     }
-  #   end
-  # end
-
   private
 
   def rent_params
