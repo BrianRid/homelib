@@ -15,7 +15,6 @@ gem 'cloudinary', '~> 1.12.0'
 gem 'money-rails'
 gem 'pundit'
 gem 'wicked_pdf'
-gem 'wkhtmltopdf-binary'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
 # ASSETS
@@ -28,6 +27,7 @@ gem 'webpacker'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
+  gem 'wkhtmltopdf-binary'
 end
 
 group :development, :test do
@@ -37,4 +37,8 @@ group :development, :test do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'dotenv-rails'
+end
+
+group :production do
+  gem 'wkhtmltopdf-heroku'
 end
