@@ -74,7 +74,7 @@ class Incident < ApplicationRecord
       final_answer: nil
     },
     P3: {
-      label: "Tuyauterie et canalisation (hors wc, douche, evier, machines)"
+      label: "Tuyauterie et canalisation (hors wc, douche, evier, machines)",
       next_question: "Vous avez une fuite au niveau:",
       next_question_answers: [:p_3_1, :p_3_2, :p_3_3, :p_3_4],
       final_answer: nil
@@ -99,10 +99,10 @@ class Incident < ApplicationRecord
     },
 
 
-    P4: { reponse: "Cuisine" }
-    P5: { reponse: "Colonne générale d'immeuble" }
-    P6: { reponse: "Chaudière, chauffe-eau et ballon d'eau chaude" }
-    p7: { reponse: "Autres" }
+    P4: { reponse: "Cuisine" },
+    P5: { reponse: "Colonne générale d'immeuble" },
+    P6: { reponse: "Chaudière, chauffe-eau et ballon d'eau chaude" },
+    P7: { reponse: "Autres" },
 
     # plomberie - WC
     p_1_1: {
@@ -215,13 +215,8 @@ class Incident < ApplicationRecord
         result: "Réparation d'une fuite du tuyau d'évacuation de la douche",
         tarif: "Entre 100 € et 200 € TTC",
         responsable: "Propriétaire"
-      }
+      } }
   }
-
-
-
-
-
 
   def self.first_decision
     question = "Voulez-vous déclarer un incident ?"
@@ -241,12 +236,5 @@ class Incident < ApplicationRecord
       answers: answers
     }
   end
-
-
-
-
-
-
-
 
 end
