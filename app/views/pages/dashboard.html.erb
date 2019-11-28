@@ -5,20 +5,26 @@
   <div class="upper-part">
     <div class="upper left">
       <div class="tab">
-        <button class="tablinks btn btn btn-success" id="defaultOpen" onclick="openCity(event, 'appart')" >Mon Appart</button>
+        <button class="tablinks btn btn-success" id="defaultOpen" onclick="openCity(event, 'appart')" >Mon Appartement</button>
         <button class="tablinks btn btn-success" onclick="openCity(event, 'document')" >Mes documents</button>
         <button class="tablinks btn btn-success" onclick="openCity(event, 'edl')" >Etat des lieux</button>
       </div>
       <div id="appart" class="product-container tabcontent bg-white">
         <% if @flat %>
 
-        <%= @flat.address %>
-        <%= @flat.description %>
-        <%= @flat.area %>
+          <div class="carrac">
+            <h1><i class="far fa-building"> </i>Caractéristiques</h1>
+            <span> <%= @flat.address %></span>
+            <span> <%= @flat.description %></span>
+            <span> <%= @flat.area %> m2</span>
+          </div>
+          <div class="carrac">
+            <h1>Coordonnées du Syndic</h1>
+            <span> <%= @flat.syndic_name %></span>
+            <span> <i class="fas fa-phone"> </i><%= @flat.syndic_phone %></span>
+            <span> <i class="fas fa-envelope-open-text"> </i><%= @flat.syndic_email %></span>
+          </div>
 
-        <%= @flat.syndic_name %>
-        <%= @flat.syndic_phone %>
-        <%= @flat.syndic_email %>
 
         <% else %>
         Pas de location en cours
@@ -133,7 +139,7 @@ function openCity(evt, cityName) {
   for (i = 0; i < tablinks.length; i++) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
-  document.getElementById(cityName).style.display = "block";
+  document.getElementById(cityName).style.display = "flex";
   evt.currentTarget.className += " active";
 }
 document.getElementById("defaultOpen").click();

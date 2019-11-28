@@ -58,7 +58,7 @@ puts 'Creating flats...'
 f1 = Flat.create!({
   user_id: rock.id,
   address: "35 avenue Mac Mahon",
-  description: "Très lumineux, parquer, moulure, cheminée",
+  description: "Très lumineux, parquet, moulure, cheminée",
   nb_rooms: 2,
   area: "64 m2",
   furnished: true,
