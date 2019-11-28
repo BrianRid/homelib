@@ -1,63 +1,57 @@
-.upper {
-  background-size: cover;
-  background-position: center;
-  height: 200px;
-  margin: 20px 0;
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
-  color: white;
-  font-size: 18px;
-  // font-weight: bold;
-  // text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+.upper-part {
+  display: flex;
+  justify-content: space-between;
+}
+
+.upper-left {
+  width: 55%;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+
+}
+
+.upper-right {
+  width: 40%;
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
-.table {
-  border-top: 1px solid #ddd;
-  padding: 0.75rem;
-  font-weight: normal;
-  overflow: scroll;
-  td {
-    font-size : 20px;
-    padding : 6px;
-  }
-}
-
-
-.left {
-  overflow: scroll;
-  font-size: 14px;
+.title {
   color: $dark-green;
-  .carrac {
-    display: flex;
-    width: 50%;
-    flex-direction: column;
-    span {
-      border-top: 1px solid rgba(140,140,140,0.2)
-    }
-  }
-  h1{
-    font-weight: bold;
-    font-size: 14px;
+  width: 100%;
+  padding-left: 15px;
+  border-bottom: solid 1px;
+
+  h1 {
+    margin-bottom: 2px;
   }
 }
 
-/* Style the tab content */
-.tabcontent {
+.row {
   display: flex;
-  padding: 10px 22px;
-  font-size: 20 px;
-  border-top: none;
-}
-
-.upper-part {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 16px;
+  width: 100%;
+  color: $hover-green;
+  padding-left: 15px;
+  padding-right: 7px;
+  margin-left: 0px;
 
 }
 
+.btn {
+  width: 150px;
+  margin: 10px;
+}
 
+.rent-amount {
+  margin: 10px;
+  align: center;
+}
 
+.rent-date {
+  margin: 10px;
+}
+
+.rent-status {
+  padding: 0px;
+}

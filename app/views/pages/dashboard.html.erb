@@ -3,33 +3,35 @@
 
   <!-- conteneur de la partie haute -->
   <div class="upper-part">
-    <div class="upper left">
+    <div class="upper-left">
+
       <div class="tab">
         <button class="tablinks btn btn-success" id="defaultOpen" onclick="openCity(event, 'appart')" >Mon Appartement</button>
         <button class="tablinks btn btn-success" onclick="openCity(event, 'document')" >Mes documents</button>
         <button class="tablinks btn btn-success" onclick="openCity(event, 'edl')" >Etat des lieux</button>
       </div>
+
       <div id="appart" class="product-container tabcontent bg-white">
         <% if @flat %>
 
           <div class="carrac">
-            <h1><i class="far fa-building"> </i>Caractéristiques</h1>
-            <span> <%= @flat.address %></span>
-            <span> <%= @flat.description %></span>
-            <span> <%= @flat.area %> m2</span>
+            <h1><i class="far fa-building"></i>Caractéristiques</h1>
+            <span><%= @flat.address %></span>
+            <span><%= @flat.description %></span>
+            <span><%= @flat.area %> m2</span>
           </div>
           <div class="carrac">
             <h1>Coordonnées du Syndic</h1>
-            <span> <%= @flat.syndic_name %></span>
-            <span> <i class="fas fa-phone"> </i><%= @flat.syndic_phone %></span>
-            <span> <i class="fas fa-envelope-open-text"> </i><%= @flat.syndic_email %></span>
+            <span><%= @flat.syndic_name %></span>
+            <span><i class="fas fa-phone"> </i><%= @flat.syndic_phone %></span>
+            <span><i class="fas fa-envelope-open-text"> </i><%= @flat.syndic_email %></span>
           </div>
 
-
         <% else %>
-        Pas de location en cours
+          Pas de location en cours
         <% end %>
       </div>
+
       <div id="document" class="product-container tabcontent bg-white">
         DOCUMENTS
       </div>
@@ -38,34 +40,44 @@
       </div>
     </div>
 
-      <div class="upper right">
-        <% if @rental %>
-        <div class='loyers'>
-          <table class="table-Loyers table">
+  <!-- Partie haute dashboard loyer  -->
+
+    <div class="upper-right">
+      <% if @rental %>
+
+        <div class="loyers">
+          <div class="title">
             <h1>Mes Loyers</h1>
-            <tbody>
-              <% @last_rents.each do |rent| %>
-              <tr>
-                <td><%= rent.date.strftime('%B') %></td>
-                <td><%= @rental.loyer %></td>
+          </div>
+          <% @last_rents.each do |rent| %>
+            <div class="row">
+              <div class="rent-date col-2">
+                <%= rent.date.strftime('%B') %>
+              </div>
+              <div class="rent-amount col-2">
+                <%= @rental.loyer %>
+              </div>
+              <div class="rent-status col-8">
                 <% if rent.status == "Payé" %>
-                <td><i class="fas fa-check-circle text-success"></i></td>
-                <td><%= link_to "Quittance", rent_path(rent, format: :pdf), class: "btn btn-gradient" %></td>
+                  <i class="fas fa-check-circle text-success"></i>
+                  <%= link_to "Quittance", rent_path(rent, format: :pdf), class: "btn btn-info" %>
                 <% else %>
-                <td><i class="fas fa-times-circle text-danger" ></i></td>
-                <td><%= link_to "Payer", "#", class: "btn btn-gradient payer" %></td>
+                  <i class="fas fa-times-circle text-danger"></i>
+                  <%= link_to "Payer", "#", class: "btn btn-success" %>
                 <% end %>
-              </tr>
-              <% end %>
-            </tbody>
-          </table>
-          <% else %>
-          Pas de location en cours
+              </div>
+            </div>
           <% end %>
         </div>
-      </div>
+
+      <% else %>
+
+        <p>Pas de location en cours</p>
+
+      <% end %>
     </div>
   </div>
+
 
   <!-- Partie basse des tuiles responsive -->
   <h1>Déclarer un sinistre</h1>
@@ -89,9 +101,10 @@
       AUTRE
     </div>
   </div>
-
 </div>
 <!-- END Active PAGE -->
+
+
 
 <!-- The Modal -->
 <div id="myModal" class="modal">
