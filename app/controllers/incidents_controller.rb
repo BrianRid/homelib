@@ -8,8 +8,15 @@ class IncidentsController < ApplicationController
   def create
     answer = params[:incident][:answer].to_sym
     @next_decision = Incident.next_decision(answer)
-    @incident = Incident.new
-    authorize(@incident)
+    if @next_decision.nil?
+      @results = Incident.final_result(answer)
+      render 'results'
+      @incident = Incident.new
+      authorize(@incident)
+    else
+      @incident = Incident.new
+      authorize(@incident)
+    end
   end
 
   private
