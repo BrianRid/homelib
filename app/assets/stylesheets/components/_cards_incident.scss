@@ -14,9 +14,17 @@
 }
 
 .cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
+  display: flex;
+  // display: grid;
+  // grid-template-columns: 1fr 1fr 1fr;
+  // grid-gap: 16px;
+}
+.card-incident {
+  flex: 1 0 1%;
+  margin-right: 10px;
+  &:last-child {
+    margin-right: 0;
+  }
 }
 
 // Smallest device

@@ -1,20 +1,77 @@
 .upper-part {
   display: flex;
   justify-content: space-between;
+  margin-top: 30px;
 }
+
+// Container des infos appartements + carousel
 
 .upper-left {
   width: 55%;
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-
-
 }
+
+.tab {
+  background-color: $light-green;
+  border-radius: 5px 5px 0 0;
+}
+
+.tablinks {
+  width: 50%;
+  color: white;
+}
+
+.carac-appart {
+  flex: 0 0 50%;
+  margin-top: 10px;
+
+
+  h1{
+    font-size: 24px;
+    color: $hover-green;
+  }
+
+  p {
+    text-align: justify;
+    // padding: 10px;
+  }
+}
+
+.carac-syndic {
+  flex: 0 0 50%;
+  margin-top: 10px;
+
+  h1{
+    font-size: 24px;
+    color: $hover-green;
+  }
+
+  p {
+    // padding: 10px;
+  }
+}
+
+
+.fa-building {
+  color: $dark-green;
+}
+
+
+.fas {
+  margin-right: 10px;
+}
+
+#appart {
+  border-radius: 5px;
+}
+// Container des loyers --> Règles CSS
+
 
 .upper-right {
   width: 40%;
   border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
 .title {
@@ -25,33 +82,56 @@
 
   h1 {
     margin-bottom: 2px;
+    font-size: 30px;
   }
 }
 
-.row {
+.rent-line {
   display: flex;
-  width: 100%;
-  color: $hover-green;
-  padding-left: 15px;
-  padding-right: 7px;
-  margin-left: 0px;
-
-}
-
-.btn {
-  width: 150px;
-  margin: 10px;
+  align-items: center;
+  padding: 10px;
+  .btn {
+    width: 100px;
+  }
 }
 
 .rent-amount {
-  margin: 10px;
+  // margin-top: 10px;
+  flex: 0 0 100px;
   align: center;
+  // padding: 0px;
 }
 
 .rent-date {
-  margin: 10px;
+  flex-grow: 1;
+  // margin-top: 10px;
+  // margin-right: 10px;
 }
 
 .rent-status {
+  flex: 0 0 130px;
+  // padding: 0px;
+}
+
+// Container des cards incidents
+
+.incident {
   padding: 0px;
+
+  h1 {
+    color: $dark-green;
+    text-align: center;
+    margin-bottom: 12px;
+  }
+}
+
+.lower-right {
+  width: 40%;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.right-el {
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }

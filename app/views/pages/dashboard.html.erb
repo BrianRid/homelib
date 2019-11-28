@@ -6,25 +6,23 @@
     <div class="upper-left">
 
       <div class="tab">
-        <button class="tablinks btn btn-success" id="defaultOpen" onclick="openCity(event, 'appart')" >Mon Appartement</button>
-        <button class="tablinks btn btn-success" onclick="openCity(event, 'document')" >Mes documents</button>
-        <button class="tablinks btn btn-success" onclick="openCity(event, 'edl')" >Etat des lieux</button>
+        <button class="tablinks" id="defaultOpen" onclick="openCity(event, 'appart')" >Mon Appartement</button>
+        <button class="tablinks" onclick="openCity(event, 'edl')" >Etat des lieux</button>
       </div>
 
       <div id="appart" class="product-container tabcontent bg-white">
         <% if @flat %>
 
-          <div class="carrac">
-            <h1><i class="far fa-building"></i>Caractéristiques</h1>
-            <span><%= @flat.address %></span>
-            <span><%= @flat.description %></span>
-            <span><%= @flat.area %> m2</span>
+          <div class="carac-appart p-3">
+            <h1><i class="far fa-building"></i>   Caractéristiques</h1>
+            <p><i class="fas fa-location-arrow"></i><%= @flat.address %></p>
+            <p><i class="fas fa-info"></i><%= @flat.description %></p>
+            <p><i class="fas fa-arrows-alt"></i><%= @flat.area %> m2</p>
           </div>
-          <div class="carrac">
+          <div class="carac-syndic p-3">
             <h1>Coordonnées du Syndic</h1>
-            <span><%= @flat.syndic_name %></span>
-            <span><i class="fas fa-phone"> </i><%= @flat.syndic_phone %></span>
-            <span><i class="fas fa-envelope-open-text"> </i><%= @flat.syndic_email %></span>
+            <p><i class="fas fa-phone"> </i>  <%= @flat.syndic_phone %></p>
+            <p><i class="fas fa-envelope-open-text"></i>  <%= @flat.syndic_email %></p>
           </div>
 
         <% else %>
@@ -42,32 +40,36 @@
 
   <!-- Partie haute dashboard loyer  -->
 
-    <div class="upper-right">
+    <div class="upper-right d-flex flex-column">
       <% if @rental %>
 
-        <div class="loyers">
+        <div class="loyers right-el mb-3">
           <div class="title">
             <h1>Mes Loyers</h1>
           </div>
           <% @last_rents.each do |rent| %>
-            <div class="row">
-              <div class="rent-date col-2">
+            <div class="rent-line">
+              <div class="rent-date">
                 <%= rent.date.strftime('%B') %>
               </div>
-              <div class="rent-amount col-2">
+              <div class="rent-amount">
                 <%= @rental.loyer %>
               </div>
-              <div class="rent-status col-8">
+              <div class="rent-status">
                 <% if rent.status == "Payé" %>
                   <i class="fas fa-check-circle text-success"></i>
-                  <%= link_to "Quittance", rent_path(rent, format: :pdf), class: "btn btn-info" %>
+                  <%= link_to "Quittance", rent_path(rent, format: :pdf), class: "btn btn-success", target: "_blank" %>
                 <% else %>
                   <i class="fas fa-times-circle text-danger"></i>
-                  <%= link_to "Payer", "#", class: "btn btn-success" %>
+                  <%= link_to "Payer", "#", class: "btn btn-info" %>
                 <% end %>
               </div>
             </div>
           <% end %>
+        </div>
+
+        <div class="eds right-el d-flex align-items-center justify-content-center">
+          <p class="m-0 p-1">ICI ESPACE DE STOCKAGE</p>
         </div>
 
       <% else %>
@@ -76,29 +78,33 @@
 
       <% end %>
     </div>
+
+
   </div>
 
 
   <!-- Partie basse des tuiles responsive -->
-  <h1>Déclarer un sinistre</h1>
-  <div class="cards">
-    <div id="myBtn" class="card-incident" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-      Feu
-    </div>
-    <div class="card-incident" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-      Fuite
-    </div>
-    <div class="card-incident" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-      Electricité
-    </div>
-    <div class="card-incident" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-      Fenêtre
-    </div>
-    <div class="card-incident" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-      Cerrure
-    </div>
-    <div class="card-incident" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-      AUTRE
+  <div class="container incident mt-5">
+    <h1>Déclarer un sinistre</h1>
+    <div class="cards">
+      <div id="myBtn" class="card-incident" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+        Incendie
+      </div>
+      <div class="card-incident" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(http://recherches-de-fuites.fr/wp-content/uploads/2018/05/fuite-canalisation.jpg)">
+        Fuite
+      </div>
+      <div class="card-incident" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+        Electricité
+      </div>
+      <div class="card-incident" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+        Fenêtre
+      </div>
+      <div class="card-incident" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+        Serrure
+      </div>
+      <div class="card-incident" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+        Autre incident
+      </div>
     </div>
   </div>
 </div>

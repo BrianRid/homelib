@@ -3,8 +3,6 @@ Rails.application.routes.draw do
 
   # All user routes
   devise_for :users
-  # Redirect user after loggin directly in the dashboard
-  get '/user' => "pages#dashboard", :as => :user_root
 
   root to: 'pages#home'
 
@@ -13,5 +11,5 @@ Rails.application.routes.draw do
   resources :rents, only: [:update, :show]
   resources :flats
   resources :incidents, only: [:new, :create]
-
+  resources :workers, only: [:index]
 end
