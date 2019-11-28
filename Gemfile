@@ -15,6 +15,7 @@ gem 'cloudinary', '~> 1.12.0'
 gem 'money-rails'
 gem 'pundit'
 gem 'wicked_pdf'
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
 # ASSETS
 gem 'autoprefixer-rails'

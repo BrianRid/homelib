@@ -1,10 +1,9 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+require 'json'
+filepath = File.expand_path File.dirname(__FILE__) + '/plombiers.json'
+serialized_beers = File.read(filepath)
+plombiers = JSON.parse(serialized_beers)
+puts 'recuperations du fichier plombiers.json OK'
 
 puts 'Cleaning database...'
 UserWorker.destroy_all
@@ -157,6 +156,20 @@ until d2 == Date.new(2019, DateTime.now().month, 01) do
 end
 
 puts 'Creating workers'
+i = 1
+plombiers.each_value do |plombier|
+  # clé en STRING car provient d'un json!!
+  Worker.create!({
+    name: plombier["name"],
+    description: plombier["description"],
+    address: plombier["address"],
+    phone: plombier["phone"],
+    email: Faker::Internet.email,
+    categories: "plomberie",
+  })
+  puts "Create #{i}"
+  i += 1
+end
 
 work1 = Worker.create!({
   name: "Ets CLAIRON",

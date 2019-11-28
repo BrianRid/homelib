@@ -167,7 +167,7 @@ class Incident < ApplicationRecord
         responsable: "Locataire"
       }
     },
-      
+
     #plomberie - tuyauterie
     p_3_1: {
       label: "D'un tuyau d'évacuation (tuyau PVC)",
@@ -198,7 +198,7 @@ class Incident < ApplicationRecord
     p_4_1: {
       label: "Fuite/robinetterie",
       next_question: "Votre lavabo possède-t-il un sanispeed ?",
-      next_question_answers: [:p_4_1_1, :p_4_1_2, :p_4_1_3, :p_4_1_4]
+      next_question_answers: [:p_4_1_1, :p_4_1_2, :p_4_1_3, :p_4_1_4],
       final_answer: nil
       }
     },
@@ -259,7 +259,7 @@ class Incident < ApplicationRecord
     p_4_1_4: {
       label: "Au niveau du siphon",
       next_question: "Quel type de siphon possédez-vous ??",
-      next_question_answers: [:p_4_1_4_1, :p_4_1_4_2]
+      next_question_answers: [:p_4_1_4_1, :p_4_1_4_2],
       final_answer: nil
     },
     p_4_1_4_1: {
