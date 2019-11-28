@@ -15,8 +15,8 @@ gem 'cloudinary', '~> 1.12.0'
 gem 'money-rails'
 gem 'pundit'
 gem 'wicked_pdf'
-gem 'wkhtmltopdf-binary'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+gem 'wkhtmltopdf-binary'
 
 # ASSETS
 gem 'autoprefixer-rails'
@@ -37,4 +37,7 @@ group :development, :test do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'dotenv-rails'
+end
+
+group :production do
 end
