@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   resources :rents, only: [:update]
   resources :flats
   resources :incidents, only: [:new, :create]
+
 end

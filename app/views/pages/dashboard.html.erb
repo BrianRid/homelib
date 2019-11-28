@@ -108,7 +108,7 @@
       </div>
       <p>Some text in the Modal Body</p>
       <p>Some other text...</p>
-      <%= simple_form_for([ @flat, @incident ]) do |form| %>
+      <%= simple_form_for(@incident) do |form| %>
         <%= form.input :category, collection: Incident::CATEGORIES, include_blank: "Select a category"  %>
         <%= form.button :submit, "Next" %>
       <% end %>
