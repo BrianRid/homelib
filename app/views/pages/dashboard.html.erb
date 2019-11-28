@@ -1,3 +1,4 @@
+
 <!-- conteneur général de toute la page -->
 <div class="container">
 
@@ -33,7 +34,7 @@
       <div id="document" class="product-container tabcontent bg-white">
         DOCUMENTS
       </div>
-      <div id="edl" class="product-container tabcontent bg-white">
+      <div id="edl" class="product-container tabcontent carous2">
         <%= render 'carousel' %>
       </div>
     </div>
@@ -114,12 +115,11 @@
 
 <!-- The Modal -->
 <div id="myModal" class="modal">
-
   <!-- Modal content -->
-  <div class="modal-content">
-    <div class="modal-header">
+  <div class="modal-content_c">
+    <div class="modal-header_c">
       <h2>Déclarer un sinistre</h2>
-      <span class="close-modal">&times;</span>
+      <span class="close-modal_c">&times;</span>
     </div>
     <div class="modal-body">
       <div class="card-incident" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
@@ -163,3 +163,4 @@
   }
   document.getElementById("defaultOpen").click();
 </script>
+
