@@ -5,7 +5,12 @@ class IncidentPolicy < ApplicationPolicy
     end
   end
 
+  def new?
+    true
+  end
+
   def create?
-    record.flat.rentals.last.user == user
+    true
+    # record.flat.rentals.last.user == user
   end
 end

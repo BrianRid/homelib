@@ -15,15 +15,15 @@
 }
 
 /* The Close Button */
-.close {
+.close-modal {
   color: white;
   float: right;
   font-size: 28px;
   font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
+.close-modal:hover,
+.close-modal:focus {
   color: #000;
   text-decoration: none;
   cursor: pointer;

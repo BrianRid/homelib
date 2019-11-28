@@ -167,7 +167,7 @@ class Incident < ApplicationRecord
         responsable: "Locataire"
       }
     },
-
+      
     #plomberie - tuyauterie
     p_3_1: {
       label: "D'un tuyau d'évacuation (tuyau PVC)",
@@ -287,6 +287,7 @@ class Incident < ApplicationRecord
         responsable: "Locataire"
     },
 
+
     # sdb - fuite
     p_2_1_1: {
       label: "Du robinet",
@@ -324,12 +325,4 @@ class Incident < ApplicationRecord
       answers: answers
     }
   end
-
-
-
-
-
-
-
-
 end

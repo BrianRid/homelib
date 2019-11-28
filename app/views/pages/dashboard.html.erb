@@ -5,24 +5,29 @@
   <div class="upper-part">
     <div class="upper left">
       <div class="tab">
-        <button class="tablinks btn btn btn-success" id="defaultOpen" onclick="openCity(event, 'appart')" >Mon Appart</button>
+        <button class="tablinks btn btn-success" id="defaultOpen" onclick="openCity(event, 'appart')" >Mon Appartement</button>
         <button class="tablinks btn btn-success" onclick="openCity(event, 'document')" >Mes documents</button>
         <button class="tablinks btn btn-success" onclick="openCity(event, 'edl')" >Etat des lieux</button>
       </div>
       <div id="appart" class="product-container tabcontent bg-white">
         <% if @flat %>
 
-          <%= @flat.address %>
-          <%= @flat.description %>
-          <%= @flat.area %>
-
-          <%= @flat.syndic_name %>
-          <%= @flat.syndic_phone %>
-          <%= @flat.syndic_email %>
+          <div class="carrac">
+            <h1><i class="far fa-building"> </i>Caractéristiques</h1>
+            <span> <%= @flat.address %></span>
+            <span> <%= @flat.description %></span>
+            <span> <%= @flat.area %> m2</span>
+          </div>
+          <div class="carrac">
+            <h1>Coordonnées du Syndic</h1>
+            <span> <%= @flat.syndic_name %></span>
+            <span> <i class="fas fa-phone"> </i><%= @flat.syndic_phone %></span>
+            <span> <i class="fas fa-envelope-open-text"> </i><%= @flat.syndic_email %></span>
+          </div>
 
 
         <% else %>
-          Pas de location en cours
+        Pas de location en cours
         <% end %>
       </div>
       <div id="document" class="product-container tabcontent bg-white">
@@ -33,31 +38,32 @@
       </div>
     </div>
 
-    <div class="upper right">
-      <% if @rental %>
+      <div class="upper right">
+        <% if @rental %>
         <div class='loyers'>
           <table class="table-Loyers table">
             <h1>Mes Loyers</h1>
             <tbody>
-            <% @last_rents.each do |rent| %>
+              <% @last_rents.each do |rent| %>
               <tr>
                 <td><%= rent.date.strftime('%B') %></td>
                 <td><%= @rental.loyer %></td>
                 <% if rent.status == "Payé" %>
-                  <td><i class="fas fa-check-circle text-success"></i></td>
-                  <td><%= link_to "Quittence", "#", class: "btn btn-gradient" %></td>
+                <td><i class="fas fa-check-circle text-success"></i></td>
+                <td><%= link_to "Quittance", rent_path(rent, format: :pdf), class: "btn btn-gradient" %></td>
                 <% else %>
-                  <td><i class="fas fa-times-circle text-danger" ></i></td>
-                  <td><%= link_to "Payer", "#", class: "btn btn-gradient payer" %></td>
+                <td><i class="fas fa-times-circle text-danger" ></i></td>
+                <td><%= link_to "Payer", "#", class: "btn btn-gradient payer" %></td>
                 <% end %>
               </tr>
-            <% end %>
+              <% end %>
             </tbody>
           </table>
+          <% else %>
+          Pas de location en cours
+          <% end %>
         </div>
-      <% else %>
-        Pas de location en cours
-      <% end %>
+      </div>
     </div>
   </div>
 
@@ -94,7 +100,7 @@
   <div class="modal-content">
     <div class="modal-header">
       <h2>Déclarer un sinistre</h2>
-      <span class="close">&times;</span>
+      <span class="close-modal">&times;</span>
     </div>
     <div class="modal-body">
       <div class="card-incident" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
@@ -102,7 +108,7 @@
       </div>
       <p>Some text in the Modal Body</p>
       <p>Some other text...</p>
-      <%= simple_form_for([ @flat, @incident ]) do |form| %>
+      <%= simple_form_for(@incident) do |form| %>
         <%= form.input :category, collection: Incident::CATEGORIES, include_blank: "Select a category"  %>
         <%= form.button :submit, "Next" %>
       <% end %>
@@ -123,18 +129,18 @@
 
 <!-- Tab script -->
 <script>
-function openCity(evt, cityName) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
+  function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "flex";
+    evt.currentTarget.className += " active";
   }
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-  document.getElementById(cityName).style.display = "block";
-  evt.currentTarget.className += " active";
-}
-document.getElementById("defaultOpen").click();
+  document.getElementById("defaultOpen").click();
 </script>

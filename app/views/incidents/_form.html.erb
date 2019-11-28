@@ -1,0 +1,4 @@
+ <%= simple_form_for incident do |f| %>
+    <%= f.input :answer, label: decision[:question], collection: decision[:answers], as: :radio_buttons %>
+    <%= f.submit "OK", class: "btn btn-primary" %>
+  <% end %>
