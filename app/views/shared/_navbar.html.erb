@@ -19,7 +19,10 @@
         </li>
         <li class="nav-item dropdown">
         <% if current_user.avatar.attached? %>
-          <%= cl_image_tag current_user.avatar.key ,crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+
+           <%= cl_image_tag current_user.avatar.key, width: 150, height: 150, crop: :thumb, gravity: :face, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+
+
         <% else %>
           <div id="navbarDropdown" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="avatar concept-number-rounded initial"><%= current_user.initial %></span></div>
         <% end %>
