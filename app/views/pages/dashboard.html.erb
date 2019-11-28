@@ -58,10 +58,10 @@
               <div class="rent-status">
                 <% if rent.status == "Payé" %>
                   <i class="fas fa-check-circle text-success"></i>
-                  <%= link_to "Quittance", rent_path(rent, format: :pdf), class: "btn btn-info", target: "_blank" %>
+                  <%= link_to "Quittance", rent_path(rent, format: :pdf), class: "btn btn-success", target: "_blank" %>
                 <% else %>
                   <i class="fas fa-times-circle text-danger"></i>
-                  <%= link_to "Payer", "#", class: "btn btn-success" %>
+                  <%= link_to "Payer", "#", class: "btn btn-info" %>
                 <% end %>
               </div>
             </div>
