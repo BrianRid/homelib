@@ -2,7 +2,7 @@ class Incident < ApplicationRecord
   CATEGORIES = ["plomberie", "électricité", "serrurerie", "chauffage", "vitrerie", "petits travaux", "jardinage", "peinture", "sols", "électroménager"]
 
   attr_accessor :answer
-
+  has_many_attached :photos
   belongs_to :flat
   has_one :user, through: :flat
   has_many :works
