@@ -22,7 +22,6 @@
   overflow: hidden;
   // border: 1px solid #ccc;
   background-color: #d5ffed;
-  border-radius: 5px;
 }
 
 /* Style the buttons that are used to open the tab content */
@@ -32,15 +31,13 @@
   border: none;
   outline: none;
   cursor: pointer;
-  padding: 14px 16px;
+  padding: 10px;
   transition: 0.3s;
 
 }
 
 /* Change background color of buttons on hover */
-.tab button:hover {
-  background-color: #1EDD88;
-}
+
 
 /* Create an active/current tablink class */
 .tab button.active {
