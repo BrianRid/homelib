@@ -1,0 +1,28 @@
+<div class="container">
+<h1>Tous les réparateur de l'impossible !!</h1>
+
+<div class="container-fluid">
+  <ul class="">
+    <% @workers.each do |worker| %>
+      <li>
+        <div class="card-worker">
+          <div class="photo">
+            <img src="https://s-media-cache-ak0.pinimg.com/236x/3b/36/ca/3b36ca3afe0fa0fd4984b9eee2e154bb.jpg">
+          </div>
+          <div class="description">
+            <h2><%= worker.name %></h2>
+            <h4>Catégorie : <%= worker.categories %></h4>
+            <h3><i class="fas fa-address-card"></i> : <%= worker.address %></h3>
+            <h3><i class="fas fa-envelope"></i> : <%= worker.email %></h3>
+            <h3><i class="fas fa-phone"></i> : <%= worker.phone %></h3>
+            <p>Classic Peace Lily is a spathiphyllum floor plant arranged in a bamboo planter with a blue & red ribbom and butterfly pick.</p>
+            <button>Contacter</button>
+          </div>
+        </div>
+        <!-- <p><strong>Descprition :</strong> <%= worker.description %></p> -->
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+</div>
