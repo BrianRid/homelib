@@ -10,12 +10,37 @@ class Incident < ApplicationRecord
   validates :dispo, presence: true
   validates :category, presence: true, inclusion: { in: ["plomberie", "électricité", "serrurerie", "chauffage", "vitrerie", "petits travaux", "jardinage", "peinture", "sols", "électroménager"] }
 
+  def self.first_decision
+    question = "Voulez-vous déclarer un incident ?"
+    answers = TREE.select{ |k,v| k.to_s.size == 1 }.map{ |k,v| [v[:label], k] }
+    return {
+      question: question,
+      answers: answers
+    }
+  end
+
+  def self.next_decision(tree_key)
+    current_answer = TREE[tree_key]
+    question = current_answer[:next_question]
+    return nil if question.nil?
+
+    answers = current_answer[:next_question_answers]&.map{ |key| [TREE[key][:label], key] }
+    return {
+      question: question,
+      answers: answers
+    }
+  end
+
+  def self.final_result(tree_key)
+    TREE[tree_key]
+  end
+
   TREE = {
     # categories
     p: {
       label: "Plomberie",
       next_question: "Votre problème concerne ?",
-      next_question_answers: [:p_1, :p_2],
+      next_question_answers: [:p_1, :p_2, :p_3, :p_4, :p_5, :p_6, :p_7],
       final_answer: nil
     },
     v: {
@@ -38,19 +63,19 @@ class Incident < ApplicationRecord
       next_question_answers: [:p_2_1, :p_2_2],
       final_answer: nil
     },
-    P3: {
+    p_3: {
       label: "Tuyauterie et canalisation (hors wc, douche, evier, machines)",
       next_question: "Vous avez une fuite au niveau:",
       next_question_answers: [:p_3_1, :p_3_2, :p_3_3],
       final_answer: nil
     },
-    P4: {
+    p_4: {
       label: "Cuisine",
       next_question: "Quelle est la nature de votre problème ?",
       next_question_answers: [:p_4_1, :p_3_2],
       final_answer: nil
     },
-    P5: {
+    p_5: {
       label: "Colonne générale d'immeuble",
       final_answer: {
         result: "Débouchage de colonne générale",
@@ -58,13 +83,13 @@ class Incident < ApplicationRecord
         responsable: "Propriétaire"
       }
     },
-    P6: {
+    p_6: {
       label: "Chaudière, chauffe-eau et ballon d'eau chaude",
       next_question: "Quelle est votre besoin ?",
       next_question_answers: [:p_6_1, :p_6_2],
       final_answer: nil
     },
-    p7: {
+    p_7: {
       label: "Tuyau de la machine à laver ou du lave-vaisselle",
       final_answer: {
         result: "Réparation d'une fuite du tuyau de la machine à laver / lave-vaisselle",
@@ -322,26 +347,5 @@ class Incident < ApplicationRecord
     }
   }
 
-  def self.first_decision
-    question = "Voulez-vous déclarer un incident ?"
-    answers = TREE.select{ |k,v| k.to_s.size == 1 }.map{ |k,v| [v[:label], k] }
-    return {
-      question: question,
-      answers: answers
-    }
-  end
 
-  def self.next_decision(tree_key)
-    current_answer = TREE[tree_key]
-    question = current_answer[:next_question]
-    answers = current_answer[:next_question_answers].map{ |key| [TREE[key][:label], key] }
-    return {
-      question: question,
-      answers: answers
-    }
-  end
-
-  def self.final_result(tree_key)
-
-  end
 end
