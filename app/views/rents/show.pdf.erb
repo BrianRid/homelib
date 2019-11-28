@@ -13,7 +13,7 @@
   </div>
   <br /><br />
   <p>
-    Je soussigné <%= @rent.flat.user_id.full_name %>, propriétaire du logement désigné ci-dessus, déclare avoir reçu de <%= @rent.rental.user_id.full_name %>,
+    Je soussigné <%= @rent.flat.user.first_name %>, propriétaire du logement désigné ci-dessus, déclare avoir reçu de <%= @rent.rental.user.first_name %>,
     la somme de  <%= @rent.rental.loyer %> euros , au titre du paiement du loyer et des charges et lui en donne quittance, sous réserve de tous mes droits.
   </p>
   <br /><br />

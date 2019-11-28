@@ -1,0 +1,17 @@
+ <!-- errors cause by validations -->
+<% if @incident.errors.any? %>
+<div class="alert alert-warning alert-dismissible fade show m-1" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <p>
+    Sorry! But <%= pluralize(@incident.errors.count, "error") %> prevented the incident being saved:
+  </p>
+  <ul>
+    <% @incident.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+  <p>
+    Please try again after correction
+  </p>
+</div>
+<% end %>
