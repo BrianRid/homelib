@@ -35,6 +35,13 @@ class Incident < ApplicationRecord
     TREE[tree_key]
   end
 
+  def self.resume(tree_key)
+    splitted_key = tree_key.to_s.split("_")
+    splitted_key.map.with_index do |el, index|
+      splitted_key[0..index].join("_").to_sym
+    end
+  end
+
   TREE = {
     # categories
     p: {
@@ -118,7 +125,8 @@ class Incident < ApplicationRecord
       final_answer: {
         result: "Réparation d'une fuite du robinet d'arrêt du WC",
         tarif: "Entre 100 et 150 € TTC",
-        responsable: "Propriétaire"
+        responsable: "Propriétaire",
+        # resume: [:p, :p_1, :p_1_1, :p_1_1_1]
       }
     },
     p_1_1_2: {
@@ -132,7 +140,8 @@ class Incident < ApplicationRecord
       final_answer: {
         result: "Réparation d'une fuite de la pipe de sortie du WC avec sanibroyeur",
         tarif: "Entre 120 et 200 € TTC",
-        responsable: "Propriétaire"
+        responsable: "Propriétaire",
+        # resume: [:p, :p_1, :p_1_1, :p_1_1_2, :p_1_1_2_1]
       }
     },
     p_1_1_2_2: {

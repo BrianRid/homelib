@@ -10,6 +10,7 @@ class IncidentsController < ApplicationController
     @next_decision = Incident.next_decision(answer)
     if @next_decision.nil?
       @results = Incident.final_result(answer)
+      @resume = Incident.resume(answer)
       render 'results'
       @incident = Incident.new
       authorize(@incident)
@@ -17,10 +18,5 @@ class IncidentsController < ApplicationController
       @incident = Incident.new
       authorize(@incident)
     end
-  end
-
-  private
-
-  def incident_params
   end
 end
