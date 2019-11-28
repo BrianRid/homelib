@@ -7,7 +7,6 @@ const removeFlashes = () => {
 
 const animateFlashes = () => {
   if (flashes) {
-    console.log(flashes);
     setTimeout(removeFlashes, 4000);
   }
 }
