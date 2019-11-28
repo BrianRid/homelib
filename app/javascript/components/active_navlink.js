@@ -10,6 +10,4 @@ const activeLink = () => {
   $(".nav-item > a[href='"+slug+"']").addClass('active');
 }
 
-console.log('test');
-
 export { activeLink };
