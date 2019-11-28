@@ -50,7 +50,7 @@
                 <td><%= @rental.loyer %></td>
                 <% if rent.status == "Payé" %>
                 <td><i class="fas fa-check-circle text-success"></i></td>
-                <td><%= link_to "Quittence", rent_path(rent, format: :pdf), class: "btn btn-gradient" %></td>
+                <td><%= link_to "Quittance", rent_path(rent, format: :pdf), class: "btn btn-gradient" %></td>
                 <% else %>
                 <td><i class="fas fa-times-circle text-danger" ></i></td>
                 <td><%= link_to "Payer", "#", class: "btn btn-gradient payer" %></td>
