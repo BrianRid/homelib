@@ -41,7 +41,7 @@ class Incident < ApplicationRecord
       splitted_key[0..index].join("_").to_sym
     end
   end
-
+ # "serrurerie", "chauffage", "petits travaux", "jardinage", "peinture", "sols", "électroménager"]
   TREE = {
     # categories
     p: {
@@ -55,6 +55,30 @@ class Incident < ApplicationRecord
       next_question: "Votre problème concerne ?",
       next_question_answers: [:v_1, :v_2],
       final_answer: nil
+    },
+    e: {
+    label: "Electricité",
+    next_question: "Votre problème concerne ?",
+    next_question_answers: [:e_1, :e_2],
+    final_answer: nil
+    },
+    s: {
+    label: "Serrurerie",
+    next_question: "Votre problème concerne ?",
+    next_question_answers: [:e_1, :_2],
+    final_answer: nil
+    },
+    c: {
+    label: "Chauffage",
+    next_question: "Votre problème concerne ?",
+    next_question_answers: [:e_1, :_2],
+    final_answer: nil
+    },
+    t: {
+    label: "Autres",
+    next_question: "Votre problème concerne ?",
+    next_question_answers: [:e_1, :_2],
+    final_answer: nil
     },
 
     # Plomberie

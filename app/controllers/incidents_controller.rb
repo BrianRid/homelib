@@ -1,8 +1,8 @@
 class IncidentsController < ApplicationController
   def new
-    @incident = Incident.new
-    authorize(@incident)
-    @first_decision = Incident.first_decision
+    # @incident = Incident.new
+    # authorize(@incident)
+    # @first_decision = Incident.first_decision
   end
 
   def create

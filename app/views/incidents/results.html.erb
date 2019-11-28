@@ -1,6 +1,6 @@
 <div class="container">
 
-  <h1>Resultats</h1>
+  <h1>Résultats</h1>
 
 <h5><strong>Nature de l'intervention:</strong></h5>
 <p> <%= @results[:final_answer][:result]  %></p>
@@ -13,8 +13,8 @@
 
 <h5><strong>Votre incident:</strong></h5>
 <% @resume.each do |t| %>
-> <%= Incident::TREE[t][:label]  %><br/>
-<em><strong><%= Incident::TREE[t][:next_question]  %> <br/></strong></em>
+> <%= Incident::TREE[t][:label]  %><br/><br/>
+<%= Incident::TREE[t][:next_question]  %> <br/>
 <% end %>
 
 </div>
