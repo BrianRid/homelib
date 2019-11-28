@@ -70,6 +70,7 @@ class Incident < ApplicationRecord
         result: "Réparation d'une fuite du tuyau de la machine à laver / lave-vaisselle",
         tarif: "Entre 130 et 150 € TTC",
         responsable: "Locataire"
+      }
     },
 
     # plomberie - WC
@@ -167,7 +168,7 @@ class Incident < ApplicationRecord
         responsable: "Locataire"
       }
     },
-      
+
     #plomberie - tuyauterie
     p_3_1: {
       label: "D'un tuyau d'évacuation (tuyau PVC)",
@@ -198,9 +199,8 @@ class Incident < ApplicationRecord
     p_4_1: {
       label: "Fuite/robinetterie",
       next_question: "Votre lavabo possède-t-il un sanispeed ?",
-      next_question_answers: [:p_4_1_1, :p_4_1_2, :p_4_1_3, :p_4_1_4]
+      next_question_answers: [:p_4_1_1, :p_4_1_2, :p_4_1_3, :p_4_1_4],
       final_answer: nil
-      }
     },
     p_4_2: {
       label: "Engorgement (lavabo/ évier bouché)",
@@ -209,89 +209,24 @@ class Incident < ApplicationRecord
       final_answer: nil
     },
 
-
     #plomberie - chaudiere
-    P_6_1: {
+    p_6_1: {
       label: "Reparation d'une panne de chauffage",
       next_question: "Votre appareil à chauffer est-il :",
       next_question_answers: [:p_6_1_1, :p_6_1_2],
       final_answer: nil
     },
-    P_6_1_1: {
-      label: "Central avec le robinet à boisseau",
-        result: "Réparation du chauffage collectif (avec le robinet à boisseau)",
-        tarif: "Entre 150 € et 250 € TTC",
-        responsable: "Syndic"
-    },
-    P_6_1_2: {
-      label: "Individuel",
-        result: "Réparation d'une chaudière à gaz ou électrique en fonction de la marque",
-        tarif: "Entre 180 € et 260 € TTC",
-        responsable: "Propriétaire"
-    },
-    P_6_2: {
+    p_6_2: {
       label: "Reparation d'une fuite de ballon d'eau chaude",
+      final_answer: {
         result: "Réparation d'une fuite du ballon d'eau chaude",
         tarif: "Entre 150 € et 300 € TTC",
         responsable: "Propriétaire"
+      }
     },
-
-
-    # cuisine - evier/lavabo
-    p_4_1_1: {
-      label: "Directement du robinet",
-        result: "Fourniture et pose d'un robinet",
-        tarif: "Entre 150 € et 300 € TTC",
-        responsable: "Propriétaire"
-    },
-    p_4_1_2: {
-      label: "Autour du robinet",
-        result: "Fourniture et pose d'un robinet",
-        tarif: "Entre 150 € et 300 € TTC",
-        responsable: "Propriétaire"
-    },
-    p_4_1_3: {
-      label: "Au niveau flexible",
-        result: "Changement des flexibles (robinet de lavabo / évier)",
-        tarif: "Entre 100 € et 150 € TTC",
-        responsable: "Propriétaire"
-    },
-    p_4_1_4: {
-      label: "Au niveau du siphon",
-      next_question: "Quel type de siphon possédez-vous ??",
-      next_question_answers: [:p_4_1_4_1, :p_4_1_4_2]
-      final_answer: nil
-    },
-    p_4_1_4_1: {
-      label: "Siphon en plastique (PVC)",
-        result: "Changement du siphon (lavabo / évier) en PVC",
-        tarif: "Entre 80 € et 150 € TTC",
-        responsable: "Propriétaire"
-    },
-    p_4_1_4_1: {
-      label: "Siphon en laiton (métallique)",
-        result: "Changement du siphon (lavabo / évier) en laiton",
-        tarif: "Entre 100 € et 160 € TTC",
-        responsable: "Propriétaire"
-    },
-    p_4_2_1: {
-      label: "Oui",
-        result: "Débouchage d'un lavabo / évier avec sanispeed",
-        tarif: "Entre 150 € et 250 € TTC",
-        responsable: "Locataire"
-    },
-    p_4_2_2: {
-      label: "Non",
-        result: "Débouchage d'un lavabo / évier sans sanispeed",
-        tarif: "Entre 100 € et 180 € TTC",
-        responsable: "Locataire"
-    },
-
-
     # sdb - fuite
     p_2_1_1: {
-      label: "Du robinet",
-      final_answer: {
+      label: "Du robinet",final_answer: {
         result: "Fourniture et pose d'un robinet",
         tarif: "Entre 150 € et 350 € TTC",
         responsable: "Propriétaire"
@@ -302,6 +237,86 @@ class Incident < ApplicationRecord
       final_answer: {
         result: "Réparation d'une fuite du tuyau d'évacuation de la douche",
         tarif: "Entre 100 € et 200 € TTC",
+        responsable: "Propriétaire"
+      }
+    },
+    # cuisine - evier/lavabo
+    p_4_1_1: {
+      label: "Directement du robinet",
+      final_answer: {
+        result: "Fourniture et pose d'un robinet",
+        tarif: "Entre 150 € et 300 € TTC",
+        responsable: "Propriétaire"
+      }
+    },
+    p_4_1_2: {
+      label: "Autour du robinet",
+      final_answer: {
+        result: "Fourniture et pose d'un robinet",
+        tarif: "Entre 150 € et 300 € TTC",
+        responsable: "Propriétaire"
+      }
+    },
+    p_4_1_3: {
+      label: "Au niveau flexible",
+      final_answer: {
+        result: "Changement des flexibles (robinet de lavabo / évier)",
+        tarif: "Entre 100 € et 150 € TTC",
+        responsable: "Propriétaire"
+      }
+    },
+    p_4_1_4: {
+      label: "Au niveau du siphon",
+      next_question: "Quel type de siphon possédez-vous ??",
+      next_question_answers: [:p_4_1_4_1, :p_4_1_4_2],
+      final_answer: nil
+    },
+    p_4_1_4_1: {
+      label: "Siphon en plastique (PVC)",
+      final_answer: {
+        result: "Changement du siphon (lavabo / évier) en PVC",
+        tarif: "Entre 80 € et 150 € TTC",
+        responsable: "Propriétaire"
+      }
+    },
+    p_4_1_4_2: {
+      label: "Siphon en laiton (métallique)",
+      final_answer: {
+        result: "Changement du siphon (lavabo / évier) en laiton",
+        tarif: "Entre 100 € et 160 € TTC",
+        responsable: "Propriétaire"
+      }
+    },
+    p_4_2_1: {
+      label: "Oui",
+      final_answer: {
+        result: "Débouchage d'un lavabo / évier avec sanispeed",
+        tarif: "Entre 150 € et 250 € TTC",
+        responsable: "Locataire"
+      }
+    },
+    p_4_2_2: {
+      label: "Non",
+      final_answer: {
+        result: "Débouchage d'un lavabo / évier sans sanispeed",
+        tarif: "Entre 100 € et 180 € TTC",
+        responsable: "Locataire"
+      }
+    },
+    # chaudiere - central/individuel
+    P_6_1_1: {
+      label: "Central avec le robinet à boisseau",
+      final_answer: {
+        result: "Réparation du chauffage collectif (avec le robinet à boisseau)",
+        tarif: "Entre 150 € et 250 € TTC",
+        responsable: "Syndic"
+      }
+    },
+    P_6_1_2: {
+      label: "Individuel",
+      final_answer: {
+        result: "Réparation d'une chaudière à gaz ou électrique en fonction de la marque",
+        tarif: "Entre 180 € et 260 € TTC",
         responsable: "Propriétaire"
       }
     }
@@ -324,5 +339,9 @@ class Incident < ApplicationRecord
       question: question,
       answers: answers
     }
+  end
+
+  def self.final_result(tree_key)
+
   end
 end
