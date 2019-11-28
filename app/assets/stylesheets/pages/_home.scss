@@ -68,6 +68,10 @@
   color: $dark-green;
 }
 
+.card-body {
+  min-height: 220px;
+}
+
 .card img {
   width: 100%;
   height: 170px;
