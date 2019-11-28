@@ -11,6 +11,7 @@
       </div>
       <div id="appart" class="product-container tabcontent bg-white">
         <% if @flat %>
+
           <div class="carrac">
             <h1><i class="far fa-building"> </i>Caractéristiques</h1>
             <span> <%= @flat.address %></span>
@@ -24,8 +25,9 @@
             <span> <i class="fas fa-envelope-open-text"> </i><%= @flat.syndic_email %></span>
           </div>
 
+
         <% else %>
-          Pas de location en cours
+        Pas de location en cours
         <% end %>
       </div>
       <div id="document" class="product-container tabcontent bg-white">
@@ -36,31 +38,32 @@
       </div>
     </div>
 
-    <div class="upper right">
-      <% if @rental %>
+      <div class="upper right">
+        <% if @rental %>
         <div class='loyers'>
           <table class="table-Loyers table">
             <h1>Mes Loyers</h1>
             <tbody>
-            <% @last_rents.each do |rent| %>
+              <% @last_rents.each do |rent| %>
               <tr>
                 <td><%= rent.date.strftime('%B') %></td>
                 <td><%= @rental.loyer %></td>
                 <% if rent.status == "Payé" %>
-                  <td><i class="fas fa-check-circle text-success"></i></td>
-                  <td><%= link_to "Quittence", "#", class: "btn btn-gradient" %></td>
+                <td><i class="fas fa-check-circle text-success"></i></td>
+                <td><%= link_to "Quittence", rent_path(rent, format: :pdf), class: "btn btn-gradient" %></td>
                 <% else %>
-                  <td><i class="fas fa-times-circle text-danger" ></i></td>
-                  <td><%= link_to "Payer", "#", class: "btn btn-gradient payer" %></td>
+                <td><i class="fas fa-times-circle text-danger" ></i></td>
+                <td><%= link_to "Payer", "#", class: "btn btn-gradient payer" %></td>
                 <% end %>
               </tr>
-            <% end %>
+              <% end %>
             </tbody>
           </table>
+          <% else %>
+          Pas de location en cours
+          <% end %>
         </div>
-      <% else %>
-        Pas de location en cours
-      <% end %>
+      </div>
     </div>
   </div>
 
