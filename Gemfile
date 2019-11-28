@@ -28,7 +28,6 @@ gem 'webpacker'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
-  gem 'wkhtmltopdf-binary'
 end
 
 group :development, :test do
@@ -41,5 +40,4 @@ group :development, :test do
 end
 
 group :production do
-  gem 'wkhtmltopdf-heroku'
 end
