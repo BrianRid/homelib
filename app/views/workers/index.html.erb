@@ -6,6 +6,13 @@
     <% @workers.each_with_index do |worker, idx| %>
       <li>
         <div id="worker-<%= worker.id %>" class="card-worker mt-3">
+          <div class="worker-favorite">
+            <% if  current_user.workers.include? worker %>
+              <i class="fas fa-heart"></i>
+            <% else %>
+              <i class="far fa-heart"></i>
+            <% end %>
+          </div>
           <div class="worker-photo">
             <%= cl_image_tag worker.photos.first.key, crop: :thumb, width: 190, height: 280 %>
           </div>
