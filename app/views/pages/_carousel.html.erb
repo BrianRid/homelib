@@ -11,7 +11,7 @@
     </ol>
     <div id="lightgallery" class="carousel-inner">
       <div  class="carousel-item active" data-src= <%= cl_image_path(@rental.photos.first.key) %>>
-        <%= cl_image_tag  @rental.photos.first.key, class:"d-block img-fluid", height: 220, crop: :fill %>
+        <%= cl_image_tag  @rental.photos.first.key, class:"d-block img-fluid", height: 250, crop: :fill %>
         <div class="carousel-caption d-none d-md-block">
           <h5>Pièce n°1</h5>
           <p>Parfait état</p>
@@ -20,7 +20,7 @@
       <% @rental.photos[1..-1].each_with_index do |photo, index| %>
         <div class="carousel-item" data-src= <%= cl_image_path(photo.key) %> >
 
-          <%= cl_image_tag  photo.key, class:"d-block img-fluid", height: 220, crop: :fill,'data-src': cl_image_path(photo.key) %>
+          <%= cl_image_tag  photo.key, class:"d-block img-fluid", height: 250, crop: :fill,'data-src': cl_image_path(photo.key) %>
 
           <div class="carousel-caption d-none d-md-block">
             <h5>Pièce n° <%= index + 2 %></h5>
