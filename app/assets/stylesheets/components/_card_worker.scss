@@ -1,4 +1,5 @@
 .card-worker {
+  position: relative;
   display: flex;
   width: 750px;
   background: white;
@@ -10,17 +11,22 @@
   }
 }
 
-.photo {
+.worker-photo {
   padding: 30px;
   width: 40%;
   text-align: center;
 
   img {
-    max-height: 240px;
+    max-height: 280px;
   }
 }
 
-.description {
+.worker-avatar {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.worker-description {
   padding: 30px;
   width: 60%;
   border-left: 2px solid #efefef;
@@ -28,6 +34,7 @@
   h2 {
     color: #515151;
     margin: 0;
+    padding-right: 30px;
     text-transform: uppercase;
     font-weight: 500;
   }
@@ -63,7 +70,7 @@
     background: none;
     border: 1px solid #d9d9d9;
     padding: 8px 0px;
-    margin-bottom: 30px;
+    margin-bottom: 5px;
     color: #515151;
     text-transform: uppercase;
     width: 125px;
@@ -73,10 +80,17 @@
     font-weight: 500;
 
     &:hover {
-      border: 1px solid #aedaa6;
-      color: #aedaa6;
+      border: 1px solid $dark-green;
+      color: $dark-green;
       cursor: pointer;
     }
+  }
+
+  .hide {
+    display: none;
+  }
+  .show {
+    display: inline;
   }
 }
 
