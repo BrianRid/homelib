@@ -40,5 +40,5 @@ group :development, :test do
 end
 
 group :production do
-gem 'wkhtmltopdf-heroku'
+  gem 'wkhtmltopdf-heroku'
 end
