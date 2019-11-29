@@ -75,10 +75,12 @@
 }
 
 .title {
-  color: $dark-green;
+  color: white;
+  background-color: #357376;
   width: 100%;
   padding-left: 15px;
   border-bottom: solid 1px;
+  border-radius: 5px 5px 0 0;
 
   h1 {
     margin-bottom: 2px;

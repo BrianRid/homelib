@@ -66,13 +66,14 @@
         </div>
 
           <div class="eds right-el d-flex flex-column justify-content-center">
+                  Mes documents
             <% current_user.documents.each do |doc| %>
                 <button class="d-flex">
                   <i class="fas fa-file-pdf"></i>
 
                   <p class="m-0 p-1"><%= doc.name %></p>
                 </button>
-               <%= link_to "download" , cl_image_tag( "#{doc.file.key}" , :flag => "attachment") %>
+               <%= link_to "download" , ( cl_image_tag"#{doc.file.key}" , :flag => "attachment") %>
           <% end %>
           </div>
 
