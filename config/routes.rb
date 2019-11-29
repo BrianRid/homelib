@@ -12,5 +12,5 @@ Rails.application.routes.draw do
   resources :flats
   resources :incidents, only: [:new, :create]
   resources :workers, only: [:index]
-  resources :documents, only: [:new, :create, :show, :update, :delete]
+  resources :documents, only: [:new, :create, :delete]
 end

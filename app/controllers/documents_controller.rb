@@ -15,14 +15,6 @@ class DocumentsController < ApplicationController
     end
   end
 
-  def show
-    @document = Document.find(params[:id])
-    authorize(@document)
-  end
-
-  def update
-  end
-
   def delete
     @document = Document.find[params[:id]]
     @patient.destroy
