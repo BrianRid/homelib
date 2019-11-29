@@ -16,7 +16,7 @@ gem 'money-rails'
 gem 'pundit'
 gem 'wicked_pdf'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
-gem 'wkhtmltopdf-heroku'
+gem 'wkhtmltopdf-binary'
 
 # ASSETS
 gem 'autoprefixer-rails'
@@ -40,5 +40,5 @@ group :development, :test do
 end
 
 group :production do
-
+gem 'wkhtmltopdf-heroku'
 end
