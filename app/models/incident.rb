@@ -23,7 +23,6 @@ class Incident < ApplicationRecord
     current_answer = TREE[tree_key]
     question = current_answer[:next_question]
     return nil if question.nil?
-
     answers = current_answer[:next_question_answers]&.map{ |key| [TREE[key][:label], key] }
     return {
       question: question,
@@ -41,7 +40,6 @@ class Incident < ApplicationRecord
       splitted_key[0..index].join("_").to_sym
     end
   end
- # "serrurerie", "chauffage", "petits travaux", "jardinage", "peinture", "sols", "électroménager"]
   TREE = {
     # categories
     p: {
