@@ -229,6 +229,7 @@ GEM
     wicked_pdf (1.4.0)
       activesupport
     wkhtmltopdf-binary (0.12.5)
+    wkhtmltopdf-heroku (2.12.5.0)
 
 PLATFORMS
   ruby
@@ -260,6 +261,7 @@ DEPENDENCIES
   webpacker
   wicked_pdf
   wkhtmltopdf-binary
+  wkhtmltopdf-heroku
 
 RUBY VERSION
    ruby 2.6.3p62
