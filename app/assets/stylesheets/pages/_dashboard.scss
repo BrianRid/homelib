@@ -1,3 +1,12 @@
+.carousel-wrapper {
+    width: 73%;
+    margin: 0 auto;
+}
+.carous2 {
+  background-color: black;
+  border-radius: 0 0 5px 5px;
+}
+
 .upper-part {
   display: flex;
   justify-content: space-between;
@@ -10,6 +19,7 @@
   width: 55%;
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    background-color: white;
 }
 
 .tab {
