@@ -1,3 +1,12 @@
+.carousel-wrapper {
+    width: 73%;
+    margin: 0 auto;
+}
+.carous2 {
+  background-color: black;
+  border-radius: 0 0 5px 5px;
+}
+
 .upper-part {
   display: flex;
   justify-content: space-between;
@@ -10,6 +19,7 @@
   width: 55%;
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    background-color: white;
 }
 
 .tab {
@@ -75,10 +85,12 @@
 }
 
 .title {
-  color: $dark-green;
+  color: white;
+  background-color: #357376;
   width: 100%;
   padding-left: 15px;
   border-bottom: solid 1px;
+  border-radius: 5px 5px 0 0;
 
   h1 {
     margin-bottom: 2px;
@@ -168,6 +180,50 @@
     }
   }
 }
+
+// form incident answers
+#new_incident {
+  .form-check-input  {
+    display: none;
+  }
+  label {
+
+    background-color: #1D4D4F;
+    color:white;
+    margin: 10px;
+    border-radius: 3px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    &:hover {
+      background-color: #357376;
+    }
+  }
+  .incident_answer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  legend {
+    flex: 0 0 100%;
+    text-align: center;
+    font-size: 1.3em;
+  }
+  .form-check {
+    flex: 0 0 200px;
+    padding: 0;
+    margin: 10px 5px;
+    label {
+      width: 100%;
+      margin: 0;
+      height: 150px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
 
 
 

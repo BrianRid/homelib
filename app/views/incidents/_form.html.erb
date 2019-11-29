@@ -1,4 +1,4 @@
 <%= simple_form_for incident do |f| %>
   <%= f.input :answer, label: "#{decision[:question] unless decision[:question] == "Voulez-vous déclarer un incident ?"}", collection: decision[:answers], as: :radio_buttons %>
-  <%= f.submit "OK", class: "btn btn-primary" %>
+  <%= f.submit "OK", class: "btn btn-primary d-none" %>
 <% end %>

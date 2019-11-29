@@ -1,6 +1,6 @@
 
 const hideSubmit = () =>{
-  const cards = document.querySelectorAll('.form-check');
+  const cards = document.querySelectorAll('#dashboard_new_incident .form-check');
   if (cards) {
     const form = document.getElementById('dashboard_new_incident');
     cards.forEach((card)=>{
@@ -11,4 +11,18 @@ const hideSubmit = () =>{
   }
 }
 
+const hideSubmitAnswers = () =>{
+  const inputRadiobuttons = document.querySelectorAll('#new_incident input.radio_buttons');
+  if (inputRadiobuttons) {
+    const form = document.getElementById('new_incident');
+    inputRadiobuttons.forEach((inputRadioBtn)=>{
+      inputRadioBtn.addEventListener('change', (e) =>{
+        form.submit();
+      });
+    });
+  }
+}
+
+
+export {hideSubmitAnswers};
 export {hideSubmit};

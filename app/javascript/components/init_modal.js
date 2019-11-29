@@ -6,7 +6,7 @@ const btn = document.getElementById("myBtn");
 const span = document.getElementsByClassName("close-modal")[0];
 
 const initModal = () => {
-  if (modal && btn && close) {
+  if (modal && btn && span) {
     // When the user clicks the button, open the modal
     btn.onclick = function() {
       modal.style.display = "block";
