@@ -181,6 +181,50 @@
   }
 }
 
+// form incident answers
+#new_incident {
+  .form-check-input  {
+    display: none;
+  }
+  label {
+
+    background-color: #1D4D4F;
+    color:white;
+    margin: 10px;
+    border-radius: 3px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    &:hover {
+      background-color: #357376;
+    }
+  }
+  .incident_answer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  legend {
+    flex: 0 0 100%;
+    text-align: center;
+    font-size: 1.3em;
+  }
+  .form-check {
+    flex: 0 0 200px;
+    padding: 0;
+    margin: 10px 5px;
+    label {
+      width: 100%;
+      margin: 0;
+      height: 150px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+
 
 
 
