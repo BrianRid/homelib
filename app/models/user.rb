@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_one_attached :avatar
   has_many :documents
   has_many :user_workers
+  has_many :workers, through: :user_workers
   has_many :flats
   has_many :incidents, through: :flats
   has_many :rentals
