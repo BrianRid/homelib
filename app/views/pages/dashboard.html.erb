@@ -31,13 +31,8 @@
         <% end %>
       </div>
 
-      <div id="document" class="product-container tabcontent bg-white">
-        DOCUMENTS
-      </div>
       <div id="edl" class="product-container tabcontent carous2">
           <%= render 'carousel' %>
-
-
       </div>
     </div>
 
@@ -71,9 +66,19 @@
           <% end %>
         </div>
 
-        <div class="eds right-el d-flex align-items-center justify-content-center">
-          <p class="m-0 p-1">ICI ESPACE DE STOCKAGE</p>
-        </div>
+          <div class="eds right-el d-flex flex-column justify-content-center">
+                  Mes documents
+            <% current_user.documents.each do |doc| %>
+                <button class="d-flex">
+                  <i class="fas fa-file-pdf"></i>
+
+                  <p class="m-0 p-1"><%= doc.name %></p>
+                </button>
+               <%= link_to "download" , ( cl_image_tag"#{doc.file.key}" , :flag => "attachment") %>
+          <% end %>
+          </div>
+
+        <%= link_to "Ajouter un nouveau document", new_document_path, class: "btn btn-success"  %>
 
       <% else %>
 
@@ -89,6 +94,16 @@
   <!-- Partie basse des tuiles responsive -->
   <div class="container incident mt-5">
     <h1>Déclarer un sinistre</h1>
+
+    <%= simple_form_for Incident.new, html:{id:"dashboard_new_incident"} do |f| %>
+      <%= f.input :answer, label: "", collection: @first_decision[:answers], label_method: lambda{ |answer| render "incident_category_card", incident_category: answer.first }, as: :radio_buttons %>
+      <%= f.submit "OK", class: "btn btn-primary d-none" %>
+    <% end %>
+
+
+
+
+<!--
     <div class="cards">
       <div id="myBtn" class="card-incident" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
         Incendie
@@ -110,16 +125,19 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 <!-- END Active PAGE -->
 
 
 
 <!-- The Modal -->
-<div id="myModal" class="modal">
+
+<!-- <div id="myModal" class="modal"> -->
+
   <!-- Modal content -->
-  <div class="modal-content_c">
-    <div class="modal-header_c">
+ <!--  <div class="modal-content">
+    <div class="modal-header">
+>>>>>>> 6c32e7b207d9d7bccf255a7a8a7506cc05795334
       <h2>Déclarer un sinistre</h2>
       <span class="close-modal_c">&times;</span>
     </div>
@@ -129,10 +147,10 @@
       </div>
       <p>Some text in the Modal Body</p>
       <p>Some other text...</p>
-      <%= simple_form_for(@incident) do |form| %>
-        <%= form.input :category, collection: Incident::CATEGORIES, include_blank: "Select a category"  %>
-        <%= form.button :submit, "Next" %>
-      <% end %>
+      <%#= simple_form_for(@incident) do |form| %>
+        <%#= form.input :category, collection: Incident::CATEGORIES, include_blank: "Select a category"  %>
+        <%#= form.button :submit, "Next" %>
+      <%# end %>
       <div class="progress" style="height: 2px;">
         <div class="progress-bar bg-info" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
       </div>
@@ -142,7 +160,7 @@
     </div>
   </div>
 
-</div>
+</div> -->
 <!-- END Modal -->
 
 <!-- Display error -->

@@ -1,0 +1,8 @@
+<div class="container">
+  <%= simple_form_for @document do |f| %>
+    <%= f.input :name %>
+    <%= f.input :date %>
+    <%= f.input :file, as: :file %>
+    <%= f.submit "Créer", class: "btn btn-primary" %>
+  <% end %>
+</div>

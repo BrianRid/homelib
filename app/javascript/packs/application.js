@@ -6,6 +6,9 @@ import { initModal } from '../components/init_modal';
 import { loadDynamicBannerText } from '../components/banner';
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { initLightGallery } from '../components/init_lightgallery';
+import { readMore } from '../components/worker_read_more';
+import {hideSubmit} from '../components/submit_incident';
+
 
 
 animateHomeContentTabs()
@@ -15,3 +18,6 @@ initModal();
 loadDynamicBannerText();
 initUpdateNavbarOnScroll();
 initLightGallery();
+readMore();
+hideSubmit();
+

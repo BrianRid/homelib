@@ -84,10 +84,12 @@
 }
 
 .title {
-  color: $dark-green;
+  color: white;
+  background-color: #357376;
   width: 100%;
   padding-left: 15px;
   border-bottom: solid 1px;
+  border-radius: 5px 5px 0 0;
 
   h1 {
     margin-bottom: 2px;
@@ -122,6 +124,12 @@
   // padding: 0px;
 }
 
+//container des pdf
+
+.fa-file-pdf {
+  color: red;
+}
+
 // Container des cards incidents
 
 .incident {
@@ -144,3 +152,37 @@
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
+
+// form incidents
+
+#dashboard_new_incident {
+  .form-check {
+    padding: 0;
+  }
+  legend {
+    display: none;
+  }
+  input.radio_buttons {
+    display:none;
+  }
+  .incident_answer {
+    display: flex;
+    .form-check {
+      flex: 1 0 1%;
+      margin-right: 10px;
+      label {
+        width: 100%
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
