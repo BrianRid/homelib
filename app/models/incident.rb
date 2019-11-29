@@ -35,6 +35,13 @@ class Incident < ApplicationRecord
     TREE[tree_key]
   end
 
+  def self.resume(tree_key)
+    splitted_key = tree_key.to_s.split("_")
+    splitted_key.map.with_index do |el, index|
+      splitted_key[0..index].join("_").to_sym
+    end
+  end
+ # "serrurerie", "chauffage", "petits travaux", "jardinage", "peinture", "sols", "électroménager"]
   TREE = {
     # categories
     p: {
@@ -48,6 +55,30 @@ class Incident < ApplicationRecord
       next_question: "Votre problème concerne ?",
       next_question_answers: [:v_1, :v_2],
       final_answer: nil
+    },
+    e: {
+    label: "Electricité",
+    next_question: "Votre problème concerne ?",
+    next_question_answers: [:e_1, :e_2],
+    final_answer: nil
+    },
+    s: {
+    label: "Serrurerie",
+    next_question: "Votre problème concerne ?",
+    next_question_answers: [:e_1, :_2],
+    final_answer: nil
+    },
+    c: {
+    label: "Chauffage",
+    next_question: "Votre problème concerne ?",
+    next_question_answers: [:e_1, :_2],
+    final_answer: nil
+    },
+    t: {
+    label: "Autres",
+    next_question: "Votre problème concerne ?",
+    next_question_answers: [:e_1, :_2],
+    final_answer: nil
     },
 
     # Plomberie
@@ -118,7 +149,8 @@ class Incident < ApplicationRecord
       final_answer: {
         result: "Réparation d'une fuite du robinet d'arrêt du WC",
         tarif: "Entre 100 et 150 € TTC",
-        responsable: "Propriétaire"
+        responsable: "Propriétaire",
+        # resume: [:p, :p_1, :p_1_1, :p_1_1_1]
       }
     },
     p_1_1_2: {
@@ -132,7 +164,8 @@ class Incident < ApplicationRecord
       final_answer: {
         result: "Réparation d'une fuite de la pipe de sortie du WC avec sanibroyeur",
         tarif: "Entre 120 et 200 € TTC",
-        responsable: "Propriétaire"
+        responsable: "Propriétaire",
+        # resume: [:p, :p_1, :p_1_1, :p_1_1_2, :p_1_1_2_1]
       }
     },
     p_1_1_2_2: {
