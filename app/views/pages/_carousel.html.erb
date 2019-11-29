@@ -1,19 +1,31 @@
-
+|
 <% if @rental.photos %>
-  <div id="carouselExampleIndicators" class="carousel slide carous" data-ride="carousel">
+<div class = "carousel-wrapper">
+
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
       <% @rental.photos[0..-2].each_with_index do  |_photo, index| %>
         <li data-target="#carouselExampleIndicators" data-slide-to= <%=(index+1).to_s%> ></li>
       <% end %>
     </ol>
-    <div class=" carousel-inner">
-      <div class="carousel-item active">
-        <%= cl_image_tag  @rental.photos.first.key, class:"d-block img-fluid"%>
+    <div id="lightgallery" class="carousel-inner">
+      <div  class="carousel-item active" data-src= <%= cl_image_path(@rental.photos.first.key) %>>
+        <%= cl_image_tag  @rental.photos.first.key, class:"d-block img-fluid", height: 220, crop: :fill %>
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Pièce n°1</h5>
+          <p>Parfait état</p>
+        </div>
       </div>
-      <% @rental.photos[1..-1].each do |photo| %>
-        <div class="carousel-item">
-          <%= cl_image_tag  photo.key, class:"d-block img-fluid", height: 220, crop: :fill %>
+      <% @rental.photos[1..-1].each_with_index do |photo, index| %>
+        <div class="carousel-item" data-src= <%= cl_image_path(photo.key) %> >
+
+          <%= cl_image_tag  photo.key, class:"d-block img-fluid", height: 220, crop: :fill,'data-src': cl_image_path(photo.key) %>
+
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Pièce n° <%= index + 2 %></h5>
+            <p>Parfait état</p>
+          </div>
         </div>
       <% end %>
     </div>
@@ -26,20 +38,7 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
+</div>
 <% end %>
 
-<!-- id="myBtn_c" -->
-<!-- The Modal Carousel-->
-<!-- <div id="myModal_c" class="modal_c"> -->
-  <!-- Modal content -->
- <!--  <div class="modal-content_c">
 
-    <div class="modal-header_c">
-      <span class="close-modal_c">&times;</span>
-    </div>
-    <div class="modal-body">
-
-    </div>
-  </div>
-</div> -->
-<!-- END Modal Carousel -->
