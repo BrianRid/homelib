@@ -65,12 +65,16 @@
           <% end %>
         </div>
 
-          <% @user.documents.each do |doc| %>
           <div class="eds right-el d-flex flex-column justify-content-center">
-            <p class="m-0 p-1"><%= doc.name %></p>
-            <%= cl_image_tag doc.file.key, width: 100 %>
-          </div>
+            <% current_user.documents.each do |doc| %>
+                <button class="d-flex">
+                  <i class="fas fa-file-pdf"></i>
+
+                  <p class="m-0 p-1"><%= doc.name %></p>
+                </button>
+               <%= link_to "download" , cl_image_tag( "#{doc.file.key}" , :flag => "attachment") %>
           <% end %>
+          </div>
 
         <%= link_to "Ajouter un nouveau document", new_document_path, class: "btn btn-success"  %>
 
