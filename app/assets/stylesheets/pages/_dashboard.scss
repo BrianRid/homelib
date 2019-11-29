@@ -1,3 +1,12 @@
+.carousel-wrapper {
+    width: 73%;
+    margin: 0 auto;
+}
+.carous2 {
+  background-color: black;
+  border-radius: 0 0 5px 5px;
+}
+
 .upper-part {
   display: flex;
   justify-content: space-between;
@@ -10,6 +19,7 @@
   width: 55%;
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    background-color: white;
 }
 
 .tab {
@@ -75,10 +85,12 @@
 }
 
 .title {
-  color: $dark-green;
+  color: white;
+  background-color: #357376;
   width: 100%;
   padding-left: 15px;
   border-bottom: solid 1px;
+  border-radius: 5px 5px 0 0;
 
   h1 {
     margin-bottom: 2px;
@@ -111,6 +123,12 @@
 .rent-status {
   flex: 0 0 130px;
   // padding: 0px;
+}
+
+//container des pdf
+
+.fa-file-pdf {
+  color: red;
 }
 
 // Container des cards incidents

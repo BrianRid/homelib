@@ -1,3 +1,4 @@
+
 <!-- conteneur général de toute la page -->
 <div class="container">
 
@@ -30,8 +31,8 @@
         <% end %>
       </div>
 
-      <div id="edl" class="product-container tabcontent bg-white">
-        ETAT des LIEUX
+      <div id="edl" class="product-container tabcontent carous2">
+          <%= render 'carousel' %>
       </div>
     </div>
 
@@ -64,13 +65,18 @@
             </div>
           <% end %>
         </div>
-
-          <% @current_user.documents.each do |doc| %>
           <div class="eds right-el d-flex flex-column justify-content-center">
-            <p class="m-0 p-1"><%= doc.name %></p>
-            <%= cl_image_tag doc.file.key, width: 100 %>
-          </div>
+                  Mes documents
+            <% current_user.documents.each do |doc| %>
+                <button class="d-flex">
+                  <i class="fas fa-file-pdf"></i>
+
+                  <p class="m-0 p-1"><%= doc.name %></p>
+                </button>
+               <%#= link_to "download" , ( cl_image_tag"#{doc.file.key}" , :flag => "attachment") %>
+               <%= link_to("download", cl_image_path(doc.file.key)) %>
           <% end %>
+          </div>
 
         <%= link_to "Ajouter un nouveau document", new_document_path, class: "btn btn-success"  %>
 
@@ -125,13 +131,14 @@
 
 
 <!-- The Modal -->
+
 <!-- <div id="myModal" class="modal"> -->
 
   <!-- Modal content -->
  <!--  <div class="modal-content">
     <div class="modal-header">
       <h2>Déclarer un sinistre</h2>
-      <span class="close-modal">&times;</span>
+      <span class="close-modal_c">&times;</span>
     </div>
     <div class="modal-body">
       <div class="card-incident" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
@@ -175,3 +182,4 @@
   }
   document.getElementById("defaultOpen").click();
 </script>
+

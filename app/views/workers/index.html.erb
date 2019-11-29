@@ -9,9 +9,13 @@
           <% if current_user.flats.present? %>
             <div class="worker-favorite">
               <% if  current_user.workers.include? worker %>
-                <i class="fas fa-heart"></i>
+                <%= link_to '<i class="fas fa-heart"></i>'.html_safe, user_worker_path(worker.user_workers.first), method: :delete  %>
               <% else %>
-                <i class="far fa-heart"></i>
+                <%= simple_form_for [worker, @user_worker] do |f| %>
+                  <%= f.button :button do %>
+                    <i class="far fa-heart"></i>
+                  <% end %>
+                <% end %>
               <% end %>
             </div>
           <% end %>
