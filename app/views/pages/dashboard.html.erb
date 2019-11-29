@@ -30,9 +30,6 @@
         <% end %>
       </div>
 
-      <div id="document" class="product-container tabcontent bg-white">
-        DOCUMENTS
-      </div>
       <div id="edl" class="product-container tabcontent bg-white">
         ETAT des LIEUX
       </div>
@@ -68,9 +65,14 @@
           <% end %>
         </div>
 
-        <div class="eds right-el d-flex align-items-center justify-content-center">
-          <p class="m-0 p-1">ICI ESPACE DE STOCKAGE</p>
-        </div>
+          <% @user.documents.each do |doc| %>
+          <div class="eds right-el d-flex flex-column justify-content-center">
+            <p class="m-0 p-1"><%= doc.name %></p>
+            <%= cl_image_tag doc.file.key, width: 100 %>
+          </div>
+          <% end %>
+
+        <%= link_to "Ajouter un nouveau document", new_document_path, class: "btn btn-success"  %>
 
       <% else %>
 
