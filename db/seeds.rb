@@ -157,7 +157,7 @@ f2 = Flat.create!({
 puts 'Creating incidents...'
 i1 = Incident.create!({
   flat_id: f1.id,
-  date: Date.new(2019,12,15),
+  date: Date.new(2018,12,15),
   status: "finalisé",
   dispo: "matin tôt",
   category: "plomberie",
@@ -165,7 +165,7 @@ i1 = Incident.create!({
 
 i2 = Incident.create!({
   flat_id: f1.id,
-  date: Date.new(2019,12,15),
+  date: Date.new(2019,06,19),
   status: "finalisé",
   dispo: "matin tôt",
   category: "plomberie",
