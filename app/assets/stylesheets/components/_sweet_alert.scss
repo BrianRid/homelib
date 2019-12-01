@@ -1,0 +1,14 @@
+.swal-button--confirm {
+  color: #212529;
+  background-color: #FFC65A;
+  border: 1px solid #3e549a;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
+
+  &:not([disabled]):hover {
+    color: #fff;
+    background-color: #29595c;
+    border-color: #255153;
+  }
+
+}
+

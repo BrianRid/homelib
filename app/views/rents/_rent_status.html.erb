@@ -1,0 +1,11 @@
+<% if rent.status == "Payé" %>
+  <i class="fas fa-check-circle text-success"></i>
+  <%= link_to "Quittance", rent_path(rent, format: :pdf), class: "btn btn-success", target: "_blank" %>
+<% else %>
+  <i class="fas fa-times-circle text-danger"></i>
+  <button class="btn btn-info btn-pay-rent" data-rent-id="<%= rent.id %>" data-rent-month="<%= rent.date.strftime('%B') %>" data-rent-amount="<%= @rental.loyer %>">Payer</button>
+  <%= simple_form_for rent, html: { class: 'd-none' }, remote: true do |f| %>
+      <%= f.input :status, as: :hidden, input_html: {value: 'Payé'} %>
+      <%= f.button :submit, class: 'd-none' %>
+  <% end %>
+<% end %>

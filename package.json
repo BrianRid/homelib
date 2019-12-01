@@ -7,6 +7,7 @@
     "jquery": "^3.4.1",
     "lightgallery": "^1.6.12",
     "popper.js": "^1.16.0",
+    "sweetalert": "^2.1.2",
     "typed.js": "^2.0.11"
   },
   "devDependencies": {
