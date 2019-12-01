@@ -8,13 +8,13 @@
     <div class="upper-left">
 
       <div class="tab">
-        <button class="tablinks" id="defaultOpen" onclick="openCity(event, 'appart')" >Mon Appartement</button>
+        <button class="tablinks" id="defaultOpen" onclick="openCity(event, 'appart')" >Appartement</button>
         <button class="tablinks" onclick="openCity(event, 'edl')" >Etat des lieux</button>
         <% if @documents.first %>
-          <button class="tablinks" onclick="openCity(event, 'Documents')" >Documents</button>
+          <button class="tablinks" onclick="openCity(event, 'document')" >Documents</button>
         <% end %>
         <% if @incidents.first %>
-         <button class=n"tablinks" onclick="openCity(event, 'Documents')" >Documents</button>
+         <button class="tablinks" onclick="openCity(event, 'incident')" >Incidents</button>
         <% end %>
       </div>
 
@@ -41,12 +41,18 @@
       <div id="edl" class="product-container tabcontent carous2">
           <%= render 'carousel' %>
       </div>
-      <div id="documents" class="product-container tabcontent carous2">
+      <div id="document" class="product-container tabcontent">
          <p>DOCUMENTS</p>
       </div>
 
-      <div id="incidents" class="product-container tabcontent carous2">
+      <div id="incident" class="product-container tabcontent ">
+        <div class="">
           <p>INCIDENTS</p>
+          <% @incidents.each do |incident| %>
+            <span class="align-baseline"> <p> <%=incident.status%> <%=incident.date%> <%=incident.category%> </p></span>
+          <% end %>
+        </div>
+
       </div>
 
     </div>
