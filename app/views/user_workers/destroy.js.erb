@@ -1,10 +1,12 @@
-const workerFavoriteDestroy = document.getElementById('<%= @user_worker.worker.id %>');
-console.log(workerFavoriteDestroy);
-
-if (workerFavoriteDestroy) {
-  <%if @user_worker.errors.any? %>
-    workerFavoriteDestroy.innerHTML = '<%= j render "user_workers/worker_favorite", worker: @user_worker.worker %>';
-  <% else %>
-    workerFavoriteDestroy.innerHTML = '<%= j render "user_workers/worker_favorite", worker: @user_worker.worker %>';
-  <% end %>
+function destroyFavorite(innerHTML) {
+  const workerFavoriteDestroy = document.getElementById('<%= @user_worker.worker.id %>');
+  if (workerFavoriteDestroy) {
+    workerFavoriteDestroy.innerHTML = innerHTML;
+  }
 }
+
+<%if @user_worker.errors.any? %>
+  destroyFavorite('<%= j render "user_workers/worker_favorite", worker: @user_worker.worker %>');
+<% else %>
+ destroyFavorite('<%= j render "user_workers/worker_favorite", worker: @user_worker.worker %>');
+<% end %>

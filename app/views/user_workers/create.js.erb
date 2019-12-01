@@ -1,11 +1,14 @@
 // Here you generate *JavaScript* that would be executed in the browser
-const workerFavorite = document.getElementById('<%= @worker.id %>')
-
-if (workerFavorite) {
-  <%if @user_worker.errors.any? %>
-    workerFavorite.innerHTML = '<%= j render "user_workers/worker_favorite", worker: @worker %>';
-  <% else %>
-    workerFavorite.innerHTML = '<%= j render "user_workers/worker_favorite", worker: @worker %>';
-  <% end %>
+function createFavorite(innerHTML) {
+  const workerFavorite = document.getElementById('<%= @worker.id %>')
+  if (workerFavorite) {
+    workerFavorite.innerHTML = innerHTML;
+  }
 }
+
+<%if @user_worker.errors.any? %>
+  createFavorite('<%= j render "user_workers/worker_favorite", worker: @worker %>');
+<% else %>
+  createFavorite('<%= j render "user_workers/worker_favorite", worker: @worker %>');
+<% end %>
 
