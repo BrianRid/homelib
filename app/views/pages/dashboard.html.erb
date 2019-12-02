@@ -45,37 +45,55 @@
           <div class="title">
             <h1>Mes Loyers</h1>
           </div>
-          <% @last_rents.each do |rent| %>
-            <div class="rent-line">
-              <div class="rent-date">
-                <%= rent.date.strftime('%B') %>
-              </div>
-              <div class="rent-amount">
-                <%= @rental.loyer %>
-              </div>
-              <div class="rent-status">
-                <% if rent.status == "Payé" %>
+          <div class="loyers-content">
+            <% @last_rents.each do |rent| %>
+            <div class="loyer-card">
+              <div class="rent-line">
+                <div class="rent-date">
+                  <%= rent.date.strftime('%B') %>
+                </div>
+                <div class="rent-amount">
+                  <%= @rental.loyer %>
+                </div>
+                <div class="rent-status">
+                  <% if rent.status == "Payé" %>
                   <i class="fas fa-check-circle text-success"></i>
                   <%= link_to "Quittance", rent_path(rent, format: :pdf), class: "btn btn-success", target: "_blank" %>
-                <% else %>
+                  <% else %>
                   <i class="fas fa-times-circle text-danger"></i>
                   <%= link_to "Payer", "#", class: "btn btn-info" %>
-                <% end %>
+                  <% end %>
+                </div>
               </div>
             </div>
-          <% end %>
+            <% end %>
+          </div>
         </div>
-          <div class="eds right-el d-flex flex-column justify-content-center">
-                  Mes documents
-            <% current_user.documents.each do |doc| %>
-                <button class="d-flex">
-                  <i class="fas fa-file-pdf"></i>
-
-                  <p class="m-0 p-1"><%= doc.name %></p>
-                </button>
-               <%#= link_to "download" , ( cl_image_tag"#{doc.file.key}" , :flag => "attachment") %>
-               <%= link_to("download", cl_image_path(doc.file.key)) %>
-          <% end %>
+          <div class="eds right-el d-flex flex-column ">
+            <div class="title">
+              <h1>Mes documents</h1>
+            </div>
+            <div class="document-content">
+              <% current_user.documents.each do |doc| %>
+                <div class="document-card">
+                  <div class="icone">
+                    <i class="fas fa-file-pdf"></i>
+                  </div>
+                  <div class="document-name">
+                    <p class="m-0 p-1"><%= doc.name %></p>
+                  </div>
+                  <div class="document-date">
+                    <p class="m-0 p-1"><%= doc.date %></p>
+                  </div>
+                  <div class="telechargement">
+                    <%= link_to("📥", cl_image_path(doc.file.key), class: "download" ) %>
+                  </div>
+                  <div class="delete">
+                    <%= link_to "🗑", document_path(@documents[0]),  method: :delete, class: "destroy" %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
           </div>
 
         <%= link_to "Ajouter un nouveau document", new_document_path, class: "btn btn-success"  %>
@@ -92,7 +110,7 @@
 
 
   <!-- Partie basse des tuiles responsive -->
-  <div class="container incident mt-5">
+  <div class="container-incident">
     <h1>Déclarer un sinistre</h1>
 
     <%= simple_form_for Incident.new, html:{id:"dashboard_new_incident"} do |f| %>

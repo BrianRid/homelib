@@ -16,7 +16,7 @@ class DocumentPolicy < ApplicationPolicy
     true
   end
 
-  def delete?
+  def destroy?
     true
   end
 
