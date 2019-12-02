@@ -1,37 +1,43 @@
-<h2>S'inscrire</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+<div id="form" class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url(https://images.unsplash.com/photo-1462899006636-339e08d1844e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80);">
+  <div class="d-flex justify-content-center mt-n5">
+    <div>
+      <h1 class='text-center'><h3 class="text-light">S'inscrire</h3>
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email,
-                label: "Email",
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-    <%= f.input :password,
-                label: "Mot de passe",
-                required: true,
-                hint: ("#{@minimum_password_length}
-                caractères minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new_password" } %>
-    <%= f.input :password_confirmation,
-                label: "Confirmation mot de passe",
-                required: true,
-                input_html: { autocomplete: "new_password" } %>
-    <%= f.input :first_name,
-                label: "Prénom",
-                required: true,
-                input_html: { autocomplete: "first_name" } %>
-    <%= f.input :last_name,
-                label: "Nom de famille",
-                required: true,
-                input_html: { autocomplete: "last_name" } %>
+        <div class="form-inputs">
+          <%= f.input :first_name,
+                      placeholder: 'Insérez votre prénom', label: false,
+                      required: true,
+                      input_html: { autocomplete: "first_name" } %>
+          <%= f.input :last_name,
+                      placeholder: 'Insérez votre nom de famille', label: false,
+                      required: true,
+                      input_html: { autocomplete: "last_name" } %>
+          <%= f.input :email,
+                      placeholder: 'Insérez votre e-mail', label: false,
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "email" } %>
+          <%= f.input :password,
+                      placeholder: 'Insérez votre mot de passe', label: false,
+                      required: true,
+                      hint: ("#{@minimum_password_length}
+                      caractères minimum" if @minimum_password_length),
+                      input_html: { autocomplete: "new_password" } %>
+          <%= f.input :password_confirmation,
+                      placeholder: 'Confirmez votre mot de passe ici', label: false,
+                      required: true,
+                      input_html: { autocomplete: "new_password" } %>
+        </div>
+
+        <div class="form-actions d-flex align-items-center justify-content-between">
+          <%= f.button :submit, "Enregistrer", class: 'btn btn-primary ml-0 text-white' %>
+          <span class="ml-5">  <%= render "devise/shared/links" %></span>
+        </div>
+      <% end %>
+
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Enregistrer", class: 'btn btn-primary' %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

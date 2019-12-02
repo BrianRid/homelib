@@ -24,8 +24,32 @@ User.destroy_all
 puts 'all users destroyed'
 puts 'all records destroyed'
 puts 'Creating some of each...'
-
 puts 'Creating workers'
+
+photos_seed = [
+"https://images.unsplash.com/photo-1446712146541-843e336d8154?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9",
+"https://images.unsplash.com/photo-1567110823526-8ba395ecd6cc?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9",
+"https://images.unsplash.com/photo-1569122243657-3c1c51340f65?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9",
+"https://images.unsplash.com/photo-1517414628894-83d47b22f233?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9",
+"https://images.unsplash.com/photo-1553104101-f1608f351b76?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9",
+"https://images.unsplash.com/photo-1553444835-65ddad82cd2d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9",
+"https://images.unsplash.com/photo-1556228149-d8f523f77b5a?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9",
+"https://images.unsplash.com/photo-1554781130-e21b7c103c57?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9",
+"https://images.unsplash.com/photo-1553444846-87cc4fe91447?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9",
+"https://images.unsplash.com/photo-1533759413974-9e15f3b745ac?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9",
+"https://images.unsplash.com/photo-1536858974309-969976df0d4d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9",
+"https://images.unsplash.com/photo-1571604102350-2a203b389877?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=1600",
+"https://images.unsplash.com/photo-1557298294-48a457613e85?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9",
+"https://images.unsplash.com/photo-1523772354886-34a1dc2f72e7?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9",
+"https://images.unsplash.com/photo-1558211583-ecfebb03748b?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9",
+"https://images.unsplash.com/photo-1556908493-4ac5f138ab77?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9",
+"https://images.unsplash.com/flagged/photo-1556438757-f9181aa300ca?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9",
+"https://images.unsplash.com/photo-1566047913275-290b57ae311c?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9",
+"https://images.unsplash.com/photo-1556185781-a47769abb7ee?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9"
+ ]
+
+
+
 i = 1
 plombiers.each_value do |plombier|
   # clé en STRING car provient d'un json!!
@@ -39,7 +63,7 @@ plombiers.each_value do |plombier|
   })
   puts "photo #{i}"
   wx.photos.attach(
-    io: URI.open('https://source.unsplash.com/random/?{bathroom}'),
+    io: URI.open(photos_seed[i-1]),
     filename: "worker_#{i}",
     content_type: 'image/jpg',
   )
@@ -49,9 +73,6 @@ plombiers.each_value do |plombier|
     filename: "worker_avatar_#{i}",
     content_type: 'image/jpg',
   )
-
-
-
   puts "Create #{i}"
   i += 1
 end
@@ -136,7 +157,7 @@ f2 = Flat.create!({
 puts 'Creating incidents...'
 i1 = Incident.create!({
   flat_id: f1.id,
-  date: Date.new(2019,12,15),
+  date: Date.new(2018,12,15),
   status: "finalisé",
   dispo: "matin tôt",
   category: "plomberie",
@@ -144,7 +165,7 @@ i1 = Incident.create!({
 
 i2 = Incident.create!({
   flat_id: f1.id,
-  date: Date.new(2019,12,15),
+  date: Date.new(2019,06,19),
   status: "finalisé",
   dispo: "matin tôt",
   category: "plomberie",
@@ -297,7 +318,7 @@ work1 = Worker.create!({
   categories: "plomberie",
 })
 work1.photos.attach(
-    io: URI.open('https://source.unsplash.com/random/?{bathroom}'),
+    io: URI.open(photos_seed[18]),
     filename: "worker_18",
     content_type: 'image/jpg',
   )
@@ -309,7 +330,7 @@ work2 = Worker.create!({
   categories: "serrurerie",
 })
 work2.photos.attach(
-    io: URI.open('https://source.unsplash.com/random/?{bathroom}'),
+    io: URI.open('https://s3-eu-west-1.amazonaws.com/sc-files.pjms.fr/p/pjms/316/000/232/098/87244799386e4f099e804f3b6eb8dd20.jpg'),
     filename: "worker_19",
     content_type: 'image/jpg',
   )

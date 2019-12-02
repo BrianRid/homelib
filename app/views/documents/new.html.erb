@@ -1,8 +1,14 @@
-<div class="container">
-  <%= simple_form_for @document do |f| %>
-    <%= f.input :name, placeholder: "Nom du document" %>
-    <%= f.input :date, placeholder: "Date" %>
-    <%= f.input :file, as: :file %>
-    <%= f.submit "Créer", class: "btn btn-primary" %>
-  <% end %>
-</div>
+<div id="form" class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url(https://images.unsplash.com/photo-1462899006636-339e08d1844e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80);">
+  <div class="d-flex justify-content-center mt-n5">
+    <div>
+      <h3 class="text-light pb-4">Nouveau document</h3>
+        <%= simple_form_for @document do |f| %>
+          <%= f.input :name, placeholder: 'Nom du document', label: false %>
+          <%= f.input :date , as: :date, html5: true, label: false, :input_html => { :class => 'ml-0 mr-0' } %>
+          <%= f.input :file , label: false, :input_html => { :class => 'text-white' }%>
+          <%= f.submit "Créer", class: "btn btn-primary ml-0 text-white" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+

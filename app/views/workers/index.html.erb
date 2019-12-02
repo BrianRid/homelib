@@ -5,19 +5,11 @@
   <ul class="">
     <% @workers.each_with_index do |worker, idx| %>
       <li>
-        <div id="worker-<%= worker.id %>" class="card-worker mt-3">
+        <div data-worker-id="<%= worker.id %>" class="card-worker mt-3">
           <% if current_user.flats.present? %>
-            <div class="worker-favorite">
-              <% if  current_user.workers.include? worker %>
-                <%= link_to '<i class="fas fa-heart"></i>'.html_safe, user_worker_path(worker.user_workers.first), method: :delete  %>
-              <% else %>
-                <%= simple_form_for [worker, @user_worker] do |f| %>
-                  <%= f.button :button do %>
-                    <i class="far fa-heart"></i>
-                  <% end %>
-                <% end %>
-              <% end %>
-            </div>
+          <div id="<%= worker.id %>">
+            <%= render 'user_workers/worker_favorite', worker: worker %>
+          </div>
           <% end %>
           <div class="worker-photo">
             <%= cl_image_tag worker.photos.first.key, crop: :thumb, width: 190, height: 280 %>
