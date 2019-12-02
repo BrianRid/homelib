@@ -4,9 +4,15 @@ class RentsController < ApplicationController
     @rent = Rent.find(params[:id])
     authorize @rent
     if @rent.update(rent_params)
-      redirect_to dashboard_path
+      respond_to do |format|
+        format.html { redirect_to dashboard_path }
+        format.js  # <-- will render `app/views/rents/update.js.erb`
+      end
     else
-      render "pages/dashboard"
+      respond_to do |format|
+        format.html { render "pages/dashboard" }
+        format.js  # <-- idem
+      end
     end
   end
 

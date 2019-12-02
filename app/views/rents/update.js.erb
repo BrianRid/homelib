@@ -1,0 +1,12 @@
+function updateRentStatus(rentStatusHTML) {
+  const rentStatus = document.querySelector('#rent_<%= @rent.id %> .rent-status');
+  if (rentStatus) {
+    rentStatus.innerHTML = rentStatusHTML;
+  }
+}
+
+<% if @rent.errors.any? %>
+  updateRentStatus('<%= j render "rents/rent_status", rent: @rent, rental: @rental %>');
+<% else %>
+  updateRentStatus('<%= j render "rents/rent_status", rent: @rent, rental: @rental %>');
+<% end %>

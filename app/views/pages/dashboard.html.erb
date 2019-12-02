@@ -66,25 +66,16 @@
           <div class="title">
             <h1>Mes Loyers</h1>
           </div>
-          <div class="loyers-content">
-            <% @last_rents.each do |rent| %>
-            <div class="loyer-card">
-              <div class="rent-line">
-                <div class="rent-date">
-                  <%= rent.date.strftime('%B') %>
-                </div>
-                <div class="rent-amount">
-                  <%= @rental.loyer %>
-                </div>
-                <div class="rent-status">
-                  <% if rent.status == "Payé" %>
-                  <i class="fas fa-check-circle text-success"></i>
-                  <%= link_to "Quittance", rent_path(rent, format: :pdf), class: "btn btn-success", target: "_blank" %>
-                  <% else %>
-                  <i class="fas fa-times-circle text-danger"></i>
-                  <%= link_to "Payer", "#", class: "btn btn-info" %>
-                  <% end %>
-                </div>
+          <% @last_rents.each do |rent| %>
+            <div id="rent_<%= rent.id %>" class="rent-line">
+              <div class="rent-date">
+                <%= rent.date.strftime('%B') %>
+              </div>
+              <div class="rent-amount">
+                <%= @rental.loyer %> €
+              </div>
+              <div class="rent-status">
+                <%= render 'rents/rent_status', rent: rent, rental: @rental %>
               </div>
             </div>
             <% end %>

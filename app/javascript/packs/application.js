@@ -9,7 +9,7 @@ import { initLightGallery } from '../components/init_lightgallery';
 import { readMore } from '../components/worker_read_more';
 import {hideSubmit} from '../components/submit_incident';
 import {hideSubmitAnswers} from '../components/submit_incident';
-
+import { sweetAlert } from '../components/init_sweetalert';
 
 
 animateHomeContentTabs()
@@ -22,4 +22,5 @@ initLightGallery();
 readMore();
 hideSubmit();
 hideSubmitAnswers();
-
+// Activate a WARNIG sweetAlert before to pay a rent
+sweetAlert('.btn-pay-rent');
