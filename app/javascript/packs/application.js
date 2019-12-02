@@ -12,7 +12,7 @@ import {hideSubmitAnswers} from '../components/submit_incident';
 import { sweetAlert } from '../components/init_sweetalert';
 
 
-animateHomeContentTabs()
+animateHomeContentTabs();
 activeLink();
 animateFlashes();
 initModal();
