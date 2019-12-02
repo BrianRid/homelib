@@ -6,11 +6,11 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-  get '/dashboard', to: 'pages#dashboard'
+  get '/dashboard', to: 'pages#dashboard2'
 
   resources :rents, only: [:update, :show]
   resources :flats
-  resources :incidents, only: [:new, :create]
+  resources :incidents, only: [:new, :create, :show]
   resources :workers, only: [:index] do
     resources :user_workers, only: :create
   end

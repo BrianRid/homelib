@@ -14,7 +14,7 @@ import "../plugins/flatpickr";
 import { getUploadFileName} from "../components/fileupload"
 
 
-animateHomeContentTabs()
+animateHomeContentTabs();
 activeLink();
 animateFlashes();
 initModal();
@@ -25,5 +25,9 @@ readMore();
 hideSubmit();
 hideSubmitAnswers();
 // Activate a WARNIG sweetAlert before to pay a rent
-sweetAlert('.btn-pay-rent');
 getUploadFileName();
+
+if(document.querySelector("#dashboard")){
+  sweetAlert('.btn-pay-rent');
+}
+

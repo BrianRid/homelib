@@ -1,5 +1,4 @@
 
-<!-- conteneur général de toute la page -->
 <div class="container">
 
   <!-- conteneur de la partie haute -->
@@ -70,18 +69,21 @@
           <%= link_to "Ajouter un nouveau document", new_document_path, class: "btn btn-success"  %>
       </div>
 
-      <% if @incidents.first %>
-        <div id="incident" class="product-container tabcontent ">
-          <div class="">
-            <p >INCIDENTS</p>
-            <% @incidents.each do |incident| %>
+
+      <div id="incident" class="product-container tabcontent ">
+        <div class="">
+          <p>INCIDENTS</p>
+          <% @incidents.each do |incident| %>
+            <% if incident.date && incident.date >= @rental.start_date %>
+
               <span class="align-baseline"> <p> <%=incident.status%> <%=incident.date%> <%=incident.category%> </p></span>
             <% end %>
-          </div>
+          <% end %>
         </div>
-      <% end %>
-    </div>
+      </div>
 
+    </div>
+  </div>
   <!-- Partie haute dashboard loyer  -->
 
     <div class="upper-right d-flex flex-column">
@@ -91,6 +93,8 @@
           <div class="title">
             <p class="">Mes Loyers</p>
           </div>
+
+          <div class="loyers-content">
           <% @last_rents.each do |rent| %>
             <div id="rent_<%= rent.id %>" class="rent-line">
               <div class="rent-date">
@@ -104,6 +108,7 @@
               </div>
             </div>
           <% end %>
+          </div>
         </div>
 
         <div class="eds right-el d-flex flex-column ">
@@ -145,13 +150,17 @@
 
 
   <!-- Partie basse des tuiles responsive -->
+  <!--
   <div class="container-incident">
     <h1>Déclarer un sinistre</h1>
-    <%= simple_form_for Incident.new, html:{id:"dashboard_new_incident"} do |f| %>
-      <%= f.input :answer, label: "", collection: @first_decision[:answers], label_method: lambda{ |answer| render "incident_category_card", incident_category: answer.first }, as: :radio_buttons %>
-      <%= f.submit "OK", class: "btn btn-primary d-none" %>
-    <% end %>
+
+
+    <%#= simple_form_for Incident.new, html:{id:"dashboard_new_incident"} do |f| %>
+      <%#= f.input :answer, label: "", collection: @first_decision[:answers], label_method: lambda{ |answer| render "incident_category_card", incident_category: answer.first }, as: :radio_buttons %>
+      <%#= f.submit "OK", class: "btn btn-primary d-none" %>
+    <%# end %>
   </div>
+-->
 
 
 <!--

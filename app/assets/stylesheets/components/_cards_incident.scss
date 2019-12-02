@@ -5,22 +5,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: $dark-green;
   font-size: 24px;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  // font-weight: bold;
+  // text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.5);
   &:hover {
     opacity:0.8;
   }
-}
-
-.cards {
-  display: flex;
-  // display: grid;
-  // grid-template-columns: 1fr 1fr 1fr;
-  // grid-gap: 16px;
 }
 .card-incident {
   flex: 1 0 1%;
@@ -28,6 +21,10 @@
   &:last-child {
     margin-right: 0;
   }
+}
+
+.cards {
+  display: flex;
 }
 
 // Smallest device
@@ -62,5 +59,19 @@
 @media (min-width: 1200px) {
   .cards {
     grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+/* INCIDENT RESULT */
+.incident-result {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background-color: white;
+
+  p {
+    margin-left: 15px;
   }
 }

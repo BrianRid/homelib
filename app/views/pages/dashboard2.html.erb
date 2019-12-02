@@ -1,0 +1,133 @@
+<div id="dashboard" class="flat-image">
+  <%= cl_image_tag  @rental.photos.fourth.key, class:"d-block img-fluid",width: 1800, height: 550, crop: :fill %>
+</div>
+
+<div class="container">
+  <div class="row w-100">
+
+    <div class="col-4 offset-8">
+
+      <!-- card résumé appart -->
+      <div id="appart2" class="mb-5">
+        <% if @flat %>
+        <div class="carac-appart p-3">
+          <h1><i class="far fa-building"></i>   Caractéristiques</h1>
+          <p class="m-0"><i class="fas fa-location-arrow"></i><%= @flat.address %></p>
+          <p class="m-0"><i class="fas fa-info"></i><%= @flat.nb_rooms %> chambres</p>
+          <p class="m-0"><i class="fas fa-arrows-alt"></"></i><%= @flat.area %>m2</p>
+          <% if @flat.furnished? %>
+          <p class="m-0"><i class="fas fa-couch"></i> Meublé </p>
+          <% end %>
+        </div>
+        <div class="carac-syndic p-3">
+          <h1>Coordonnées du Syndic</h1>
+          <p class="m-0"><i class="fas fa-phone"> </i>  <%= @flat.syndic_phone %></p>
+          <p class="m-0"><i class="fas fa-envelope-open-text"></i>  <%= @flat.syndic_email %></p>
+        </div>
+        <% else %>
+        Pas de location en cours
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row w-100">
+    <div class="col-8">
+      <!-- Partie basse des tuiles responsive -->
+      <div class="container-incident">
+        <h1>Déclarer un sinistre</h1>
+
+        <%= simple_form_for Incident.new, html:{id:"dashboard_new_incident2"} do |f| %>
+        <%= f.input :answer, label: "", collection: @first_decision[:answers], label_method: lambda{ |answer| render "incident_category_card", incident_category: answer.first }, as: :radio_buttons %>
+        <%= f.submit "OK", class: "btn btn-primary d-none" %>
+        <% end %>
+
+      </div>
+    </div>
+
+    <div class="col4">
+      <div id="incident">
+        <div class="incident-history">
+          <h1>Historique d'incidents</h1>
+          <% @incidents.each do |incident| %>
+          <span class="align-baseline"> <p> <%=incident.category%> <%=incident.date%> <%=incident.status%> </p></span>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row w-100">
+    <div class="col-6">
+      <% if @rental %>
+      <!-- card loyer -->
+      <div class="loyers2 right-el mb-5">
+        <div class="title">
+          <h1>Mes Loyers</h1>
+        </div>
+        <div class="loyers-content">
+          <% @last_rents.each do |rent| %>
+          <div id="rent_<%= rent.id %>" class="rent-line">
+            <div class="rent-date">
+              <%= rent.date.strftime('%B') %>
+            </div>
+            <div class="rent-amount">
+              <%= @rental.loyer %> €
+            </div>
+            <div class="rent-status">
+              <%= render 'rents/rent_status', rent: rent, rental: @rental %>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+      <% else %>
+      <p>Pas de location en cours</p>
+      <% end %>
+    </div>
+
+    <div class="col-6">
+    <% if @rental %>
+    <!-- card documents -->
+
+      <div class="eds2 right-el d-flex flex-column ">
+        <div class="title">
+          <h1>Mes documents</h1>
+        </div>
+        <div class="document-content">
+          <% current_user.documents.each do |doc| %>
+          <div class="document-card">
+            <div class="icone">
+              <i class="fas fa-file-pdf"></i>
+            </div>
+            <div class="document-name">
+              <p class="m-0 p-1"><%= doc.name %></p>
+            </div>
+            <div class="document-date">
+              <p class="m-0 p-1"><%= doc.date %></p>
+            </div>
+            <div class="telechargement">
+              <%= link_to("📥", cl_image_path(doc.file.key), class: "download" ) %>
+            </div>
+            <div class="delete">
+              <%= link_to "🗑", document_path(@documents[0]),  method: :delete, class: "destroy" %>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+      <%= link_to "Ajouter un nouveau document", new_document_path, class: "btn btn-success w-100"  %>
+
+      <% else %>
+      <p>Pas de location en cours</p>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+  <%= render 'carousel' %>
+
+<!-- Display error -->
+<%= render 'incidents/errors', incident: @incident %>

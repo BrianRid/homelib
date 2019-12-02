@@ -1,3 +1,8 @@
-<div id="myBtn" class="card-incident" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-  <%= incident_category %>
+<div id="myBtn" class="card-incident d-flex flex-column" style="background-color: $light-green;">
+  <div>
+    <img src="<%= image_path "#{incident_category.downcase}.svg" %>" width="60px" height="60px" alt="">
+  </div>
+  <div>
+    <%= incident_category %>
+  </div>
 </div>
