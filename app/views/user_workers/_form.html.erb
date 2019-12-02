@@ -1,0 +1,5 @@
+<%= simple_form_for [worker, UserWorker.new], remote: true, method: :post do |f| %>
+  <%= f.button :button do %>
+    <i class="far fa-heart"></i>
+  <% end %>
+<% end %>

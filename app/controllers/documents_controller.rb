@@ -15,10 +15,11 @@ class DocumentsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     @document = Document.find[params[:id]]
-    @patient.destroy
+    @document.destroy
     authorize(@document)
+    redirect_to dashboard_path
   end
 
   private

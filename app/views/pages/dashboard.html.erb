@@ -4,11 +4,18 @@
 
   <!-- conteneur de la partie haute -->
   <div class="upper-part">
+
     <div class="upper-left">
 
       <div class="tab">
-        <button class="tablinks" id="defaultOpen" onclick="openCity(event, 'appart')" >Mon Appartement</button>
+        <button class="tablinks" id="defaultOpen" onclick="openCity(event, 'appart')" >Appartement</button>
         <button class="tablinks" onclick="openCity(event, 'edl')" >Etat des lieux</button>
+        <% if @documents.first %>
+          <button class="tablinks" onclick="openCity(event, 'document')" >Documents</button>
+        <% end %>
+        <% if @incidents.first %>
+         <button class="tablinks" onclick="openCity(event, 'incident')" >Incidents</button>
+        <% end %>
       </div>
 
       <div id="appart" class="product-container tabcontent bg-white">
@@ -34,6 +41,20 @@
       <div id="edl" class="product-container tabcontent carous2">
           <%= render 'carousel' %>
       </div>
+      <div id="document" class="product-container tabcontent">
+         <p>DOCUMENTS</p>
+      </div>
+
+      <div id="incident" class="product-container tabcontent ">
+        <div class="">
+          <p>INCIDENTS</p>
+          <% @incidents.each do |incident| %>
+            <span class="align-baseline"> <p> <%=incident.status%> <%=incident.date%> <%=incident.category%> </p></span>
+          <% end %>
+        </div>
+
+      </div>
+
     </div>
 
   <!-- Partie haute dashboard loyer  -->
@@ -57,19 +78,34 @@
                 <%= render 'rents/rent_status', rent: rent, rental: @rental %>
               </div>
             </div>
-          <% end %>
+            <% end %>
+          </div>
         </div>
-          <div class="eds right-el d-flex flex-column justify-content-center">
-                  Mes documents
-            <% current_user.documents.each do |doc| %>
-                <button class="d-flex">
-                  <i class="fas fa-file-pdf"></i>
-
-                  <p class="m-0 p-1"><%= doc.name %></p>
-                </button>
-               <%#= link_to "download" , ( cl_image_tag"#{doc.file.key}" , :flag => "attachment") %>
-               <%= link_to("download", cl_image_path(doc.file.key)) %>
-          <% end %>
+          <div class="eds right-el d-flex flex-column ">
+            <div class="title">
+              <h1>Mes documents</h1>
+            </div>
+            <div class="document-content">
+              <% current_user.documents.each do |doc| %>
+                <div class="document-card">
+                  <div class="icone">
+                    <i class="fas fa-file-pdf"></i>
+                  </div>
+                  <div class="document-name">
+                    <p class="m-0 p-1"><%= doc.name %></p>
+                  </div>
+                  <div class="document-date">
+                    <p class="m-0 p-1"><%= doc.date %></p>
+                  </div>
+                  <div class="telechargement">
+                    <%= link_to("📥", cl_image_path(doc.file.key), class: "download" ) %>
+                  </div>
+                  <div class="delete">
+                    <%= link_to "🗑", document_path(@documents[0]),  method: :delete, class: "destroy" %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
           </div>
 
         <%= link_to "Ajouter un nouveau document", new_document_path, class: "btn btn-success"  %>
@@ -86,7 +122,7 @@
 
 
   <!-- Partie basse des tuiles responsive -->
-  <div class="container incident mt-5">
+  <div class="container-incident">
     <h1>Déclarer un sinistre</h1>
 
     <%= simple_form_for Incident.new, html:{id:"dashboard_new_incident"} do |f| %>

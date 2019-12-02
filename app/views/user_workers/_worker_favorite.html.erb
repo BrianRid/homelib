@@ -1,0 +1,7 @@
+  <div class="worker-favorite">
+    <% if  current_user.workers.include? worker %>
+      <%= link_to '<i class="fas fa-heart"></i>'.html_safe, user_worker_path(worker.user_workers.first), method: :delete, remote: true %>
+    <% else %>
+      <%= render 'user_workers/form', worker: worker %>
+    <% end %>
+  </div>

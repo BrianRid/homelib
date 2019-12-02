@@ -28,7 +28,7 @@
 }
 
 .tablinks {
-  width: 50%;
+  width: 25%;
   color: white;
 }
 
@@ -84,6 +84,7 @@
   // box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
+
 .title {
   color: white;
   background-color: #357376;
@@ -127,19 +128,63 @@
 
 //container des pdf
 
+.right-el {
+  height: 200px;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.document-content {
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.loyers-content {
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+
 .fa-file-pdf {
   color: red;
 }
 
+.document-card {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.document-name{
+  flex-grow: 1;
+}
+
+.document-date {
+  flex: 0 0 100px;
+}
+
+.download {
+  flex: 0 0 50px;
+  padding: 15px;
+}
+
+.destroy {
+  flex: 0 0 50px;
+  padding: 15px;
+}
+
 // Container des cards incidents
 
-.incident {
+.container-incident {
   padding: 0px;
+  margin-top: 70px;
 
   h1 {
     color: $dark-green;
+    background-color: #F4F4F4;
     text-align: center;
-    margin-bottom: 12px;
+    margin-top: 70px;
+    margin-bottom: 30px;
   }
 }
 
@@ -149,10 +194,9 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
-.right-el {
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-}
+
+
+
 
 // form incidents
 
