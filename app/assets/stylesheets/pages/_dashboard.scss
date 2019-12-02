@@ -101,6 +101,7 @@
 
 .rent-line {
   display: flex;
+  height:70px;
   align-items: center;
   padding: 10px;
   .btn {
@@ -140,6 +141,7 @@
 }
 
 .loyers-content {
+  height: 150px;
   overflow: hidden;
   overflow-y: scroll;
 }
@@ -193,9 +195,6 @@
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
-
-
-
 
 
 // form incidents
