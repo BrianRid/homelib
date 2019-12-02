@@ -135,8 +135,7 @@
       <%= f.input :answer, label: "", collection: @first_decision[:answers], label_method: lambda{ |answer| render "incident_category_card", incident_category: answer.first }, as: :radio_buttons %>
       <%= f.submit "OK", class: "btn btn-primary d-none" %>
     <% end %>
-
-
+  </div>
 
 
 <!--
