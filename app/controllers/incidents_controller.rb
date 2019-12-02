@@ -1,8 +1,8 @@
 class IncidentsController < ApplicationController
-  def new
-    # @incident = Incident.new
-    # authorize(@incident)
-    # @first_decision = Incident.first_decision
+  def show
+    @incident = Incident.find(params[:id])
+    @resume = Incident.resume(@incident.last_answer)
+    authorize(@incident)
   end
 
   def create
@@ -18,12 +18,12 @@ class IncidentsController < ApplicationController
       @flat = current_user.flat
 
 
+
       # All workers in the specific category
       @workers = policy_scope(Worker).where(categories: @category)
       # Only the favorite ones
       @workers_favorite = current_user.rentals.last.flat.user.workers.where(categories: @category)
       @workers_other = @workers - @workers_favorite
-      render 'results'
 
       @incident = Incident.new(incident_params)
       @incident.tarif = @results[:final_answer][:tarif]
@@ -31,9 +31,10 @@ class IncidentsController < ApplicationController
       @incident.reparation = @results[:final_answer][:result]
       @incident.flat = @flat
       @incident.category = @category
+      @incident.last_answer = answer
 
     if @incident.save
-      redirect_to @show
+      redirect_to incident_path(@incident)
     end
     # else
     #   @incident = Incident.new
