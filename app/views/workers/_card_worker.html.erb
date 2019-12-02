@@ -34,6 +34,6 @@
     <button>Contacter</button>
     <button>Voir plus</button>
     <!-- Avatar -->
-    <%= image_tag "p#{idx + 1}.jpg", alt: "alttext", class: 'avatar-bordered worker-avatar' %>
+    <%= cl_image_tag worker.avatar.key, width: 150, height: 150, crop: :thumb, gravity: :face, class: 'avatar-bordered worker-avatar' if worker.avatar.attached? %>
   </div>
 </div>
