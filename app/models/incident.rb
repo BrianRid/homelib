@@ -7,7 +7,7 @@ class Incident < ApplicationRecord
   has_one :user, through: :flat
   has_many :works
 
-  validates :category, presence: true, inclusion: { in: ["plomberie", "électricité", "serrurerie", "chauffage", "vitrerie", "petits travaux", "jardinage", "peinture", "sols", "électroménager"] }
+  validates :category, presence: true, inclusion: { in: ["plomberie", "electricité", "serrurerie", "chauffage", "vitrerie", "petits travaux", "jardinage", "peinture", "sols", "électroménager"] }
 
   def self.first_decision
     question = "Voulez-vous déclarer un incident ?"
