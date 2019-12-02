@@ -11,6 +11,12 @@ class IncidentsController < ApplicationController
     if @next_decision.nil?
       @results = Incident.final_result(answer)
       @resume = Incident.resume(answer)
+      category = Incident::TREE[@resume[0]][:label].downcase
+      # All workers in the specific category
+      @workers = policy_scope(Worker).where(categories: category)
+      # Only the favorite ones
+      @workers_favorite = current_user.rentals.last.flat.user.workers.where(categories: category)
+      @workers_other = @workers - @workers_favorite
       render 'results'
       @incident = Incident.new
       authorize(@incident)

@@ -1,21 +1,72 @@
-<div class="container">
+<div class="container-fluid">
+  <div class="incident-wrapper">
+    <div class="incident-left">
+      <div class="incident-left-upper">
+        <!-- Display the result with all incident informations -->
+        <div class="incident-result">
+          <h1>Résultats de votre incident</h1>
+          <!-- Date -->
+          <div class="incident-date">
+            <h5><strong>Date de l'incident:</strong></h5>
+            <p><%= Date.today.strftime("%d.%m.%Y") %></p>
+          </div>
+          <!-- Category -->
+          <div class="incident-category">
+            <h5><strong>Nature de l'intervention:</strong></h5>
+            <p><%= @results[:final_answer][:result] %></p>
+          </div>
+          <!-- Price -->
+          <div class="incident-price">
+            <h5><strong>Prix approximatif de l'intervention:</strong></h5>
+            <p><%= @results[:final_answer][:tarif] %></p>
+          </div>
+          <!-- Responsability -->
+          <div class="incident-responsability">
+            <h5><strong>Paiement attribué:</strong></h5>
+            <p><%= @results[:final_answer][:responsable] %></p>
+          </div>
+          <!-- Summary -->
+          <div class="incident-summary">
+            <h5><strong>Votre incident:</strong></h5>
+            <% @resume.each do |t| %>
+              <p>> <%= Incident::TREE[t][:label] %></p>
+              <p><%= Incident::TREE[t][:next_question] %></p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="incident-left-down">
+        <button class="btn btn-lg btn-danger">Je répare moi-même</button>
+        <p>Ou bien je fais appel à un réparateur <i class="fas fa-arrow-right"></i></p>
+      </div>
+    </div>
+    <!-- Display the list of workers -->
+    <div class="incident-right">
+      <div class="incident-workers">
+        <div class="container-fluid">
+          <!-- Only Favorite Workers -->
+          <h2>Réparateurs selectionnés par votre propriétaire :</h2>
+          <ul class="">
+            <% @workers_favorite.each_with_index do |worker, idx| %>
+              <li>
+                <%= render 'workers/card_worker', worker: worker, idx: idx %>
+              </li>
+            <% end %>
+          </ul>
+          <!-- Only NONE favorite Workers -->
+          <h2>Autres réparateurs selectionnés par nos soins :</h2>
+          <ul class="">
+            <% @workers_other.each_with_index do |worker, idx| %>
+              <li>
+                <%= render 'workers/card_worker', worker: worker, idx: idx %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <h1>Résultats</h1>
-
-<h5><strong>Nature de l'intervention:</strong></h5>
-<p> <%= @results[:final_answer][:result]  %></p>
-<br/>
-<h5><strong>Prix approximatif de l'intervention:</strong></h5>
-<p> <%= @results[:final_answer][:tarif]  %></p>
-<br/>
-<h5><strong>Paiement attribué:</strong></h5>
-<p> <%= @results[:final_answer][:responsable]  %></p>
-
-<h5><strong>Votre incident:</strong></h5>
-<% @resume.each do |t| %>
-> <%= Incident::TREE[t][:label]  %><br/><br/>
-<%= Incident::TREE[t][:next_question]  %> <br/>
-<% end %>
 
 </div>
 
