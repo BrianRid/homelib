@@ -19,7 +19,7 @@
 
   .loyers-content {
     max-height: 250px;
-    height: auto;
+    overflow: hidden;
     overflow-y: scroll;
   }
 }
