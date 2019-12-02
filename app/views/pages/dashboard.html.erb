@@ -10,10 +10,8 @@
       <div class="tab">
         <button class="tablinks" id="defaultOpen" onclick="openCity(event, 'appart')" >Appartement</button>
         <button class="tablinks" onclick="openCity(event, 'edl')" >Etat des lieux</button>
-        <% if @documents.first %>
           <button class="tablinks" onclick="openCity(event, 'document')" >Documents</button>
-        <% end %>
-        <% if @incident %>
+        <% if @incidents.first %>
          <button class="tablinks" onclick="openCity(event, 'incident')" >Incidents</button>
         <% end %>
       </div>
@@ -48,18 +46,38 @@
           <%= render 'carousel' %>
       </div>
       <div id="document" class="product-container tabcontent">
-         <p>DOCUMENTS</p>
+        <% if @documents.first %>
+          <% current_user.documents.each do |doc| %>
+            <div class="document-card">
+              <div class="icone">
+                <i class="fas fa-file-pdf"></i>
+              </div>
+              <div class="document-name">
+                <p class="m-0 p-1"><%= doc.name %></p>
+              </div>
+              <div class="document-date">
+                <p class="m-0 p-1"><%= doc.date %></p>
+              </div>
+              <div class="telechargement">
+                <%= link_to("📥", cl_image_path(doc.file.key), class: "download" ) %>
+              </div>
+              <div class="delete">
+                <%= link_to "🗑", document_path(@documents[0]),  method: :delete, class: "destroy" %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+          <%= link_to "Ajouter un nouveau document", new_document_path, class: "btn btn-success"  %>
       </div>
+
       <% if @incidents.first %>
         <div id="incident" class="product-container tabcontent ">
           <div class="">
-            <p>INCIDENTS</p>
+            <p >INCIDENTS</p>
             <% @incidents.each do |incident| %>
               <span class="align-baseline"> <p> <%=incident.status%> <%=incident.date%> <%=incident.category%> </p></span>
- <%= raise %>
             <% end %>
           </div>
-
         </div>
       <% end %>
     </div>
@@ -71,12 +89,12 @@
 
         <div class="loyers right-el mb-3">
           <div class="title">
-            <h1>Mes Loyers</h1>
+            <p class="">Mes Loyers</p>
           </div>
           <% @last_rents.each do |rent| %>
             <div id="rent_<%= rent.id %>" class="rent-line">
               <div class="rent-date">
-                <%= rent.date.strftime('%B') %>
+                <%= I18n.l(rent.date,  format: '%B', locale: :'fr').capitalize %>
               </div>
               <div class="rent-amount">
                 <%= @rental.loyer %> €
@@ -90,7 +108,7 @@
 
         <div class="eds right-el d-flex flex-column ">
           <div class="title">
-            <h1>Mes documents</h1>
+            <p class="m-2">Mes documents</p>
           </div>
           <div class="document-content">
             <% current_user.documents.each do |doc| %>
@@ -113,8 +131,8 @@
               </div>
             <% end %>
           </div>
-        </div>
         <%= link_to "Ajouter un nouveau document", new_document_path, class: "btn btn-success"  %>
+        </div>
 
       <% else %>
         <p>Pas de location en cours</p>
@@ -129,13 +147,11 @@
   <!-- Partie basse des tuiles responsive -->
   <div class="container-incident">
     <h1>Déclarer un sinistre</h1>
-
     <%= simple_form_for Incident.new, html:{id:"dashboard_new_incident"} do |f| %>
       <%= f.input :answer, label: "", collection: @first_decision[:answers], label_method: lambda{ |answer| render "incident_category_card", incident_category: answer.first }, as: :radio_buttons %>
       <%= f.submit "OK", class: "btn btn-primary d-none" %>
     <% end %>
-
-
+  </div>
 
 
 <!--

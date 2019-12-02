@@ -10,6 +10,8 @@ import { readMore } from '../components/worker_read_more';
 import {hideSubmit} from '../components/submit_incident';
 import {hideSubmitAnswers} from '../components/submit_incident';
 import { sweetAlert } from '../components/init_sweetalert';
+import "../plugins/flatpickr";
+import { getUploadFileName} from "../components/fileupload"
 
 
 animateHomeContentTabs()
@@ -24,3 +26,4 @@ hideSubmit();
 hideSubmitAnswers();
 // Activate a WARNIG sweetAlert before to pay a rent
 sweetAlert('.btn-pay-rent');
+getUploadFileName();
