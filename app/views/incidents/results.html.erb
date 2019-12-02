@@ -13,8 +13,8 @@
 
 <h5><strong>Votre incident:</strong></h5>
 <% @resume.each do |t| %>
-> <%= Incident::TREE[t][:label]  %><br/><br/>
-<%= Incident::TREE[t][:next_question]  %> <br/>
+  > <%= Incident::TREE[t][:label]  %><br/><br/>
+  <%= Incident::TREE[t][:next_question]  %> <br/>
 <% end %>
 
 </div>

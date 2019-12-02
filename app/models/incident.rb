@@ -7,7 +7,6 @@ class Incident < ApplicationRecord
   has_one :user, through: :flat
   has_many :works
 
-  validates :dispo, presence: true
   validates :category, presence: true, inclusion: { in: ["plomberie", "électricité", "serrurerie", "chauffage", "vitrerie", "petits travaux", "jardinage", "peinture", "sols", "électroménager"] }
 
   def self.first_decision
@@ -40,12 +39,17 @@ class Incident < ApplicationRecord
       splitted_key[0..index].join("_").to_sym
     end
   end
+
+  def category(tree_key)
+    TREE[tree_key][:label].downcase
+  end
+
   TREE = {
     # categories
     p: {
       label: "Plomberie",
       next_question: "Votre problème concerne ?",
-      next_question_answers: [:p_1, :p_2, :p_3, :p_4, :p_5, :p_6, :p_7],
+      next_question_answers: [:p_1, :p_2, :p_3, :p_4, :p_6, :p_7],
       final_answer: nil
     },
     v: {
@@ -55,28 +59,28 @@ class Incident < ApplicationRecord
       final_answer: nil
     },
     e: {
-    label: "Electricité",
-    next_question: "Votre problème concerne ?",
-    next_question_answers: [:e_1, :e_2],
-    final_answer: nil
+      label: "Electricité",
+      next_question: "Votre problème concerne ?",
+      next_question_answers: [:e_1, :e_2],
+      final_answer: nil
     },
     s: {
-    label: "Serrurerie",
-    next_question: "Votre problème concerne ?",
-    next_question_answers: [:e_1, :_2],
-    final_answer: nil
+      label: "Serrurerie",
+      next_question: "Votre problème concerne ?",
+      next_question_answers: [:e_1, :_2],
+      final_answer: nil
     },
     c: {
-    label: "Chauffage",
-    next_question: "Votre problème concerne ?",
-    next_question_answers: [:e_1, :_2],
-    final_answer: nil
+      label: "Chauffage",
+      next_question: "Votre problème concerne ?",
+      next_question_answers: [:e_1, :_2],
+      final_answer: nil
     },
     t: {
-    label: "Autres",
-    next_question: "Votre problème concerne ?",
-    next_question_answers: [:e_1, :_2],
-    final_answer: nil
+      label: "Autres",
+      next_question: "Votre problème concerne ?",
+      next_question_answers: [:e_1, :_2],
+      final_answer: nil
     },
 
     # Plomberie
@@ -103,14 +107,6 @@ class Incident < ApplicationRecord
       next_question: "Quelle est la nature de votre problème ?",
       next_question_answers: [:p_4_1, :p_3_2],
       final_answer: nil
-    },
-    p_5: {
-      label: "Colonne générale d'immeuble",
-      final_answer: {
-        result: "Débouchage de colonne générale",
-        tarif: "Entre 700 et 900 € TTC",
-        responsable: "Propriétaire"
-      }
     },
     p_6: {
       label: "Chaudière, chauffe-eau et ballon d'eau chaude",
