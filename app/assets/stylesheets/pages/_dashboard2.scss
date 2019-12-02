@@ -166,11 +166,11 @@
   // margin-top: 70px;
 
   h1 {
-    color: $dark-green;
-    background-color: #F4F4F4;
+    color: white;
+    background-color: $hover-green;
     text-align: center;
-    // margin-top: 70px;
-    // margin-bottom: 30px;
+    border-radius: 5px;
+    padding: 5px;
   }
 }
 

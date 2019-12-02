@@ -1,8 +1,8 @@
 
 const hideSubmit = () =>{
-  const cards = document.querySelectorAll('#dashboard_new_incident .form-check');
+  const cards = document.querySelectorAll('#dashboard_new_incident2 .form-check');
   if (cards) {
-    const form = document.getElementById('dashboard_new_incident');
+    const form = document.getElementById('dashboard_new_incident2');
     cards.forEach((card)=>{
       card.addEventListener('click', (e) =>{
         form.submit();
