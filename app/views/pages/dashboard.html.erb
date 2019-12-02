@@ -26,12 +26,18 @@
             <p><i class="fas fa-info"></i><%= @flat.description %></p>
             <p><i class="fas fa-arrows-alt"></i><%= @flat.area %> m2</p>
           </div>
-          <div class="carac-syndic p-3">
-            <h1>Coordonnées du Syndic</h1>
-            <p><i class="fas fa-phone"> </i>  <%= @flat.syndic_phone %></p>
-            <p><i class="fas fa-envelope-open-text"></i>  <%= @flat.syndic_email %></p>
+          <div>
+            <div class="carac-syndic p-3">
+              <h1>Coordonnées du Syndic</h1>
+              <p><i class="fas fa-phone"> </i>  <%= @flat.syndic_phone %></p>
+              <p><i class="fas fa-envelope-open-text"></i>  <%= @flat.syndic_email %></p>
+            </div>
+            <div class="carac-syndic p-3">
+              <h1>Ma location</h1>
+              <p><i class="fas fa-plane-arrival"></i>  <%= @rental.start_date %></p>
+              <p><i class="fas fa-money-bill-alt"></i>  <%= @rental.loyer %> €</p>
+            </div>
           </div>
-
         <% else %>
           Pas de location en cours
         <% end %>
@@ -48,7 +54,9 @@
         <div class="">
           <p>INCIDENTS</p>
           <% @incidents.each do |incident| %>
-            <span class="align-baseline"> <p> <%=incident.status%> <%=incident.date%> <%=incident.category%> </p></span>
+            <% if incident.date && incident.date >= @rental.start_date %>
+              <span class="align-baseline"> <p> <%=incident.status%> <%=incident.date%> <%=incident.category%> </p></span>
+            <% end %>
           <% end %>
         </div>
       </div>
@@ -126,8 +134,7 @@
       <%= f.input :answer, label: "", collection: @first_decision[:answers], label_method: lambda{ |answer| render "incident_category_card", incident_category: answer.first }, as: :radio_buttons %>
       <%= f.submit "OK", class: "btn btn-primary d-none" %>
     <% end %>
-
-
+  </div>
 
 
 <!--
