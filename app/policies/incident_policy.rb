@@ -13,4 +13,8 @@ class IncidentPolicy < ApplicationPolicy
     true
     # record.flat.rentals.last.user == user
   end
+
+  def show?
+    true
+  end
 end

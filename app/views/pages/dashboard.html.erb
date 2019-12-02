@@ -55,7 +55,7 @@
         <div class="">
           <p>INCIDENTS</p>
           <% @incidents.each do |incident| %>
-            <% if incident.date >= @rental.start_date %>
+            <% if incident.date && incident.date >= @rental.start_date %>
               <span class="align-baseline"> <p> <%=incident.status%> <%=incident.date%> <%=incident.category%> </p></span>
             <% end %>
           <% end %>
