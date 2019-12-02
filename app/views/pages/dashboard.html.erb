@@ -1,5 +1,4 @@
 
-<!-- conteneur général de toute la page -->
 <div class="container">
 
   <!-- conteneur de la partie haute -->
@@ -60,11 +59,9 @@
             <% end %>
           <% end %>
         </div>
-
       </div>
-
     </div>
-
+  </div>
   <!-- Partie haute dashboard loyer  -->
 
     <div class="upper-right d-flex flex-column">
@@ -74,19 +71,21 @@
           <div class="title">
             <h1>Mes Loyers</h1>
           </div>
-          <% @last_rents.each do |rent| %>
-            <div id="rent_<%= rent.id %>" class="rent-line">
-              <div class="rent-date">
-                <%= rent.date.strftime('%B') %>
+          <div class="loyers-content">
+            <% @last_rents.each do |rent| %>
+              <div id="rent_<%= rent.id %>" class="rent-line">
+                <div class="rent-date">
+                  <%= rent.date.strftime('%B') %>
+                </div>
+                <div class="rent-amount">
+                  <%= @rental.loyer %> €
+                </div>
+                <div class="rent-status">
+                  <%= render 'rents/rent_status', rent: rent, rental: @rental %>
+                </div>
               </div>
-              <div class="rent-amount">
-                <%= @rental.loyer %> €
-              </div>
-              <div class="rent-status">
-                <%= render 'rents/rent_status', rent: rent, rental: @rental %>
-              </div>
-            </div>
-          <% end %>
+            <% end %>
+           </div>
         </div>
 
         <div class="eds right-el d-flex flex-column ">

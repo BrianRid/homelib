@@ -23,4 +23,8 @@ readMore();
 hideSubmit();
 hideSubmitAnswers();
 // Activate a WARNIG sweetAlert before to pay a rent
-sweetAlert('.btn-pay-rent');
+
+
+if(document.querySelector("#dashboard")){
+  sweetAlert('.btn-pay-rent');
+}

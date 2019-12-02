@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   get '/dashboard', to: 'pages#dashboard'
+  get '/dashboard2', to: 'pages#dashboard2'
 
   resources :rents, only: [:update, :show]
   resources :flats
