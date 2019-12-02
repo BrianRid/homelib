@@ -130,6 +130,8 @@ puts 'F1...'
 f1 = Flat.create!({
   user_id: rock.id,
   address: "35 avenue Mac Mahon",
+  zipcode: 75017,
+  city: "Paris",
   description: "Très lumineux, parquet, moulure, cheminée",
   nb_rooms: 2,
   area: "64 m2",
@@ -144,6 +146,8 @@ puts 'F2...'
 f2 = Flat.create!({
   user_id: rock.id,
   address: "35 rue du Loup",
+  zipcode: 33000,
+  city: "Bordeaux",
   description: "Beaucoup de potentiel, orienté nord, moulure, chauffage central",
   nb_rooms: 2,
   area: "26 m2",

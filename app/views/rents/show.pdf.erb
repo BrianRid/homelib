@@ -1,36 +1,69 @@
- <header>
-  <h1 class="center bold border2">Quittance de loyer</h1>
+<style>
+  body {
+    height: 1230px;
+    padding: 30px;
+    border: 3px solid #1D4D4F;
+    border-radius: 15px;
+  }
+  p {
+    font-size: 16px;
+  }
+  .owner-informations p {
+    margin: 0;
+    padding: 0;
+  }
+  .center {
+    text-align: center;
+  }
+  .bold {
+    font-weight: bolder;
+  }
+  .border2 {
+    padding: 10px 30px;
+    border: 2px solid #1D4D4F;
+    border-radius: 10px;
+  }
+  .underline {
+    border-bottom: 1px solid black;
+  }
+</style>
+<header>
+  <div class="owner-informations">
+    <p class="bold"><%= @rent.flat.user.full_name %></p>
+    <p>adresse: <%= @rent.flat.user.address %></p>
+    <p>email: <%= @rent.flat.user.email %></p>
+    <p>téléphone: <%= @rent.flat.user.phone %></p>
+  </div>
+  <h1 class="center bold"><span class="border2">Quittance de loyer</span></h1>
 </header>
 <section>
   <br /><br />
   <p>
-    Quittance de loyer du mois de <%= @rent.date %>
+    Quittance de loyer du mois de <%= @rent.date.strftime('%B') %>
   </p>
   <br />
   <div id="layout_adress" class="border1">
-    <span class="bold underline">Adresse de l'appartement':</span><br /><br />
+    <h2><span class="bold underline">Adresse de l'appartement:</span></h2>
     <%= @rent.flat.address %><br />
+    <%= @rent.flat.zipcode %> <%= @rent.flat.city %><br />
   </div>
   <br /><br />
-  <p>
-    Je soussigné <%= @rent.flat.user.first_name %>, propriétaire du logement désigné ci-dessus, déclare avoir reçu de <%= @rent.rental.user.first_name %>,
-    la somme de  <%= @rent.rental.loyer %> euros , au titre du paiement du loyer et des charges et lui en donne quittance, sous réserve de tous mes droits.
-  </p>
+  <p>Je soussigné <%= @rent.flat.user.full_name %>, propriétaire du logement désigné ci-dessus, déclare avoir reçu de <%= @rent.rental.user.full_name %>, la somme de  <%= @rent.rental.loyer %> euros , au titre du paiement du loyer et des charges et lui en donne quittance, sous réserve de tous mes droits.</p>
   <br /><br />
   <div id="detail" class="border1">
-    <span class="bold underline">Détail du règlement :</span><br /><br />
-    Loyer : <%= @rent.rental.loyer %> euros <br />
+    <h2><span class="bold underline">Détail du règlement :</span></h2>
+    <% charge = 70 %>
+    Loyer : <%= @rent.rental.loyer - charge %> euros <br />
+    Charge : <%= charge %> euros <br/>
     Total du loyer : <%= @rent.rental.loyer %> euros <br />
-    Date du paiement: le <%= Time.now.strftime("%d/%m/%Y") %>
+    Date du paiement: le <%= @rent.date.strftime("%d/%m/%Y") %>
   </div>
   <br />
-  <p id="done">
-    Fait à Paris, le <%= Time.now.strftime("%d/%m/%Y") %>
-  </p>
+  <p id="done">Fait à Paris, le <%= @rent.date.strftime("%d/%m/%Y")  %></p>
   <br />
   <p id="signature" class="border1"></p>
   <br /><br />
 </section>
 <footer class="bold center">
-  Cette quittance annule tous les reçus qui auraient pu être établis précédemment en cas de paiement partiel du montant du présent terme. Elle est à conserver pendant cinq ans par le locataire (article 2224 du Code civil).
+  <p>Cette quittance annule tous les reçus qui auraient pu être établis précédemment en cas de paiement partiel du montant du présent terme. Elle est à conserver pendant cinq ans par le locataire (article 2224 du Code civil).</p>
 </footer>
