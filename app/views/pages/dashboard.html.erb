@@ -13,7 +13,7 @@
         <% if @documents.first %>
           <button class="tablinks" onclick="openCity(event, 'document')" >Documents</button>
         <% end %>
-        <% if @incidents.first %>
+        <% if @incident %>
          <button class="tablinks" onclick="openCity(event, 'incident')" >Incidents</button>
         <% end %>
       </div>
@@ -50,19 +50,18 @@
       <div id="document" class="product-container tabcontent">
          <p>DOCUMENTS</p>
       </div>
-
-      <div id="incident" class="product-container tabcontent ">
-        <div class="">
-          <p>INCIDENTS</p>
-          <% @incidents.each do |incident| %>
-            <% if incident.date >= @rental.start_date %>
+      <% if @incidents.first %>
+        <div id="incident" class="product-container tabcontent ">
+          <div class="">
+            <p>INCIDENTS</p>
+            <% @incidents.each do |incident| %>
               <span class="align-baseline"> <p> <%=incident.status%> <%=incident.date%> <%=incident.category%> </p></span>
+ <%= raise %>
             <% end %>
-          <% end %>
+          </div>
+
         </div>
-
-      </div>
-
+      <% end %>
     </div>
 
   <!-- Partie haute dashboard loyer  -->
