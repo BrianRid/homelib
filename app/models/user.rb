@@ -20,4 +20,8 @@ class User < ApplicationRecord
   def initial
     "#{first_name.first.capitalize}#{last_name.first.capitalize}"
   end
+
+  def flat
+    rentals.last.flat
+  end
 end
