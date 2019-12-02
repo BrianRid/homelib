@@ -16,7 +16,7 @@ class DocumentsController < ApplicationController
   end
 
   def destroy
-    @document = Document.find[params[:id]]
+    @document = Document.find(document_params[:id])
     @document.destroy
     authorize(@document)
     redirect_to dashboard_path
@@ -26,5 +26,9 @@ class DocumentsController < ApplicationController
 
   def documents_params
     params.require(:document).permit(:name, :date, :file)
+  end
+
+  def document_params
+    params.permit(:id)
   end
 end
