@@ -1,90 +1,70 @@
+// .container {
+//   display:flex;
+// }
 
-.carousel-wrapper {
-    width: 73%;
-    margin: 0 auto;
-}
-.carous2 {
-  background-color: black;
-  border-radius: 0 0 5px 5px;
-}
-
-.upper-part {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 30px;
+#appart2 {
+  background-color: rgba(211,211,211,0.9);
+  position: relative;
+  margin-top: -180px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  // margin-right: 200px;
+  // width:60%;
 }
 
-// Container des infos appartements + carousel
+.loyers2.right-el {
 
-.upper-left {
-  width: 55%;
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    background-color: white;
+  height: auto;
+  height: 250px;
+
+  .loyers-content {
+    max-height: 250px;
+    height: auto;
+    overflow-y: scroll;
+  }
 }
 
-.tab {
-  background-color: $light-green;
-  border-radius: 5px 5px 0 0;
+// form incidents
+
+#dashboard_new_incident2 {
+  .form-check {
+    padding: 0;
+  }
+  legend {
+    display: none;
+  }
+  input.radio_buttons {
+    display:none;
+  }
+  .incident_answer {
+    display: flex;
+    flex-wrap: wrap;
+      justify-content: space-between;
+
+    .form-check {
+      width: 30%;
+      margin-bottom: 20px;
+      label {
+        width: 100%
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
 }
 
-.tablinks {
-  width: 25%;
-  color: white;
-}
-
-.carac-appart {
-  flex: 0 0 50%;
-  margin-top: 10px;
-
+// Import de dashboard 1
 
   h1{
-    font-size: 24px;
+    font-size: 30px;
     color: $hover-green;
   }
 
   p {
     text-align: justify;
-    // padding: 10px;
-  }
+    // padding: 10px;}
 }
-
-.carac-syndic {
-  flex: 0 0 50%;
-  margin-top: 10px;
-
-  h1{
-    font-size: 24px;
-    color: $hover-green;
-  }
-
-  p {
-    // padding: 10px;
-  }
-}
-
-
-.fa-building {
-  color: $dark-green;
-}
-
-
-.fas {
-  margin-right: 10px;
-}
-
-#appart {
-  border-radius: 5px;
-}
-// Container des loyers --> Règles CSS
-
-
-.upper-right {
-  width: 40%;
-  border-radius: 5px;
-  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
-}
-
 
 .title {
   color: white;
@@ -96,7 +76,9 @@
 
   h1 {
     margin-bottom: 2px;
-    font-size: 30px;
+    font-size: 26px;
+    padding: 5px;
+    color: white;
   }
 }
 
@@ -131,13 +113,13 @@
 //container des pdf
 
 .right-el {
-  height: 200px;
+  height: 210px;
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
 .document-content {
-  height: 200px;
+  height: 150px;
   overflow: hidden;
   overflow-y: scroll;
 }
@@ -269,11 +251,3 @@
     }
   }
 }
-
-
-
-
-
-
-
-
