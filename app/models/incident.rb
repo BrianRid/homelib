@@ -40,7 +40,7 @@ class Incident < ApplicationRecord
     end
   end
 
-  def category(tree_key)
+  def self.category(tree_key)
     TREE[tree_key][:label].downcase
   end
 
