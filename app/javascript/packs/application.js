@@ -17,7 +17,7 @@ import { getUploadFileName } from "../components/fileupload"
 animateHomeContentTabs();
 activeLink();
 animateFlashes();
-initModal();
+
 loadDynamicBannerText();
 initUpdateNavbarOnScroll();
 initLightGallery();
