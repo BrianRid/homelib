@@ -37,6 +37,25 @@ class IncidentsController < ApplicationController
     end
   end
 
+  def update
+    @incident = Incident.find(params[:id])
+
+    if @incident.update(incident_params, status: "Confirmé")
+      @incident.update
+      redirect_to restaurant_path(@incident)
+    else
+      render :edit
+    end
+  end
+
+   def destroy
+    @incident = Incident.find(params[:id])
+    @incident.delete
+    redirect_to dashboard_path
+    end
+
+
+
   private
 
   def incident_params
