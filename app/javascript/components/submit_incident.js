@@ -1,11 +1,12 @@
 
 const hideSubmit = () =>{
-  const cards = document.querySelectorAll('#dashboard_new_incident2 .form-check');
-  if (cards) {
-    const form = document.getElementById('dashboard_new_incident2');
-    cards.forEach((card)=>{
-      card.addEventListener('click', (e) =>{
-        form.submit();
+  const inputRadiobuttons = document.querySelectorAll('#dashboard_new_incident2 input.radio_buttons');
+  if (inputRadiobuttons) {
+    inputRadiobuttons.forEach((inputRadiobutton)=>{
+      inputRadiobutton.addEventListener('change', (e) =>{
+        const form = document.getElementById('dashboard_new_incident2');
+        const targetForm = e.currentTarget.form;
+        targetForm.submit();
       });
     });
   }
