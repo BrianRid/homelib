@@ -31,8 +31,8 @@
       <p><%= worker.description %></p>
     <% end %>
     <!-- Call To Action  -->
-    <button>Contacter</button>
-    <button>Voir plus</button>
+    <button class="btn btn-lg btn-info" data-toggle="modal" data-target="#exampleModal">Demander une intervention</button>
+
     <!-- Avatar -->
     <%= cl_image_tag worker.avatar.key, width: 150, height: 150, crop: :thumb, gravity: :face, class: 'avatar-bordered worker-avatar' if worker.avatar.attached? %>
   </div>
