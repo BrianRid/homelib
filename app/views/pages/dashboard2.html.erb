@@ -90,8 +90,7 @@
 
     <div class="col-6">
     <% if @rental %>
-    <!-- card documents -->
-
+      <!-- card documents -->
       <div class="eds2 right-el d-flex flex-column ">
         <div class="title">
           <h1>Mes documents</h1>
@@ -125,9 +124,14 @@
       <% end %>
     </div>
   </div>
+
+  <!-- Carousel -->
+  <div class="carousel-wrapper">
+    <%= render 'carousel' %>
+  </div>
+
 </div>
 
-  <%= render 'carousel' %>
 
 <!-- Display error -->
 <%= render 'incidents/errors', incident: @incident %>

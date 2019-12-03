@@ -27,7 +27,6 @@ puts 'Creating some of each...'
 puts 'Creating workers'
 
 photos_seed = [
-"https://images.unsplash.com/photo-1446712146541-843e336d8154?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9",
 "https://images.unsplash.com/photo-1567110823526-8ba395ecd6cc?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9",
 "https://images.unsplash.com/photo-1569122243657-3c1c51340f65?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9",
 "https://images.unsplash.com/photo-1517414628894-83d47b22f233?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9",
@@ -45,10 +44,30 @@ photos_seed = [
 "https://images.unsplash.com/flagged/photo-1556438757-f9181aa300ca?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9",
 "https://images.unsplash.com/photo-1553444835-65ddad82cd2d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9",
 "https://images.unsplash.com/photo-1566047913275-290b57ae311c?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9",
+"https://images.unsplash.com/photo-1446712146541-843e336d8154?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9",
 "https://images.unsplash.com/photo-1556185781-a47769abb7ee?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9"
  ]
 
-
+avatar_worker = [
+"https://avatars3.githubusercontent.com/u/35662842?v=4",
+"https://avatars3.githubusercontent.com/u/53219710?v=4",
+"https://avatars3.githubusercontent.com/u/54396224?v=4",
+"https://avatars2.githubusercontent.com/u/54505759?v=4",
+"https://avatars2.githubusercontent.com/u/54587086?v=4",
+"https://avatars2.githubusercontent.com/u/51997673?v=4",
+"https://avatars3.githubusercontent.com/u/30602458?v=4",
+"https://avatars0.githubusercontent.com/u/6408663?v=4",
+"https://avatars2.githubusercontent.com/u/55383631?v=4",
+"https://avatars0.githubusercontent.com/u/49655673?v=4",
+"https://avatars0.githubusercontent.com/u/50079771?v=4",
+"https://avatars3.githubusercontent.com/u/55392520?v=4",
+"https://avatars3.githubusercontent.com/u/35258797?v=4",
+"https://avatars0.githubusercontent.com/u/55181963?v=4",
+"https://avatars0.githubusercontent.com/u/53913897?v=4",
+"https://avatars0.githubusercontent.com/u/54634703?v=4",
+"https://avatars3.githubusercontent.com/u/54004476?v=4",
+"https://avatars3.githubusercontent.com/u/52571009?v=4",
+"https://avatars2.githubusercontent.com/u/54607671?v=4"]
 
 i = 1
 plombiers.each_value do |plombier|
@@ -69,11 +88,11 @@ plombiers.each_value do |plombier|
   )
   puts "avatar #{i}"
   wx.avatar.attach(
-    io: URI.open("app/assets/images/p#{i}.jpg"),
+    io: URI.open(avatar_worker[i-1]),
     filename: "worker_avatar_#{i}",
     content_type: 'image/jpg',
   )
-  puts "Create #{i}"
+  puts "Create Worker #{i}"
   i += 1
 end
 
@@ -327,6 +346,7 @@ work1.photos.attach(
     content_type: 'image/jpg',
   )
 
+
 work2 = Worker.create!({
   name: "La CLef D'OR",
   phone: "01 24 55 93 43",
@@ -338,9 +358,6 @@ work2.photos.attach(
     filename: "worker_19",
     content_type: 'image/jpg',
   )
-
-
-
 
 
 puts 'Creating user worker relationship'
