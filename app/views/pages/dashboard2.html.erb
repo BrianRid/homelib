@@ -51,7 +51,7 @@
         <div class="incident-history">
           <h1>Historique d'incidents</h1>
           <% @incidents.each do |incident| %>
-          <span class="align-baseline"> <p> <%=incident.category%> <%=incident.date%> <%=incident.status%> </p></span>
+          <span class="align-baseline"> <p class="incident-details"> <%=incident.category%> <%=incident.date%> <%=incident.status%> </p></span>
           <% end %>
         </div>
       </div>
