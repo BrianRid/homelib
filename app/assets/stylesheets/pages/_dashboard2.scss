@@ -57,8 +57,8 @@
 // historique incident
 
 .incident-history {
-  width: 110%;
-
+    width: 113%;
+    margin-left: 15px;
 
   h1{
     color: white;
@@ -79,7 +79,12 @@
   display:flex;
 }
 
+.incident-details {
+  padding: 15px;
+}
+
 // Import de dashboard 1
+
 .title {
   color: white;
   background-color: #357376;
@@ -273,6 +278,7 @@
   background-color:#D7D7D7;
   color:white;
 }
+
 .carousel-inner {
   position: relative;
   width: 100%;
