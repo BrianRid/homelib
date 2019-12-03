@@ -4,13 +4,16 @@
 
 <div class="container">
   <div class="row w-100">
+    <div class="display-name d-flex col-6 mt-4">
+      <h2> Bonjour <%= current_user.full_name%> </h2>
+    </div>
 
     <div class="col-4 offset-8">
 
       <!-- card résumé appart -->
       <div id="appart2" class="mb-5">
         <% if @flat %>
-        <div class="carac-appart p-3">
+        <div class="carac p-3">
           <h1><i class="far fa-building"></i>   Caractéristiques</h1>
           <p class="d-flex justify-content-left m-0"><i class="fas fa-location-arrow px-1"></i><%= @flat.address %></p>
           <p class="d-flex justify-content-left m-0"><i class="fas fa-home px-1"></i><%= @flat.nb_rooms %> chambres</p>
@@ -19,7 +22,7 @@
           <p class="d-flex justify-content-left m-0"><i class="fas fa-couch px-1"></i>Meublé </p>
           <% end %>
         </div>
-        <div class="carac-syndic p-3">
+        <div class="carac p-3">
           <h1>Coordonnées du Syndic</h1>
           <p class="m-0"><i class="fas fa-phone px-1"> </i>  <%= @flat.syndic_phone %></p>
           <p class="m-0"><i class="fas fa-envelope-open-text px-1"></i>  <%= @flat.syndic_email %></p>
