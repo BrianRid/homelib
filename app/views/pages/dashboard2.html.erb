@@ -39,7 +39,7 @@
         <h1>Déclarer un sinistre</h1>
 
         <%= simple_form_for Incident.new, html:{id:"dashboard_new_incident2"} do |f| %>
-        <%= f.input :answer, label: "", collection: @first_decision[:answers], label_method: lambda{ |answer| render "incident_category_card", incident_category: answer.first }, as: :radio_buttons %>
+        <%= f.input :answer, label: false, collection: @first_decision[:answers], label_method: lambda{ |answer| render "incident_category_card", incident_category: answer.first }, as: :radio_buttons %>
         <%= f.submit "OK", class: "btn btn-primary d-none" %>
         <% end %>
 

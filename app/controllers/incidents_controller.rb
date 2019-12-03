@@ -12,7 +12,8 @@ class IncidentsController < ApplicationController
   end
 
   def create
-    answer = params[:incident][:answer].to_sym
+    answer = incident_params[:answer].to_sym
+    # raise
     @next_decision = Incident.next_decision(answer)
 
     authorize(Incident.new)
@@ -39,6 +40,6 @@ class IncidentsController < ApplicationController
   private
 
   def incident_params
-    params.require(:incident).permit(:comment)
+    params.require(:incident).permit(:answer)
   end
 end
