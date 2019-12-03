@@ -40,9 +40,8 @@ class IncidentsController < ApplicationController
   def update
     @incident = Incident.find(params[:id])
     authorize(@incident)
-
-    if @incident.update(incident_params)
-      redirect_to incident_path(@incident)
+    if @incident.update(incident_params.merge({status: "déclaré"}))
+      redirect_to dashboard_path
     else
       render :edit
     end
@@ -55,10 +54,9 @@ class IncidentsController < ApplicationController
     end
 
 
-
   private
 
   def incident_params
-    params.require(:incident).permit(:answer, :comment, :dispi, :date)
+    params.require(:incident).permit(:answer, :comment, :dispo, :date)
   end
 end

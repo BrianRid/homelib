@@ -17,7 +17,7 @@ class PagesController < ApplicationController
     @flat = @rental.flat
     @last_rents = @rental.rents.order("date DESC").first(3)
     @incident = Incident.new
-    @incidents = current_user.rentals.last.flat.incidents.where( status: ['confirmé', 'finalisé'] ).order("date DESC").where('date >= ?', @rental.start_date)
+    @incidents = current_user.rentals.last.flat.incidents.where( status: ['confirmé', 'cinalisé', 'déclaré'] ).order("date DESC").where('date >= ?', @rental.start_date)
     @first_decision = Incident.first_decision
   end
 
