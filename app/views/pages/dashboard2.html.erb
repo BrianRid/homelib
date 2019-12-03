@@ -52,15 +52,16 @@
           <h1>Historique d'incidents</h1>
           <div class="table-description d-flex justify-content-between">
             <p>Catégorie</p>
-            <p>Date</p>
+            <p class="text-align-center">Date</p>
             <p>Status</p>
           </div>
+
           <% @incidents.each do |incident| %>
 
           <div class="incident-line d-flex justify-content-between">
           <p> <%=incident.category.capitalize%> </p>
           <p> <%=incident.date.strftime("%d-%b-%y")%> </p>
-          <p> <%=incident.status.capitalize%> </p>
+          <%= render 'incidents/incident_status', incident: incident %>
           </div>
 
 

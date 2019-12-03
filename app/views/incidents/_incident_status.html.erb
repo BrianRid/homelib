@@ -1,0 +1,7 @@
+<% if incident.status.capitalize == "En cours" %>
+  <i class="fas fa-times-circle text-danger mb-3"></i>
+  <p> <%=incident.status.capitalize%> </p>
+<% else %>
+  <i class="fas fa-check-circle text-success mb-3"></i>
+  <p> <%=incident.status.capitalize%> </p>
+<% end %>
