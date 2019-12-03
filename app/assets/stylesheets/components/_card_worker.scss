@@ -1,10 +1,11 @@
 .card-worker {
   position: relative;
   display: flex;
-  width: 750px;
+  width: 100%;
   background: white;
   box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
   transition: all 0.3s;
+  border-radius: 3px;
 
   &:hover {
     box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
@@ -28,15 +29,19 @@
     font-size: 28px;
     color: red;
   }
+  .fas.fa-star {
+    color: white;
+  }
 }
 
 .worker-photo {
-  padding: 30px;
+  padding: 0px;
+  height: 200px;
   width: 40%;
   text-align: center;
 
   img {
-    max-height: 280px;
+    max-height: 200px;
   }
 }
 
@@ -46,29 +51,43 @@
   right: 10px;
 }
 .worker-description {
-  padding: 30px;
+  padding: 10px;
+  height: 200px;
+  margin-left: 5px;
   width: 60%;
   border-left: 2px solid #efefef;
 
   h2 {
     color: #515151;
-    margin: 0;
+    margin: 5px;
     padding-right: 30px;
+    padding-left: 10px;
     text-transform: uppercase;
+    font-weight: 400;
+    font-size: 22px;
+
+  }
+  h3 {
+    margin: 0;
+    padding-left: 10px;
+    color: #515151;
     font-weight: 500;
+    font-size: 20px
   }
 
-  h3 {
+  h5 {
     color: #515151;
     font-weight: 300;
-    padding-top: 15px;
+    padding-top: 10px;
+    padding-left: 10px;
     margin: 0;
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 300;
   }
 
   h4 {
     margin: 0;
+    padding-left: 10px;
     color: #727272;
     text-transform: uppercase;
     font-weight: 500;
@@ -79,8 +98,9 @@
     font-size: 12px;
     line-height: 20px;
     color: #727272;
-    padding: 20px 0;
+    padding: 8px 0px 10px;
     margin: 0;
+    display:none;
   }
 
   button {
@@ -88,15 +108,18 @@
     border: 0;
     background: none;
     border: 1px solid #d9d9d9;
-    padding: 8px 0px;
-    margin-bottom: 5px;
+    padding: 8px 0px 10px;
+    margin-bottom: 0px;
+    margin-top: 8px;
     color: #515151;
     text-transform: uppercase;
     width: 125px;
     font-family: inherit;
-    margin-right: 5px;
+    margin-left: 5px;
     transition: all 0.3s ease;
-    font-weight: 500;
+    font-weight: 400;
+    padding: 7px;
+    border-radius: 3px;
 
     &:hover {
       border: 1px solid $dark-green;
