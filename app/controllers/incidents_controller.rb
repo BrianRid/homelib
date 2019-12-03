@@ -12,7 +12,8 @@ class IncidentsController < ApplicationController
   end
 
   def create
-    answer = params[:incident][:answer].to_sym
+    answer = incident_params[:answer].to_sym
+    # raise
     @next_decision = Incident.next_decision(answer)
 
     authorize(Incident.new)
@@ -36,9 +37,28 @@ class IncidentsController < ApplicationController
     end
   end
 
+  def update
+    @incident = Incident.find(params[:id])
+
+    if @incident.update(incident_params, status: "Confirmé")
+      @incident.update
+      redirect_to restaurant_path(@incident)
+    else
+      render :edit
+    end
+  end
+
+   def destroy
+    @incident = Incident.find(params[:id])
+    @incident.delete
+    redirect_to dashboard_path
+    end
+
+
+
   private
 
   def incident_params
-    params.require(:incident).permit(:comment)
+    params.require(:incident).permit(:answer)
   end
 end

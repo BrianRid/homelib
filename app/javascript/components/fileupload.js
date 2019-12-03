@@ -15,3 +15,16 @@ file2.addEventListener("change", (event) => {
 }
 
 export { getUploadFileName };
+
+
+
+const photo2 = document.getElementById('incident_photos');
+const photo_span2 = document.getElementById('file-upload-value');
+
+const getUploadPhotoName = () => {
+photo2.addEventListener("change", (event) => {
+  photo_span2.innerText = event.currentTarget.value.split('\\').pop(-1);
+});
+}
+
+export { getUploadPhotoName };

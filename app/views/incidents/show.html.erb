@@ -4,48 +4,54 @@
       <div class="incident-left-upper">
         <!-- Display the result with all incident informations -->
         <div class="incident-result">
-          <h1>Résultats de votre incident</h1>
-          <!-- Date -->
-          <div class="incident-date">
-            <h5><strong>Date de l'incident:</strong></h5>
-            <p><%= Date.today.strftime("%d.%m.%Y") %></p>
-          </div>
-          <!-- Category -->
-          <div class="incident-category">
-            <h5><strong>Nature de l'intervention:</strong></h5>
-            <p><%= @incident.reparation %></p>
-          </div>
-          <!-- Price -->
-          <div class="incident-price">
-            <h5><strong>Prix approximatif de l'intervention:</strong></h5>
-            <p><%= @incident.tarif %></p>
-          </div>
-          <!-- Responsability -->
-          <div class="incident-responsability">
-            <h5><strong>Paiement attribué:</strong></h5>
-            <p><%= @incident.responsable %></p>
-          </div>
-          <!-- Summary -->
-          <div class="incident-summary">
-            <h5><strong>Votre incident:</strong></h5>
-            <% @resume.each do |t| %>
-              <p>> <%= Incident::TREE[t][:label] %></p>
-              <p><%= Incident::TREE[t][:next_question] %></p>
-            <% end %>
-          </div>
+            <h1 style="text-align: center;">Votre incident</h1>
+            <div class="incident-description">
+              <!-- Date -->
+              <div class="incident-date d-flex">
+                <h5><strong><i class="far fa-calendar-alt"></i></strong></h5>
+                <p> <%= Date.today.strftime("%d.%m.%Y") %></p>
+              </div>
+              <!-- Category -->
+              <div class="incident-category d-flex">
+                <h5><strong><i class="fas fa-exclamation-triangle"></i></strong></h5>
+                <p><%= @incident.reparation %></p>
+              </div>
+              <!-- Price -->
+              <div class="incident-price d-flex">
+                <h5><strong><i class="fas fa-money-bill-wave"></i></strong></h5>
+                <p><%= @incident.tarif %></p>
+              </div>
+              <!-- Responsability -->
+
+              <div class="incident-responsability d-flex">
+                <h5><strong><i class="fas fa-gavel"></i></strong></h5>
+                <p><%= @incident.responsable %></p>
+              </div>
+              <!-- Summary -->
+              <div class="incident-summary">
+                <h5><strong>Recapitulatif de l'incident</strong></h5>
+                <% @resume.each do |t| %>
+                  <p class="reponse"><%= Incident::TREE[t][:label] %></p>
+                  <p class="question"><%= Incident::TREE[t][:next_question] %></p>
+                <% end %>
+              </div>
+            </div>
         </div>
       </div>
+
       <div class="incident-left-down">
-        <button class="btn btn-lg btn-danger">Je répare moi-même</button>
+
+        <button class="btn btn-lg btn-info" data-toggle="modal" data-target="#exampleModal">Je répare moi-même</button>
+
         <p>Ou bien je fais appel à un réparateur <i class="fas fa-arrow-right"></i></p>
       </div>
     </div>
     <!-- Display the list of workers -->
-    <div class="incident-right">
+    <div class="incident-right w-100">
       <div class="incident-workers">
         <div class="container-fluid">
           <!-- Only Favorite Workers -->
-          <h2>Réparateurs selectionnés par votre propriétaire :</h2>
+          <h2>Réparateurs selectionnés par votre propriétaire <i class="fas fa-star" style="font-size:15px;"></i></h2>
           <ul class="">
             <% @workers_favorite.each_with_index do |worker, idx| %>
               <li>
@@ -54,7 +60,7 @@
             <% end %>
           </ul>
           <!-- Only NONE favorite Workers -->
-          <h2>Autres réparateurs selectionnés par nos soins :</h2>
+          <h2>Autres réparateurs selectionnés par nos soins</h2>
           <ul class="">
             <% @workers_other.each_with_index do |worker, idx| %>
               <li>
@@ -68,4 +74,43 @@
   </div>
 </div>
 
+<!-- modale -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Finaliser l'incident</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div id="form" class="banner d-flex justify-content-center align-items-center" style="background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url(https://images.unsplash.com/photo-1462899006636-339e08d1844e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80);">
+                  <div class="d-flex justify-content-center" style="width:80%">
+                    <div class="w-100 text-center">
+                      <h3 class="text-light pb-4 ">Incident de <%= @incident.category %></h3>
+                      <div class="container d-flex justify-content-center">
+                        <%= simple_form_for(@incident)  do |f| %>
+                          <div>
+                            <%= f.input :comment, placeholder: 'Voulez-vous ajouter un commentaire ?', label: false %>
+                            <%= f.input :dispo, placeholder: 'Vos disponibilités de rendez-vous', label: false %>
+                            <%= f.input :date , placeholder: 'Date de l\'incident', label: false, as: :string, required: false, input_html: {class: "datepicker bg-white"} %>
+                            <%= f.input :photos, as: :file, input_html: { multiple: true, :class => 'text-white d-none m-0'}, label: 'Ajoutez des photos ?', label_html: {class: "btn btn-primary m-0 w-100", id: 'file-pick2'}%>
 
+                          </div>
+                          <div class="mb-4"><span id="file-upload-value" class="text-white"></span></div>
+                          <%= f.submit "Je valide l'incident", class: "btn btn-primary ml-0 text-white w-100" %>
+                        <% end %>
+                      </div>
+
+                      <!-- <div class="btn btn-info mt-4 "> -->
+                        <%#= link_to "Delete", incident_path(@incident), method: :delete, data: { confirm: "Are you sure?" } %>
+                      <!-- </div> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <div class="modal-footer">
+          </div>
+        </div>

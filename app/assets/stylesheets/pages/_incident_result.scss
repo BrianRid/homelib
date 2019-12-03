@@ -4,22 +4,76 @@
 
 /* Left side */
 .incident-left {
-  width: 40vw;
+  width: 100vw;
+  height: 400px;
   top: 20px;
   position: sticky;
   align-self: flex-start; // <- ! Important for sticky
-  margin-top: 10px; // Align with right element
+  margin-top: 0px; // Align with right element
+  p {
+    color: #555555;
+    margin-left: 0px;
+  }
+  h5 {
+    font-size: 17px;
+    margin-bottom: 0px;
+  }
+  h1 {
+    background-color: #357376;
+    color: white;
+    font-size: 20px;
+    padding: 10px 8px;
+  }
+  .incident-description {
+    margin: 30px;
+    .fa-calendar-alt {
+      margin-right: 15px;
+      font-size: 24px;
+      margin-top: -2px;
+    }
+    .fa-exclamation-triangle {
+      font-size: 20px;
+    }
+    .fa-money-bill-wave {
+      font-size: 20px;
+    }
+    .fa-gavel {
+      font-size: 25px;
+    }
+  }
 }
 .incident-left-upper {
   max-height: 545px; // Set max size
   overflow-y: scroll; // If owerflow scroll
+  height: 450px;
 }
 .incident-left-down {
-  margin-top: 20px;
+  margin-top: 10px;
   text-align: center;
 
   button {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+}
+.incident-summary {
+  border: 1px solid;
+  border-radius: 3px;
+  border-color: #727272;
+  padding: 20px;
+
+  h5 {
+    margin-bottom: 10px;
+  }
+
+  .question {
+    margin-bottom: 0px;
+    font-weight: bold;
+  }
+  .reponse {
+    margin-bottom: 5px;
+    color: #357376;
   }
 }
 
@@ -29,7 +83,12 @@
 }
 
 .incident-workers div > h2 {
-  color: $dark-green;
+  color: white;
+  font-size: 25px;
+  font-size: 20px;
+  background-color: #357376;
+  padding: 10px 8px;
+  border-radius: 3px;
 
   &:not(:first-child) {
     margin-top: 35px;

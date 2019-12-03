@@ -20,11 +20,11 @@
   </div>
   <!-- Display worker description  -->
   <div class="worker-description">
-    <h2><%= worker.name %></h2>
-    <h4>Catégorie : <%= worker.categories %></h4>
-    <h3><i class="fas fa-address-card"></i> : <%= worker.address %></h3>
-    <h3><i class="fas fa-envelope"></i> : <%= worker.email %></h3>
-    <h3><i class="fas fa-phone"></i> : <%= worker.phone %></h3>
+    <h3><%= worker.name %></h3>
+    <h4><%= worker.categories %></h4>
+    <h5><i class="fas fa-address-card"></i><%= worker.address %></h5>
+    <h5><i class="fas fa-envelope"></i><%= worker.email %></h5>
+    <h5><i class="fas fa-phone"></i><%= worker.phone %></h5>
     <% if worker.description && worker.description.size > 180 %>
       <p><%= worker.description.first(180) %><span class="show">... <%= link_to "Lire la suite", "" %></span ><span class="hide"><%= worker.description.last(-180) %> <%= link_to "Lire moins", "" %></span></p>
     <% else %>
