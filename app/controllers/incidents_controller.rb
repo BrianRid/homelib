@@ -39,10 +39,10 @@ class IncidentsController < ApplicationController
 
   def update
     @incident = Incident.find(params[:id])
+    authorize(@incident)
 
-    if @incident.update(incident_params, status: "Confirmé")
-      @incident.update
-      redirect_to restaurant_path(@incident)
+    if @incident.update(incident_params)
+      redirect_to incident_path(@incident)
     else
       render :edit
     end
@@ -59,6 +59,6 @@ class IncidentsController < ApplicationController
   private
 
   def incident_params
-    params.require(:incident).permit(:answer)
+    params.require(:incident).permit(:answer, :comment, :dispi, :date)
   end
 end

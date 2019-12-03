@@ -356,7 +356,7 @@ class Incident < ApplicationRecord
       }
     },
     # chaudiere - central/individuel
-    P_6_1_1: {
+    p_6_1_1: {
       label: "Central avec le robinet à boisseau",
       final_answer: {
         result: "Réparation du chauffage collectif (avec le robinet à boisseau)",
@@ -364,7 +364,7 @@ class Incident < ApplicationRecord
         responsable: "Syndic"
       }
     },
-    P_6_1_2: {
+    p_6_1_2: {
       label: "Individuel",
       final_answer: {
         result: "Réparation d'une chaudière à gaz ou électrique en fonction de la marque",
@@ -373,6 +373,4 @@ class Incident < ApplicationRecord
       }
     }
   }
-
-
 end
