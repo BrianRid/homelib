@@ -75,13 +75,16 @@
 
   p{
     display:flex;
-    text-align: justify;
     padding: 5px;
   }
 }
 
 .incident-line {
   display:flex;
+}
+
+.table-description {
+  border-bottom: 1px solid $dark-green;
 }
 
 .incident-details {

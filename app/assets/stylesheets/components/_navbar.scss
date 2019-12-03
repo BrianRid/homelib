@@ -45,7 +45,7 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 150px;
 }
 
 // specific style when page start with a banner element
@@ -55,6 +55,9 @@
 
   .navbar-brand {
     color: white;
+    img {
+      width: 150px;
+    }
   }
 
   .nav-item .nav-link {
@@ -68,3 +71,5 @@
     font-weight: bold;
   }
 }
+
+
