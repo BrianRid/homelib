@@ -12,17 +12,17 @@
         <% if @flat %>
         <div class="carac-appart p-3">
           <h1><i class="far fa-building"></i>   Caractéristiques</h1>
-          <p class="d-flex justify-content-left m-0"><i class="fas fa-location-arrow"></i><%= @flat.address %></p>
-          <p class="d-flex justify-content-left m-0"><i class="fas fa-home"></i><%= @flat.nb_rooms %> chambres</p>
-          <p class="d-flex justify-content-left m-0"><i class="fas fa-arrows-alt"></"></i><%= @flat.area %>m2</p>
+          <p class="d-flex justify-content-left m-0"><i class="fas fa-location-arrow px-1"></i><%= @flat.address %></p>
+          <p class="d-flex justify-content-left m-0"><i class="fas fa-home px-1"></i><%= @flat.nb_rooms %> chambres</p>
+          <p class="d-flex justify-content-left m-0"><i class="fas fa-arrows-alt px-1"></"></i><%= @flat.area %>m2</p>
           <% if @flat.furnished? %>
-          <p class="d-flex justify-content-left m-0"><i class="fas fa-couch"></i>Meublé </p>
+          <p class="d-flex justify-content-left m-0"><i class="fas fa-couch px-1"></i>Meublé </p>
           <% end %>
         </div>
         <div class="carac-syndic p-3">
           <h1>Coordonnées du Syndic</h1>
-          <p class="m-0"><i class="fas fa-phone"> </i>  <%= @flat.syndic_phone %></p>
-          <p class="m-0"><i class="fas fa-envelope-open-text"></i>  <%= @flat.syndic_email %></p>
+          <p class="m-0"><i class="fas fa-phone px-1"> </i>  <%= @flat.syndic_phone %></p>
+          <p class="m-0"><i class="fas fa-envelope-open-text px-1"></i>  <%= @flat.syndic_email %></p>
         </div>
         <% else %>
         Pas de location en cours
@@ -33,7 +33,7 @@
   </div>
 
   <div class="row w-100">
-    <div class="col-8">
+    <div class="col-12">
       <!-- Partie basse des tuiles responsive -->
       <div class="container-incident">
         <h1>Déclarer votre sinistre</h1>
@@ -45,23 +45,19 @@
 
       </div>
     </div>
-
-    <div class="col4">
+  </div>
+  <div class="row">
+    <div class="col-12">
       <div id="incident">
         <div class="incident-history">
           <h1>Historique d'incidents</h1>
-          <div class="table-description d-flex justify-content-between">
-            <p>Catégorie</p>
-            <p class="date">Date</p>
-            <p>Status</p>
-          </div>
-
           <% @incidents.each do |incident| %>
 
           <div class="incident-line d-flex justify-content-between">
           <p> <%=incident.category.capitalize%> </p>
           <p> <%=incident.date.strftime("%d-%b-%y")%> </p>
           <%= render 'incidents/incident_status', incident: incident %>
+          <p><%= incident.tarif %></p>
           </div>
 
 
