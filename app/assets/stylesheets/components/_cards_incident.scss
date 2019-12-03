@@ -19,12 +19,16 @@
     cursor: pointer;
   }
 }
-.card-incident {
+#dashboard_new_incident2 .form-check {
   flex: 1 0 1%;
   margin-right: 10px;
   &:last-child {
     margin-right: 0;
   }
+
+}
+.card-incident {
+
 }
 
 .cards {
