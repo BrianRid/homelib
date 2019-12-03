@@ -4,7 +4,8 @@
 
 /* Left side */
 .incident-left {
-  width: 40vw;
+  width: 100vw;
+  height: 400px;
   top: 20px;
   position: sticky;
   align-self: flex-start; // <- ! Important for sticky
