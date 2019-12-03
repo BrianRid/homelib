@@ -15,8 +15,8 @@
   </div>
   <% end %>
   <!-- Display worker photo  -->
-  <div class="worker-photo">
-    <%= cl_image_tag worker.photos.first.key, crop: :thumb, width: 190, height: 280 %>
+  <div class="worker-photo" style="background-image: url(<%= cl_image_path(worker.photos.first.key, crop: :thumb, width: 190, height: 280)%>)">
+    <%#=# cl_image_tag worker.photos.first.key, crop: :thumb, width: 190, height: 280 %>
   </div>
   <!-- Display worker description  -->
   <div class="worker-description">
