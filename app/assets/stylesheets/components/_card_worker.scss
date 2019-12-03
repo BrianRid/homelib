@@ -106,24 +106,20 @@
   button {
     outline: 0;
     border: 0;
-    background: none;
+    // background: #515151;
     border: 1px solid #d9d9d9;
     padding: 8px 0px 10px;
     margin-bottom: 0px;
     margin-top: 8px;
-    color: #515151;
-    text-transform: uppercase;
-    width: 125px;
+    width: 100%;
     font-family: inherit;
-    margin-left: 5px;
     transition: all 0.3s ease;
     font-weight: 400;
-    padding: 7px;
     border-radius: 3px;
+    font-size: 20px;
 
     &:hover {
       border: 1px solid $dark-green;
-      color: $dark-green;
       cursor: pointer;
     }
   }

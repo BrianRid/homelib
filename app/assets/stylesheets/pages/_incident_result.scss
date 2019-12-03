@@ -43,9 +43,9 @@
   }
 }
 .incident-left-upper {
-  max-height: 545px; // Set max size
-  overflow-y: scroll; // If owerflow scroll
-  height: 450px;
+  // max-height: 545px; // Set max size
+  // // overflow-y: scroll; // If owerflow scroll
+  // height: 450px;
 }
 .incident-left-down {
   margin-top: 10px;
@@ -79,7 +79,7 @@
 
 /* Right side */
 .incident-right {
-  align-self: flex-start;
+  // align-self: flex-start;
 }
 
 .incident-workers div > h2 {
