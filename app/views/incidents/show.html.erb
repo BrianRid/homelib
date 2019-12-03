@@ -4,50 +4,54 @@
       <div class="incident-left-upper">
         <!-- Display the result with all incident informations -->
         <div class="incident-result">
-          <h1>Résultats de votre incident</h1>
-          <!-- Date -->
-          <div class="incident-date">
-            <h5><strong>Date de l'incident:</strong></h5>
-            <p><%= Date.today.strftime("%d.%m.%Y") %></p>
-          </div>
-          <!-- Category -->
-          <div class="incident-category">
-            <h5><strong>Nature de l'intervention:</strong></h5>
-            <p><%= @incident.reparation %></p>
-          </div>
-          <!-- Price -->
-          <div class="incident-price">
-            <h5><strong>Prix approximatif de l'intervention:</strong></h5>
-            <p><%= @incident.tarif %></p>
-          </div>
-          <!-- Responsability -->
-          <div class="incident-responsability">
-            <h5><strong>Paiement attribué:</strong></h5>
-            <p><%= @incident.responsable %></p>
-          </div>
-          <!-- Summary -->
-          <div class="incident-summary">
-            <h5><strong>Votre incident:</strong></h5>
-            <% @resume.each do |t| %>
-              <p>> <%= Incident::TREE[t][:label] %></p>
-              <p><%= Incident::TREE[t][:next_question] %></p>
-            <% end %>
-          </div>
+            <h1 style="text-align: center;">Votre incident</h1>
+            <div class="incident-description">
+              <!-- Date -->
+              <div class="incident-date d-flex">
+                <h5><strong><i class="far fa-calendar-alt"></i></strong></h5>
+                <p> <%= Date.today.strftime("%d.%m.%Y") %></p>
+              </div>
+              <!-- Category -->
+              <div class="incident-category d-flex">
+                <h5><strong><i class="fas fa-exclamation-triangle"></i></strong></h5>
+                <p><%= @incident.reparation %></p>
+              </div>
+              <!-- Price -->
+              <div class="incident-price d-flex">
+                <h5><strong><i class="fas fa-money-bill-wave"></i></strong></h5>
+                <p><%= @incident.tarif %></p>
+              </div>
+              <!-- Responsability -->
+
+              <div class="incident-responsability d-flex">
+                <h5><strong><i class="fas fa-gavel"></i></strong></h5>
+                <p><%= @incident.responsable %></p>
+              </div>
+              <!-- Summary -->
+              <div class="incident-summary">
+                <h5><strong>Recapitulatif de l'incident</strong></h5>
+                <% @resume.each do |t| %>
+                  <p class="reponse"><%= Incident::TREE[t][:label] %></p>
+                  <p class="question"><%= Incident::TREE[t][:next_question] %></p>
+                <% end %>
+              </div>
+            </div>
         </div>
       </div>
 
       <div class="incident-left-down">
-        <button class="btn btn-lg btn-danger" data-toggle="modal" data-target="#exampleModal">Je répare moi-même</button>
+
+        <button class="btn btn-lg btn-info" data-toggle="modal" data-target="#exampleModal">Je répare moi-même</button>
 
         <p>Ou bien je fais appel à un réparateur <i class="fas fa-arrow-right"></i></p>
       </div>
     </div>
     <!-- Display the list of workers -->
-    <div class="incident-right">
+    <div class="incident-right w-100">
       <div class="incident-workers">
         <div class="container-fluid">
           <!-- Only Favorite Workers -->
-          <h2>Réparateurs selectionnés par votre propriétaire :</h2>
+          <h2>Réparateurs selectionnés par votre propriétaire <i class="fas fa-star" style="font-size:15px;"></i></h2>
           <ul class="">
             <% @workers_favorite.each_with_index do |worker, idx| %>
               <li>
@@ -56,7 +60,7 @@
             <% end %>
           </ul>
           <!-- Only NONE favorite Workers -->
-          <h2>Autres réparateurs selectionnés par nos soins :</h2>
+          <h2>Autres réparateurs selectionnés par nos soins</h2>
           <ul class="">
             <% @workers_other.each_with_index do |worker, idx| %>
               <li>
