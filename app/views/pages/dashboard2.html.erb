@@ -12,11 +12,11 @@
         <% if @flat %>
         <div class="carac-appart p-3">
           <h1><i class="far fa-building"></i>   Caractéristiques</h1>
-          <p class="m-0"><i class="fas fa-location-arrow"></i><%= @flat.address %></p>
-          <p class="m-0"><i class="fas fa-info"></i><%= @flat.nb_rooms %> chambres</p>
-          <p class="m-0"><i class="fas fa-arrows-alt"></"></i><%= @flat.area %>m2</p>
+          <p class="d-flex justify-content-left m-0"><i class="fas fa-location-arrow"></i><%= @flat.address %></p>
+          <p class="d-flex justify-content-left m-0"><i class="fas fa-home"></i><%= @flat.nb_rooms %> chambres</p>
+          <p class="d-flex justify-content-left m-0"><i class="fas fa-arrows-alt"></"></i><%= @flat.area %>m2</p>
           <% if @flat.furnished? %>
-          <p class="m-0"><i class="fas fa-couch"></i> Meublé </p>
+          <p class="d-flex justify-content-left m-0"><i class="fas fa-couch"></i>Meublé </p>
           <% end %>
         </div>
         <div class="carac-syndic p-3">
@@ -53,9 +53,9 @@
           <% @incidents.each do |incident| %>
 
           <div class="incident-line">
-          <p> <%=incident.category%> </p>
+          <p> <%=incident.category.capitalize%> </p>
           <p> <%=incident.date%> </p>
-          <p> <%=incident.status%> </p>
+          <p> <%=incident.status.capitalize%> </p>
           </div>
 
 

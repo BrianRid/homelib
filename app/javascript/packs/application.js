@@ -24,10 +24,16 @@ initLightGallery();
 readMore();
 hideSubmit();
 hideSubmitAnswers();
-getUploadFileName();
-
 // Activate a WARNIG sweetAlert before to pay a rent
-if(document.querySelector("#dashboard")){
-  sweetAlert('.btn-pay-rent');
+
+const file2 = document.getElementById('document_file');
+if (file2) {
+getUploadFileName();
 }
+
+sweetAlert('.btn-pay-rent');
+
+// if(document.querySelector("#dashboard")){
+//
+// }
 
