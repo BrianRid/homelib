@@ -11,7 +11,7 @@ import {hideSubmit} from '../components/submit_incident';
 import {hideSubmitAnswers} from '../components/submit_incident';
 import { sweetAlert } from '../components/init_sweetalert';
 import "../plugins/flatpickr";
-import { getUploadFileName} from "../components/fileupload"
+import { getUploadFileName } from "../components/fileupload"
 
 
 animateHomeContentTabs();
