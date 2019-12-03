@@ -67,6 +67,16 @@
     border-radius: 5px;
     padding: 5px;
   }
+
+  p{
+    display:flex;
+    text-align: justify;
+    padding: 5px;
+  }
+}
+
+.incident-line {
+  display:flex;
 }
 
 // Import de dashboard 1
