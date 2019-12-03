@@ -10,6 +10,11 @@
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   // margin-right: 200px;
   // width:60%;
+  &:hover {
+  background-color: rgba(211,211,211,1);
+
+
+  }
 }
 
 .loyers2.right-el {
@@ -57,7 +62,7 @@
 // historique incident
 
 .incident-history {
-    width: 113%;
+    width: 100%;
     margin-left: 15px;
 
   h1{
@@ -107,7 +112,7 @@
   align-items: center;
   padding: 10px;
   .btn {
-    width: 100px;
+    width: 95px;
   }
 }
 
@@ -144,7 +149,7 @@
 }
 
 .loyers-content {
-  height: 150px;
+  height: 200px;
   overflow: hidden;
   overflow-y: scroll;
 }
