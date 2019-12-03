@@ -49,6 +49,7 @@ class IncidentsController < ApplicationController
 
    def destroy
     @incident = Incident.find(params[:id])
+    authorize(@incident)
     @incident.delete
     redirect_to dashboard_path
     end
