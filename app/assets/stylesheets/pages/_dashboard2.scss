@@ -8,12 +8,12 @@
   margin-top: -180px;
   border-radius: 8px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.5s ease-out;
   // margin-right: 200px;
   // width:60%;
   &:hover {
   background-color: rgba(211,211,211,1);
-
-
+  transition: 0.5s background-color ease;
   }
 }
 
@@ -64,24 +64,31 @@
 .incident-history {
     width: 100%;
     margin-left: 15px;
+     box-shadow: 0 0 5px rgba(0,0,0,0.2);
 
   h1{
     color: white;
     background-color: $hover-green;
     text-align: center;
-    border-radius: 5px;
+    border-radius: 5px 5px 0 0;
     padding: 5px;
+    margin-bottom: 5px;
   }
 
   p{
     display:flex;
-    text-align: justify;
     padding: 5px;
   }
 }
 
 .incident-line {
   display:flex;
+}
+
+.table-description {
+  height: 35px;
+  border-bottom: 1px solid $dark-green;
+  margin-bottom: 10px;
 }
 
 .incident-details {
@@ -137,6 +144,7 @@
 //container des pdf
 
 .right-el {
+  width: 100%;
   height: 210px;
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
@@ -193,8 +201,9 @@
     color: white;
     background-color: $hover-green;
     text-align: center;
-    border-radius: 5px;
+    border-radius: 5px 5px 0 0;
     padding: 5px;
+    margin-bottom: 15px;
   }
 }
 
@@ -277,8 +286,8 @@
 }
 
 .carousel{
-  width:60vw;
-  height:auto;
+  width:100%;
+  height:600px;
   margin: 0 auto;
   background-color:#D7D7D7;
   color:white;
