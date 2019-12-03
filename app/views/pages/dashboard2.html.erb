@@ -51,11 +51,13 @@
         <div class="incident-history">
           <h1>Historique d'incidents</h1>
           <% @incidents.each do |incident| %>
+
           <div class="incident-line">
           <p> <%=incident.category%> </p>
           <p> <%=incident.date%> </p>
           <p> <%=incident.status%> </p>
           </div>
+
 
           <% end %>
         </div>
