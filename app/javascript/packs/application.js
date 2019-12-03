@@ -11,7 +11,8 @@ import {hideSubmit} from '../components/submit_incident';
 import {hideSubmitAnswers} from '../components/submit_incident';
 import { sweetAlert } from '../components/init_sweetalert';
 import "../plugins/flatpickr";
-import { getUploadFileName } from "../components/fileupload"
+import { getUploadFileName, getUploadPhotoName } from "../components/fileupload"
+
 
 
 animateHomeContentTabs();
@@ -30,6 +31,11 @@ const file2 = document.getElementById('document_file');
 if (file2) {
 getUploadFileName();
 }
+const photo2 = document.getElementById('incident_photos');
+if (photo2) {
+getUploadPhotoName();
+}
+
 
 sweetAlert('.btn-pay-rent');
 

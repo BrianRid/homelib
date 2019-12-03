@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :rents, only: [:update, :show]
   resources :flats
-  resources :incidents, only: [:new, :create, :show]
+  resources :incidents, only: [:new, :create, :show, :update,  :delete]
   resources :workers, only: [:index] do
     resources :user_workers, only: :create
   end
