@@ -2,21 +2,42 @@
   display: flex;
 }
 
+.incident-delete {
+  margin-left: 85%;
+  height: 0px;
+  font-size:10px;
+  position: absolute;
+  .fa-trash-alt {
+    color: #357376;
+    padding-top: 8px;
+    padding-left: 6px;
+    font-size: 17px;
+    &:hover {
+      font-size: 20px;
+    }
+  }
+}
+
+.incident-result {
+  width: 80%;
+  margin: 0 auto;
+  padding: 8px;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  background-color: white;
+}
+
 /* Left side */
 .incident-left {
   width: 100vw;
-  height: 400px;
   top: 20px;
   position: sticky;
   align-self: flex-start; // <- ! Important for sticky
-  margin-top: 0px; // Align with right element
+  margin-top: 18px; // Align with right element
   p {
     color: #555555;
     margin-left: 0px;
-  }
-  h5 {
-    font-size: 17px;
-    margin-bottom: 0px;
+    margin-bottom: 5px;
   }
   h1 {
     // background-color: #357376;
@@ -30,38 +51,58 @@
     border-radius: 5px 5px 0 0;
     margin-bottom: 15px;
     border-bottom: 2px solid #357376;
-    padding: 6px 0;
+    padding: 10px 0;
     font-weight: bolder;
     letter-spacing: 1px;
   }
   .incident-description {
     margin: 30px;
     h4 {
-      color: #555555;
+      color: #515151;
       font-size: 18px;
-      line-height: 1.5;
-      font-weight: bold;
-      .fa-calendar-alt:before {
-        padding-right: 10px;
-        font-size:20px;
-      }
-      .fa-exclamation-triangle:before {
-        padding-right: 10px;
-        font-size: 18px;
-        margin: -1px;
-      }
-      .fa-money-bill-wave:before {
-        padding-right: 10px;
-        font-size: 18px;
-        margin: -1px;
-      }
-      .fa-gavel:before {
-        padding-right: 10px;
-        font-size:20px;
-      }
+      line-height: 1;
+      padding: 0px;
+      margin: 0;
+      font-weight: 300;
     }
-
+    .fa-calendar-alt:before {
+      padding-right: 13px;
+      font-size:20px;
+      color: #357376;
+    }
+    .fa-exclamation-triangle:before {
+      padding-right: 10px;
+      font-size: 18px;
+    }
+    .fa-money-bill-wave:before {
+      padding-right: 8px;
+      font-size: 18px;
+    }
+    .fa-gavel:before {
+      padding-right: 11px;
+      font-size:20px;
+    }
+    .incident-date {
+      margin-bottom: 10px;
+      margin-left: 10px;
+    }
+    .incident-category {
+      margin-bottom: 10px;
+      margin-left: 10px;
+    }
+    .incident-price {
+      margin-bottom: 10px;
+      margin-left: 10px;
+    }
+    .incident-responsability {
+      margin-bottom: 10px;
+      margin-left: 10px;
+    }
   }
+  // .incident-date {
+  // margin-bottom: 10px;
+
+  // }
 }
 .incident-left-upper {
   // max-height: 545px; // Set max size
@@ -79,25 +120,27 @@
   }
 }
 .incident-summary {
+  border-color: #357376;
   border: 1px solid;
   border-radius: 3px;
-  border-color: #727272;
-  padding: 20px;
+  padding: 10px;
+  margin-top: 25px;
 
   h5 {
     font-size: 15px;
     color: #357376;
     text-align: center;
-    border-radius: 5px 5px 0 0;
-    margin-bottom: 15px;
-    border-bottom: 2px solid #357376;
-    padding: 6px 0;
+    padding: 10px 0;
     font-weight: bolder;
     letter-spacing: 1px;
+    // border-top: 1px solid;
+    margin-top: 0px;
+    border-bottom: 1px solid #357376;
   }
   .question {
     margin-bottom: 0px;
-    font-weight: bold;
+    font-weight: 600;
+    color: #357376;
   }
 }
 
@@ -113,7 +156,7 @@
   border-radius: 5px 5px 0 0;
   margin-bottom: 15px;
   border-bottom: 2px solid #357376;
-  padding: 6px 0;
+  padding: 10px 0;
   font-weight: bolder;
   letter-spacing: 1px;
 
