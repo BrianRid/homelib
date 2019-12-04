@@ -1,5 +1,7 @@
+<% page_heading "Editer votre profil" # title %>
+
 <h2>
-  Edit <%= resource_name.to_s.humanize %>
+  Editez ici votre profil <%= current_user.full_name %>.
   <% if current_user.avatar.attached? %>
     <%= cl_image_tag current_user.avatar.key ,crop: :fill, class: "avatar-large" %>
   <% end %>
