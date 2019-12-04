@@ -6,7 +6,7 @@
       <div class="incident-left-upper">
         <!-- Display the result with all incident informations -->
         <div class="incident-delete">
-          <%= link_to incident_path(@incident), method: :delete, data: { confirm: "Are you sure?" }, remote: true do %>
+          <%= link_to incident_path(@incident), method: :delete, data: { confirm: "Voulez-vous supprimer cet déclaration ?" } do %>
             <i class="far fa-trash-alt"></i>
           <% end  %>
         </div>
@@ -31,7 +31,6 @@
               <i class="fas fa-gavel"></i><h4><%= @incident.responsable %></h4>
             </div>
             <!-- <div> -->
-              <%#= link_to "Annuler", incident_path(@incident), method: :delete, :class => "btn btn-info mt-1 mb-1 text-white", data: { confirm: "Are you sure?" } %>
             <!-- </div> -->
             <!-- Summary -->
             <div class="incident-summary">
