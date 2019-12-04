@@ -4,8 +4,10 @@
 
 <div class="container">
   <div class="row w-100">
-    <div class="display-name d-flex col-6 mt-4">
-      <h1> <span id="name-typed-text" data-user="<%= current_user.full_name %>"></span> </h1>
+    <div class="display-name d-flex flex-column col-6 mt-4">
+      <h1 class= "welcome">Bonjour, <%= current_user.full_name %> </h1>
+      <p class="loc-info"><i class="fas fa-calendar-check"></i> Vous êtes locataire depuis le <%= I18n.l(current_user.rentals[0].start_date,  format: '%d %B %y', locale: :'fr').capitalize %> </p>
+      <p class="loc-info"><i class="fas fa-money-check-alt"></i> Votre loyer est de <strong><%= current_user.rentals[0].loyer %>€</strong>  par mois </p>
     </div>
 
     <div class="col-4 offset-8">
@@ -15,17 +17,17 @@
         <% if @flat %>
         <div class="carac p-3">
           <h1><i class="far fa-building"></i>   Caractéristiques</h1>
-          <p class="d-flex justify-content-left m-0"><i class="fas fa-location-arrow px-1"></i><%= @flat.address %></p>
-          <p class="d-flex justify-content-left m-0"><i class="fas fa-home px-1"></i><%= @flat.nb_rooms %> chambres</p>
-          <p class="d-flex justify-content-left m-0"><i class="fas fa-arrows-alt px-1"></"></i><%= @flat.area %>m2</p>
+          <p class="d-flex justify-content-left m-0"><i class="fas fa-location-arrow px-2"></i><%= @flat.address %></p>
+          <p class="d-flex justify-content-left m-0"><i class="fas fa-home px-2"></i><%= @flat.nb_rooms %> chambres</p>
+          <p class="d-flex justify-content-left m-0"><i class="fas fa-arrows-alt px-2"></"></i><%= @flat.area %>m2</p>
           <% if @flat.furnished? %>
-          <p class="d-flex justify-content-left m-0"><i class="fas fa-couch px-1"></i>Meublé </p>
+          <p class="d-flex justify-content-left m-0"><i class="fas fa-couch px-2"></i>Meublé </p>
           <% end %>
         </div>
         <div class="carac p-3">
           <h1>Coordonnées du Syndic</h1>
-          <p class="m-0"><i class="fas fa-phone px-1"> </i>  <%= @flat.syndic_phone %></p>
-          <p class="m-0"><i class="fas fa-envelope-open-text px-1"></i>  <%= @flat.syndic_email %></p>
+          <p class="m-0"><i class="fas fa-phone px-2"> </i>  <%= @flat.syndic_phone %></p>
+          <p class="m-0"><i class="fas fa-envelope-open-text px-2"></i>  <%= @flat.syndic_email %></p>
         </div>
         <% else %>
         Pas de location en cours
@@ -54,17 +56,19 @@
       <div id="incident">
         <div class="incident-history">
           <h1>Historique d'incidents</h1>
-          <% @incidents.each do |incident| %>
-
-          <div class="incident-line d-flex justify-content-between">
-          <p> <%=incident.category.capitalize%> </p>
-          <p> <%=incident.date.strftime("%d-%b-%y")%> </p>
-          <%= render 'incidents/incident_status', incident: incident %>
-          <p><%= incident.tarif %></p>
+          <div class="incident-content">
+            <% @incidents.each do |incident| %>
+            <%= link_to incident do  %>
+            <div class="incident-line d-flex justify-content-between">
+              <p> <%=incident.category.capitalize%> </p>
+              <p> <%=incident.date.strftime("%d-%b-%y")%> </p>
+              <%= render 'incidents/incident_status', incident: incident %>
+              <p><%=  %></p>
+              <p><%= incident.tarif %></p>
+            </div>
+            <% end %>
+            <% end %>
           </div>
-
-
-          <% end %>
         </div>
       </div>
     </div>
@@ -83,7 +87,7 @@
           <% @last_rents.each do |rent| %>
           <div id="rent_<%= rent.id %>" class="rent-line">
             <div class="rent-date">
-              <%= rent.date.strftime('%B') %>
+               <%= I18n.l(rent.date,  format: '%B', locale: :'fr').capitalize %>
             </div>
             <div class="rent-amount">
               <%= @rental.loyer %> €
@@ -120,7 +124,7 @@
               <p class="m-0 p-1"><%= doc.date %></p>
             </div>
             <div class="telechargement">
-              <%= link_to("📥", cl_image_path(doc.file.key), class: "download" ) %>
+              <%= link_to("📥", cl_image_path(doc.file.key), class: "download" ) if doc.file.attached? %>
             </div>
             <div class="delete">
               <%= link_to "🗑", document_path(@documents[0]),  method: :delete, class: "destroy" %>
@@ -129,7 +133,8 @@
           <% end %>
         </div>
       </div>
-      <%= link_to "Ajouter un nouveau document", new_document_path, class: "btn btn-success w-100"  %>
+      <%#= link_to "Ajouter un nouveau document", new_document_path, class: "btn btn-success w-100"  %>
+       <button class="btn btn-success w-100" data-toggle="modal" data-target="#new_doc_modal">Ajouter un nouveau document</button>
 
       <% else %>
       <p>Pas de location en cours</p>
@@ -147,3 +152,43 @@
 
 <!-- Display error -->
 <%= render 'incidents/errors', incident: @incident %>
+
+
+
+
+
+
+
+
+<!-- modale Insert doc-->
+        <div class="modal fade" id="new_doc_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content body">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Importer un document</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body d-flex justify-content-center">
+                  <div class="d-flex justify-content-center" style="width:80%">
+                    <div class="w-100 text-center">
+                      <h3 class="pb-4 ">Nouveau document</h3>
+                        <div class="container d-flex justify-content-center">
+                          <%= simple_form_for @document do |f| %>
+                            <%= f.input :name, placeholder: 'Nom du document', label: false %>
+                            <%= f.input :date , placeholder: 'Date du document', label: false, as: :string, required: false, input_html: {class: "datepicker bg-white"} %>
+                            <%= f.input :file, label: 'Choisir un fichier', label_html: {class: "btn btn-primary m-0 w-100", id: 'file-pick'},:input_html => { :class => 'text-white d-none m-0'}%>
+                            <div class="mb-4"><span id="file-upload-value"></span></div>
+                            <%= f.submit "Valider", class: "btn btn-info ml-0 text-white w-100" %>
+                          <% end %>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <div class="modal-footer">
+          </div>
+        </div>
+      </div>

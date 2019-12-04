@@ -17,4 +17,13 @@ class IncidentPolicy < ApplicationPolicy
   def show?
     true
   end
+
+  def update?
+    true
+  end
+  def destroy?
+    true if (record.status == "En cours" || user == record.flat.rental.last.user)
+  end
+
+
 end

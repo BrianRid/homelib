@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The page you were looking for doesn't exist (404)</title>
+  <title>Homelib | Sorry the page you were looking for doesn't exist (404)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
+  <link rel="stylesheet" media="all" href="../app/assets/stylesheets/application.css" />
   <style>
   .rails-default-error-page {
     background-color: #EFEFEF;
@@ -53,6 +55,29 @@
   }
   </style>
 </head>
+<!-- Navbar -->
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <a class="navbar-brand" href="/">
+    <img src="/assets/homelib-logo.png.png" />
+  </a>
+  <!-- Logo -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <!-- Link -->
+  <ul>
+    <li class="nav-item">
+      <a class="nav-link" href="/">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/users/sign_in">Connexion</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/users/sign_up">Inscription</a>
+    </li>
+  </ul>
+</div>
+
 
 <body class="rails-default-error-page">
   <!-- This file lives in public/404.html -->

@@ -4,6 +4,8 @@
 .row {
   margin: 0;
 }
+.welcome {
+}
 
 .display-name {
   h2 {
@@ -13,12 +15,20 @@
   }
 }
 
+.loc-info {
+  font-size: 20px;
+  color: $hover-green;
+  letter-spacing: 1px;
+  padding-left: 15px;
+}
+
+
 #appart2 {
   background-color: white;
     position: relative;
-    margin-top: -240px;
+    margin-top: -340px;
     border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
   // margin-right: 200px;
   // width:60%;
 }
@@ -42,7 +52,7 @@
     border-radius: 5px 5px 0 0;
     margin-bottom: 15px;
     border-bottom: 2px solid #357376;
-    padding: 6px 0;
+    padding: 10px 0;
     font-weight: bolder;
     letter-spacing: 1px;
 }
@@ -81,8 +91,16 @@
 
 .incident-history {
     width: 100%;
-    margin-left: 15px;
     margin-bottom: 40px;
+
+    a{
+      text-decoration: none;
+      color: $hover-green;
+      &:hover {
+        zoom: 1.03;
+      }
+    }
+
 
   h1{
     font-size: 22px;
@@ -91,7 +109,7 @@
     border-radius: 5px 5px 0 0;
     margin-bottom: 15px;
     border-bottom: 2px solid #357376;
-    padding: 6px 0;
+    padding: 10px 0;
     font-weight: bolder;
     letter-spacing: 1px;
   }
@@ -103,10 +121,16 @@
   }
 }
 
+.incident-content {
+  height: 120px;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
 .incident-line {
   display:flex;
   align-items: center;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
   margin-bottom: 10px;
 }
 
@@ -131,7 +155,7 @@
     border-radius: 5px 5px 0 0;
     margin-bottom: 15px;
     border-bottom: 2px solid #357376;
-    padding: 6px 0;
+    padding: 10px 0;
     font-weight: bolder;
     letter-spacing: 1px;
   }
@@ -177,7 +201,7 @@
   height: 150px;
   overflow: hidden;
   overflow-y: scroll;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .loyers-content {
@@ -188,9 +212,15 @@
 }
 
 
-.fa-file-pdf {
+.fas {
+  color: $hover-green;
+
+  &.fa-file-pdf {
   color: red;
 }
+}
+
+
 
 .document-card {
   display: flex;
@@ -224,7 +254,7 @@
 
   h1 {
     // color: white;
-    // font-size: 26px;
+    // font-size: 210px;
     // background-color: $hover-green;
     // text-align: center;
     // border-radius: 5px 5px 0 0;
@@ -237,7 +267,7 @@
     border-radius: 5px 5px 0 0;
     margin-bottom: 15px;
     border-bottom: 2px solid #357376;
-    padding: 6px 0;
+    padding: 10px 0;
     font-weight: bolder;
     letter-spacing: 1px;
   }
@@ -246,7 +276,7 @@
 .lower-right {
   width: 40%;
   border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 
@@ -289,7 +319,7 @@
     color:white;
     margin: 10px;
     border-radius: 3px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
     padding: 10px;
     cursor: pointer;
     &:hover {
@@ -353,3 +383,5 @@ img.carousel-img {
 .carousel-wrapper {
   padding: 12px;
 }
+
+

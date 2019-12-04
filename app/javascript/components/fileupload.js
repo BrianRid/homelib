@@ -23,7 +23,7 @@ const photo_span2 = document.getElementById('file-upload-value');
 
 const getUploadPhotoName = () => {
 photo2.addEventListener("change", (event) => {
-  photo_span2.innerText = event.currentTarget.value.split('\\').pop(-1);
+  photo_span2.insertAdjacentHTML('beforeend', "<span>" + event.currentTarget.value.split('\\').pop(-1) + "</span>");
 });
 }
 
