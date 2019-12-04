@@ -22,7 +22,7 @@ class IncidentPolicy < ApplicationPolicy
     true
   end
   def destroy?
-    true if (record.status == "En cours" || user == record.flat.rental.last.user)
+    true if (record.status == "En cours" || user == record.flat.rentals.last.user)
   end
 
 
