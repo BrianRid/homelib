@@ -41,19 +41,18 @@ class IncidentsController < ApplicationController
     @incident = Incident.find(params[:id])
     authorize(@incident)
     if @incident.update(incident_params.merge({status: "déclaré"}))
-      redirect_to dashboard_path
+      redirect_to dashboard_path , notice: "Incident successfully created"
     else
       render :edit
     end
   end
 
-   def destroy
+  def destroy
     @incident = Incident.find(params[:id])
     authorize(@incident)
     @incident.delete
-    redirect_to dashboard_path
-    end
-
+    redirect_to dashboard_path, notice: "Incident successfully deleted"
+  end
 
   private
 
