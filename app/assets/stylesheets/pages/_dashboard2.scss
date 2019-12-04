@@ -5,7 +5,6 @@
   margin: 0;
 }
 .welcome {
-  margin-bottom: 30px;
 }
 
 .display-name {
@@ -27,7 +26,7 @@
 #appart2 {
   background-color: white;
     position: relative;
-    margin-top: -240px;
+    margin-top: -340px;
     border-radius: 8px;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
   // margin-right: 200px;
@@ -213,9 +212,15 @@
 }
 
 
-.fa-file-pdf {
+.fas {
+  color: $hover-green;
+
+  &.fa-file-pdf {
   color: red;
 }
+}
+
+
 
 .document-card {
   display: flex;
@@ -378,3 +383,5 @@ img.carousel-img {
 .carousel-wrapper {
   padding: 12px;
 }
+
+
