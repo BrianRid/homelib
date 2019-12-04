@@ -2,31 +2,6 @@
   display: flex;
 }
 
-.incident-delete {
-  margin-left: 85%;
-  height: 0px;
-  font-size:10px;
-  position: absolute;
-  .fa-trash-alt {
-    color: #357376;
-    padding-top: 12px;
-    padding-left: 46px;
-    font-size: 17px;
-    &:hover {
-      font-size: 20px;
-    }
-  }
-}
-
-.incident-result {
-  width: 94%;
-  margin: 0 auto;
-  padding: 8px;
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  background-color: white;
-}
-
 /* Left side */
 .incident-left {
   width: 100vw;

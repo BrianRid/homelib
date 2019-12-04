@@ -5,17 +5,12 @@
     <div class="incident-left">
       <div class="incident-left-upper">
         <!-- Display the result with all incident informations -->
-        <div class="incident-delete">
-          <%= link_to incident_path(@incident), method: :delete, data: { confirm: "Voulez-vous supprimer cet déclaration ?" } do %>
-            <i class="far fa-trash-alt"></i>
-          <% end  %>
-        </div>
         <div class="incident-result">
           <h1 style="text-align: center;">Déclaration de l'incident</h1>
           <div class="incident-description">
-                <!-- Date -->
+            <!-- Date -->
             <div class="incident-date d-flex">
-              <i class="far fa-calendar-alt"></i><h4><%= Date.today.strftime("%d.%m.%Y") %></h4>
+              <i class="far fa-calendar-alt"></i><h4><%= @incident.date.strftime("%d.%m.%Y") %></h4>
             </div>
             <!-- Category -->
             <div class="incident-category d-flex">
@@ -26,12 +21,9 @@
               <i class="fas fa-money-bill-wave"></i><h4><%= @incident.tarif %></h4>
             </div>
             <!-- Responsability -->
-
             <div class="incident-responsability d-flex">
               <i class="fas fa-gavel"></i><h4><%= @incident.responsable %></h4>
             </div>
-            <!-- <div> -->
-            <!-- </div> -->
             <!-- Summary -->
             <div class="incident-summary">
               <h5><strong>Recapitulatif</strong></h5>
@@ -39,6 +31,12 @@
                 <p class="reponse"><%= Incident::TREE[t][:label] %></p>
                 <p class="question"><%= Incident::TREE[t][:next_question] %></p>
               <% end %>
+            </div>
+            <!-- Delete -->
+            <div class="incident-delete">
+              <%= link_to incident_path(@incident), method: :delete, data: { confirm: "Voulez-vous supprimer cet déclaration d'incident ?" } do %>
+                <i class="far fa-trash-alt"></i>
+              <% end  %>
             </div>
           </div>
         </div>
