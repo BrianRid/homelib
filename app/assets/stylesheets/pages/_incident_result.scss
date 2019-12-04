@@ -164,3 +164,86 @@
     margin-top: 35px;
   }
 }
+
+// form incident answers
+#new_incident {
+  .form-check-input  {
+    display: none;
+  }
+  label {
+
+    background-color: #6ba7a8;
+    color:white;
+    margin: 10px;
+    border-radius: 3px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    cursor: pointer;
+    &:hover {
+      background-color: #357376;
+    }
+  }
+  .incident_answer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    letter-spacing: 1px;
+    font-size: 17px;
+  }
+  legend {
+    flex: 0 0 100%;
+    text-align: center;
+    font-size: 1.3em;
+    color: #357376;
+    border-radius: 5px 5px 0 0;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #357376;
+    padding: 10px 0;
+    font-weight: bolder;
+    letter-spacing: 1px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+  }
+  .form-check {
+    flex: 0 0 200px;
+    padding: 0;
+    margin: 10px 5px;
+    label {
+      width: 100%;
+      margin: 0;
+      height: 150px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+// form incidents
+
+#dashboard_new_incident {
+  .form-check {
+    padding: 0;
+  }
+  legend {
+    display: none;
+  }
+  input.radio_buttons {
+    display:none;
+  }
+  .incident_answer {
+    display: flex;
+
+    .form-check {
+      flex: 1 0 1%;
+      margin-right: 10px;
+      label {
+        width: 100%
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
