@@ -1,0 +1,16 @@
+// 1 fermer la modale
+// 2 render la partial
+
+function refreshPage() {
+  const modal = document.getElementById('new_doc_modal');
+
+  modal.querySelector('.close').click();
+
+  const documentContent = document.querySelector('.document-content');
+
+  documentContent.innerHTML = "<%= j render 'pages/document_creation' %>";
+}
+
+refreshPage();
+
+// document.querySelector('.document-content').innerHTML = "<%#= j render 'nom de ma partial', documents: @documents %>"

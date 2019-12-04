@@ -115,25 +115,9 @@
           <h1>Mes documents</h1>
         </div>
         <div class="document-content">
-          <% current_user.documents.each do |doc| %>
-          <div class="document-card">
-            <div class="icone">
-              <i class="fas fa-file-pdf"></i>
-            </div>
-            <div class="document-name">
-              <p class="m-0 p-1"><%= doc.name.capitalize %></p>
-            </div>
-            <div class="document-date">
-              <p class="m-0 p-1"><%= doc.date %></p>
-            </div>
-            <div class="telechargement">
-              <%= link_to("📥", cl_image_path(doc.file.key), class: "download" ) if doc.file.attached? %>
-            </div>
-            <div class="delete">
-              <%= link_to "🗑", document_path(@documents[0]),  method: :delete, class: "destroy" %>
-            </div>
-          </div>
-          <% end %>
+
+        <%= render 'document_creation' %>
+
         </div>
       </div>
       <%#= link_to "Ajouter un nouveau document", new_document_path, class: "btn btn-success w-100"  %>
@@ -179,12 +163,12 @@
                     <div class="w-100 text-center">
                       <h3 class="pb-4 ">Nouveau document</h3>
                         <div class="container d-flex justify-content-center">
-                          <%= simple_form_for @document do |f| %>
+                          <%= simple_form_for @document, remote: true do |f| %>
                             <%= f.input :name, placeholder: 'Nom du document', label: false %>
                             <%= f.input :date , placeholder: 'Date du document', label: false, as: :string, required: false, input_html: {class: "datepicker bg-white"} %>
                             <%= f.input :file, label: 'Choisir un fichier', label_html: {class: "btn btn-primary m-0 w-100", id: 'file-pick'},:input_html => { :class => 'text-white d-none m-0'}%>
                             <div class="mb-4"><span id="file-upload-value"></span></div>
-                            <%= f.submit "Valider", class: "btn btn-info ml-0 text-white w-100" %>
+                            <%= f.submit "Valider", class: "btn btn-info ml-0 text-white w-100 validate" %>
                           <% end %>
                         </div>
                     </div>

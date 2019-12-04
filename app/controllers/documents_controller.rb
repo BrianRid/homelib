@@ -8,9 +8,16 @@ class DocumentsController < ApplicationController
     @document = Document.new(documents_params)
     @document.user = current_user
     authorize(@document)
+
     if @document.save
-      redirect_to dashboard_path, notice: "Document successfully created"
+      respond_to do |format|
+        format.html { redirect_to dashboard_path }
+        format.js
+      end
     else
+      # @flat =
+      # @rental =
+
       render :new
     end
   end
@@ -19,7 +26,13 @@ class DocumentsController < ApplicationController
     @document = Document.find(document_params[:id])
     @document.destroy
     authorize(@document)
-    redirect_to dashboard_path, notice: "Document successfully deleted"
+    respond_to do |format|
+      @notice = "Document successfully deleted"
+      format.html do
+        redirect_to dashboard_path, notice: @notice
+      end
+      format.js
+    end
   end
 
   private
