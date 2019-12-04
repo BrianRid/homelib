@@ -39,10 +39,9 @@ class IncidentsController < ApplicationController
 
   def update
     @incident = Incident.find(params[:id])
-
-    if @incident.update(incident_params, status: "Confirmé")
-      @incident.update
-      redirect_to restaurant_path(@incident)
+    authorize(@incident)
+    if @incident.update(incident_params.merge({status: "déclaré"}))
+      redirect_to dashboard_path
     else
       render :edit
     end
@@ -50,15 +49,15 @@ class IncidentsController < ApplicationController
 
    def destroy
     @incident = Incident.find(params[:id])
+    authorize(@incident)
     @incident.delete
     redirect_to dashboard_path
     end
 
 
-
   private
 
   def incident_params
-    params.require(:incident).permit(:answer)
+    params.require(:incident).permit(:answer, :comment, :dispo, :date)
   end
 end

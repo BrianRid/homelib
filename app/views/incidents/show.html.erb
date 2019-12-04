@@ -35,6 +35,9 @@
                   <p class="question"><%= Incident::TREE[t][:next_question] %></p>
                 <% end %>
               </div>
+
+                <%= link_to "Annuler", incident_path(@incident), method: :delete, :class => "btn btn-info mt-4 text-white", data: { confirm: "Are you sure?" } %>
+
             </div>
         </div>
       </div>
@@ -73,8 +76,8 @@
   </div>
 </div>
 
-<!-- modale -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- modale Intervention-->
+        <div class="modal fade" id="valid_incident_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -84,7 +87,7 @@
                 </button>
               </div>
               <div class="modal-body">
-                <div id="form" class="banner d-flex justify-content-center align-items-center" style="background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url(https://images.unsplash.com/photo-1462899006636-339e08d1844e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80);">
+                <div id="form" class="banner d-flex justify-content-center align-items-center" style="padding: 275px 0 ;background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url(https://images.unsplash.com/photo-1462899006636-339e08d1844e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80);">
                   <div class="d-flex justify-content-center" style="width:80%">
                     <div class="w-100 text-center">
                       <h3 class="text-light pb-4 ">Incident de <%= @incident.category %></h3>
@@ -97,8 +100,8 @@
                             <%= f.input :photos, as: :file, input_html: { multiple: true, :class => 'text-white d-none m-0'}, label: 'Ajoutez des photos ?', label_html: {class: "btn btn-primary m-0 w-100", id: 'file-pick2'}%>
 
                           </div>
-                          <div class="mb-4"><span id="file-upload-value" class="text-white"></span></div>
-                          <%= f.submit "Je valide l'incident", class: "btn btn-primary ml-0 text-white w-100" %>
+                          <div class="mb-4 d-flex flex-column text-left" id="file-upload-value"></div>
+                          <%= f.submit "Je valide l'incident", class: "btn btn-info ml-0 text-white w-100" %>
                         <% end %>
                       </div>
 
@@ -113,3 +116,4 @@
           <div class="modal-footer">
           </div>
         </div>
+      </div>
