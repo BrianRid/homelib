@@ -1,8 +1,8 @@
 <div id="myBtn" class="card-incident d-flex flex-column" style="background-color: $light-green;">
   <div>
-    <img src="<%= image_path "#{incident_category.downcase}.svg" %>" width="60px" height="60px" alt="">
+    <img class="icone" src="<%= image_path "#{incident_category.downcase}.svg" %>" width="60px" height="60px" alt="">
   </div>
   <div>
-    <%= incident_category %>
+    <p><%= incident_category %></p>
   </div>
 </div>
