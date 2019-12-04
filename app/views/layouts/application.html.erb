@@ -1,16 +1,31 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Home-Lib | Libérez vous des contraintes de votre appartement</title>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Homelib, Libérez vous des contraintes de votre appartement">
+    <!-- Facebook meta -->
+    <meta property="og:title" content="Home-Lib - Libérez vous des contraintes de votre appartement">
+    <meta property="og:image" content="homelib-card-facebook.jpg">
+    <meta property="og:description" content="Homelib, Libérez vous des contraintes de votre appartement">
+    <meta property="og:site_name" content="Homelib"/>
+    <!-- Twitter meta -->
+    <meta name="twitter:card" content="homelib-card-facebook.jpg">
+    <meta name="twitter:site" content="@homelib">
+    <meta name="twitter:title" content="Home-Lib - Libérez vous des contraintes de votre appartement">
+    <meta name="twitter:description" content="Home-Lib - Libérez vous des contraintes de votre appartement">
+    <meta name="twitter:creator" content="@homelib">
+    <meta name="twitter:image:src" content="https://homelib.herokuapp.com/assets/homelib-card-facebook.jpg">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
 
-    <title>Home-Lib</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
+    <%= favicon_link_tag asset_path('homelib-favicon.png') %>
   </head>
 
 
