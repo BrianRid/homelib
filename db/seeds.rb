@@ -67,7 +67,7 @@ avatar_worker = [
 "https://avatars0.githubusercontent.com/u/54634703?v=4",
 "https://avatars3.githubusercontent.com/u/54004476?v=4",
 "https://avatars3.githubusercontent.com/u/52571009?v=4",
-"https://avatars2.githubusercontent.com/u/54607671?v=4"]
+"https://avatars1.githubusercontent.com/u/54813497?v=4"]
 
 i = 1
 plombiers.each_value do |plombier|
@@ -191,7 +191,7 @@ i2 = Incident.create!({
   date: Date.new(2019,06,19),
   status: "finalisé",
   dispo: "matin tôt",
-  category: "plomberie",
+  category: "serrurerie",
 })
 
 i3 = Incident.create!({
@@ -220,37 +220,42 @@ r1 = Rental.create!({
 })
 puts 'photos for rental 1'
 r1.photos.attach(
-  io: URI.open('https://v.seloger.com/s/width/965/visuels/2/1/r/h/21rhaj90231a5il0cy0sjodlo1bud2hk6zzlzrjsw.jpg'),
+  io: URI.open('https://res.cloudinary.com/dqhszujt5/image/upload/v1575466065/Legendre-1_r9eaey.jpg'),
   filename: "r1_2",
   content_type: 'image/jpg',
 )
 r1.photos.attach(
-  io: URI.open('https://v.seloger.com/s/width/965/visuels/0/m/j/1/0mj161xbzgrb3s1z5o2ozaeqx29i1jnrjllqwhssg.jpg'),
+  io: URI.open('https://res.cloudinary.com/dqhszujt5/image/upload/v1575466066/Legendre-10_qyhtpt.jpg'),
   filename: "r1_3",
   content_type: 'image/jpg',
 )
 r1.photos.attach(
-  io: URI.open('https://v.seloger.com/s/width/965/visuels/1/k/w/7/1kw77vndd6byxoadcngula4casrp8vzfbpx3qu3nk.jpg'),
+  io: URI.open('https://res.cloudinary.com/dqhszujt5/image/upload/v1575466065/Legendre-3_pxy7jw.jpg'),
   filename: "r1_4",
   content_type: 'image/jpg',
 )
 r1.photos.attach(
-  io: URI.open('https://v.seloger.com/s/width/965/visuels/1/b/9/8/1b98pahcjr1q55y0zp9jgsyc3nhbi437v7mgymu4g.jpg'),
+  io: URI.open('https://res.cloudinary.com/dqhszujt5/image/upload/v1575466066/Legendre-5_r4swsb.jpg'),
   filename: "r1_5",
   content_type: 'image/jpg',
 )
 r1.photos.attach(
-  io: URI.open('https://v.seloger.com/s/width/965/visuels/2/9/d/v/29dvogjsd6puqg9vrfqhvlnurb2b52r8fubt7rvnk.jpg'),
+  io: URI.open('https://res.cloudinary.com/dqhszujt5/image/upload/v1575466064/Legendre-7_famsst.jpg'),
   filename: "r1_6",
   content_type: 'image/jpg',
 )
 r1.photos.attach(
-  io: URI.open('https://v.seloger.com/s/width/966/visuels/1/m/s/h/1msh7k9vcmdzykab8fti2b6eyr00xwjee51w5cq2o.jpg'),
+  io: URI.open('https://res.cloudinary.com/dqhszujt5/image/upload/v1575466066/Legendre-11_lcqplb.jpg'),
   filename: "r1_7",
   content_type: 'image/jpg',
 )
 r1.photos.attach(
-  io: URI.open('https://v.seloger.com/s/width/965/visuels/0/5/6/h/056hrx6qzqkd22ek06itmcu76kl08ky9jg6fu8npc.jpg'),
+  io: URI.open('https://res.cloudinary.com/dqhszujt5/image/upload/v1575466071/Legendre-14_bp5ewb.jpg'),
+  filename: "r1_8",
+  content_type: 'image/jpg',
+)
+r1.photos.attach(
+  io: URI.open('https://res.cloudinary.com/dqhszujt5/image/upload/v1575466073/Legendre-12_myyoyf.jpg'),
   filename: "r1_8",
   content_type: 'image/jpg',
 )
@@ -278,42 +283,49 @@ r2 = Rental.create!({
   duration: 3,
   loyer: 970,
 })
-
+puts 'photos rantal 2'
 r2.photos.attach(
   io: URI.open('https://v.seloger.com/s/width/800/visuels/1/v/z/m/1vzmq8r0i5zzr20jx82vn8e1xzt7cn8q9ztdvexxw.jpg'),
   filename: "f1_1",
   content_type: 'image/jpg',
 )
+puts 'photos rantal 1 ok'
 r2.photos.attach(
   io: URI.open('https://v.seloger.com/s/width/800/visuels/1/b/8/x/1b8xzguqorx3bqtkgruynokk1igwg637eaopcyd04.jpg'),
   filename: "f1_2",
   content_type: 'image/jpg',
 )
+puts 'photos rantal 2 ok'
 r2.photos.attach(
   io: URI.open('https://v.seloger.com/s/width/800/visuels/1/a/u/6/1au6jsmp16igsc9zye3axsv0ru153q1dtgkkzmel0.jpg'),
   filename: "f1_3",
   content_type: 'image/jpg',
 )
+puts 'photos rantal 3 ok'
 r2.photos.attach(
   io: URI.open('https://v.seloger.com/s/width/800/visuels/0/e/6/n/0e6nsmicpooajzbzkr915lykj8l7fsc82td8v7i38.jpg'),
   filename: "f1_4",
   content_type: 'image/jpg',
 )
+puts 'photos rantal 4 ok'
 r2.photos.attach(
   io: URI.open('https://v.seloger.com/s/width/800/visuels/1/u/4/t/1u4tdemiyhva48c36sevxorcdx5pubni0lm0igytw.jpg'),
   filename: "f1_5",
   content_type: 'image/jpg',
 )
+puts 'photos rantal 5 ok'
 r2.photos.attach(
   io: URI.open('https://v.seloger.com/s/width/800/visuels/0/9/e/n/09encdazj2ifehomwr81yub3b6zco3ks6n7f51is4.jpg'),
   filename: "f1_6",
   content_type: 'image/jpg',
 )
+puts 'photos rantal 6 ok'
 r2.photos.attach(
   io: URI.open('https://v.seloger.com/s/width/800/visuels/1/1/l/8/11l85lx2sh47gixtdhugi9kzyps25gid3aml7615g.jpg'),
   filename: "f1_7",
   content_type: 'image/jpg',
 )
+puts 'photos rantal 7 ok'
 
 d2 = r2.start_date
 until d2 == Date.new(2019, DateTime.now().month, 01) do
@@ -329,6 +341,7 @@ until d2 == Date.new(2019, DateTime.now().month, 01) do
   })
 end
 
+puts 'rents 2 ok'
 
 
 
@@ -340,24 +353,39 @@ work1 = Worker.create!({
   email: "contact@clairon.fr",
   categories: "plomberie",
 })
+puts 'work1 ok'
 work1.photos.attach(
-    io: URI.open(photos_seed[18]),
+    io: URI.open(photos_seed[17]),
     filename: "worker_18",
     content_type: 'image/jpg',
   )
-
-
+puts 'work1 photo ok'
+work1.avatar.attach(
+    io: URI.open(avatar_worker[17]),
+    filename: "worker_avatar_18",
+    content_type: 'image/jpg',
+  )
+puts 'work1 av ok'
 work2 = Worker.create!({
   name: "La CLef D'OR",
   phone: "01 24 55 93 43",
   email: "patron@laclefdor.fr",
   categories: "serrurerie",
 })
+puts 'work 2 ok'
 work2.photos.attach(
-    io: URI.open('https://s3-eu-west-1.amazonaws.com/sc-files.pjms.fr/p/pjms/316/000/232/098/87244799386e4f099e804f3b6eb8dd20.jpg'),
+    io: URI.open(photos_seed[18]),
     filename: "worker_19",
     content_type: 'image/jpg',
   )
+puts 'work2 photo ok'
+work2.avatar.attach(
+    io: URI.open(avatar_worker[18]),
+    filename: "https://avatars1.githubusercontent.com/u/54813497?v=4",
+    content_type: 'image/jpg',
+  )
+
+puts 'work2 avatar ok'
 
 
 puts 'Creating user worker relationship'
@@ -370,7 +398,7 @@ uw2 = UserWorker.create!({
   worker_id: work2.id,
   user_id:rock.id,
 })
-
+puts 'relationsips ok'
 wi1 = Work.create!({
   price: 156,
   comment: "Il m'a sauvé la vie, merci beaucoup !",
