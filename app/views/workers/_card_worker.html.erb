@@ -31,7 +31,11 @@
       <p><%= worker.description %></p>
     <% end %>
     <!-- Call To Action  -->
-    <button class="btn btn-lg btn-info" data-toggle="modal" data-target="#exampleModal">Demander une intervention</button>
+    <% if current_user.flat.user.workers.include?(worker) %>
+      <button class="btn btn-lg btn-info" data-toggle="modal" data-target="#exampleModal">Demander une intervention</button>
+    <% else %>
+      <button class="btn btn-lg btn-primary" style="background-color: #357376;" data-toggle="modal" data-target="#exampleModal">Demander une intervention</button>
+    <% end %>
 
     <!-- Avatar -->
     <%= cl_image_tag worker.avatar.key, width: 150, height: 150, crop: :thumb, gravity: :face, class: 'avatar-bordered worker-avatar' if worker.avatar.attached? %>
