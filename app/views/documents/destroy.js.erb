@@ -1,0 +1,7 @@
+function destroyDocument() {
+  const documentContent = document.querySelector('.document-content');
+  documentContent.innerHTML = "";
+  documentContent.innerHTML = "<%= j render 'pages/document_creation' %>";
+}
+
+destroyDocument();

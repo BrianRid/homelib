@@ -2,7 +2,7 @@
   <div class="d-flex justify-content-center mt-n5">
     <div class="w-35">
       <h3 class="text-light pb-4 ">Nouveau document</h3>
-      <%= simple_form_for @document do |f| %>
+      <%= simple_form_for(@document) do |f| %>
         <%= f.input :name, placeholder: 'Nom du document', label: false %>
         <%= f.input :date , placeholder: 'Date du document', label: false, as: :string, required: false, input_html: {class: "datepicker bg-white"} %>
         <%= f.input :file, label: 'Choisir un fichier', label_html: {class: "btn btn-primary m-0 w-100", id: 'file-pick'},:input_html => { :class => 'text-white d-none m-0'}%>
