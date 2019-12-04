@@ -1,7 +1,23 @@
 .modal-content{
-      background-color: #F4F4F4;
-      height: 65vh;
-      color: $dark-green;
+  background-color: #FFF;
+  color: $dark-green;
+}
+
+.modal-header {
+  background-color: #1D4D4F;
+}
+.modal-title {
+  color: white;
+}
+.close {
+  color: white;
+  text-shadow: 0 1px 0 black;
+  opacity: 1;
+}
+div.w-100.text-center {
+  border: 1px solid;
+  border-radius: 20px;
+  padding: 12% 0;
 }
 
 .text{
