@@ -9,7 +9,7 @@ class DocumentsController < ApplicationController
     @document.user = current_user
     authorize(@document)
     if @document.save
-      redirect_to dashboard_path
+      redirect_to dashboard_path, notice: "Document successfully created"
     else
       render :new
     end
@@ -19,7 +19,7 @@ class DocumentsController < ApplicationController
     @document = Document.find(document_params[:id])
     @document.destroy
     authorize(@document)
-    redirect_to dashboard_path
+    redirect_to dashboard_path, notice: "Document successfully deleted"
   end
 
   private
