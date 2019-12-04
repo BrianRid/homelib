@@ -184,6 +184,7 @@ i1 = Incident.create!({
   status: "finalisé",
   dispo: "matin tôt",
   category: "plomberie",
+  tarif: "Entre 100€ et 250€"
 })
 
 i2 = Incident.create!({
@@ -192,6 +193,7 @@ i2 = Incident.create!({
   status: "finalisé",
   dispo: "matin tôt",
   category: "serrurerie",
+  tarif: "Entre 150€ et 250€"
 })
 
 i3 = Incident.create!({
@@ -200,6 +202,7 @@ i3 = Incident.create!({
   status: "finalisé",
   dispo: "matin tôt",
   category: "serrurerie",
+  tarif: "Entre 200€ et 350€"
 })
 
 i4 = Incident.create!({
@@ -208,6 +211,7 @@ i4 = Incident.create!({
   status: "finalisé",
   dispo: "soir tard",
   category: "plomberie",
+  tarif: "Entre 400€ et 550€"
 })
 
 puts 'Creating rental 1'
