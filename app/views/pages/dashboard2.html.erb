@@ -6,7 +6,8 @@
   <div class="row w-100">
     <div class="display-name d-flex flex-column col-6 mt-4">
       <h1 class= "welcome">Bonjour, <%= current_user.full_name %> </h1>
-      <p class="loc-info"><i class="fas fa-calendar-check"></i> Vous êtes locataire depuis le <%= I18n.l(current_user.rentals[0].start_date,  format: '%d %B %y', locale: :'fr').capitalize %> </p>
+      <br>
+      <p class="loc-info"><i class="fas fa-calendar-check"></i>   Vous êtes locataire depuis le <%= I18n.l(current_user.rentals[0].start_date,  format: '%d %B %y', locale: :'fr').capitalize %> </p>
       <p class="loc-info"><i class="fas fa-money-check-alt"></i> Votre loyer est de <strong><%= current_user.rentals[0].loyer %>€</strong>  par mois </p>
     </div>
 
@@ -118,7 +119,7 @@
               <i class="fas fa-file-pdf"></i>
             </div>
             <div class="document-name">
-              <p class="m-0 p-1"><%= doc.name %></p>
+              <p class="m-0 p-1"><%= doc.name.capitalize %></p>
             </div>
             <div class="document-date">
               <p class="m-0 p-1"><%= doc.date %></p>
@@ -144,6 +145,7 @@
 
   <!-- Carousel -->
   <div class="carousel-wrapper">
+    <h1> État des lieux d'entrée </h1>
     <%= render 'carousel' %>
   </div>
 
