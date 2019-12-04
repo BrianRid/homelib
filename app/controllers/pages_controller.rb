@@ -19,10 +19,7 @@ class PagesController < ApplicationController
     @incident = Incident.new
     @incidents = current_user.rentals.last.flat.incidents.where( status: ['confirmé', 'cinalisé', 'déclaré'] ).order("date DESC").where('date >= ?', @rental.start_date)
     @first_decision = Incident.first_decision
-
-
     @document = Document.new
-
   end
 
 
