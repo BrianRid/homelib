@@ -12,7 +12,7 @@ import {hideSubmitAnswers} from '../components/submit_incident';
 import { sweetAlert } from '../components/init_sweetalert';
 import "../plugins/flatpickr";
 import { getUploadFileName, getUploadPhotoName } from "../components/fileupload"
-import { loadDynamicNameText } from "../components/animate_name_dashboard";
+// import { loadDynamicNameText } from "../components/animate_name_dashboard";
 
 
 animateHomeContentTabs();
@@ -25,7 +25,7 @@ initLightGallery();
 readMore();
 hideSubmit();
 hideSubmitAnswers();
-loadDynamicNameText();
+// loadDynamicNameText();
 // Activate a WARNIG sweetAlert before to pay a rent
 
 const file2 = document.getElementById('document_file');
