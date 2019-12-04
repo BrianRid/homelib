@@ -118,7 +118,7 @@ class Incident < ApplicationRecord
       label: "Tuyau de la machine à laver ou du lave-vaisselle",
       final_answer: {
         result: "Réparation d'une fuite du tuyau de la machine à laver / lave-vaisselle",
-        tarif: "Entre 130 et 150 € TTC",
+        tarif: "Entre 130 € et 150 € TTC",
         responsable: "Locataire"
       }
     },
@@ -142,7 +142,7 @@ class Incident < ApplicationRecord
       label: "Près du robinet d’arrêt",
       final_answer: {
         result: "Réparation d'une fuite du robinet d'arrêt du WC",
-        tarif: "Entre 100 et 150 € TTC",
+        tarif: "Entre 100 € et 150 € TTC",
         responsable: "Propriétaire",
         # resume: [:p, :p_1, :p_1_1, :p_1_1_1]
       }
@@ -157,7 +157,7 @@ class Incident < ApplicationRecord
       label: "Oui",
       final_answer: {
         result: "Réparation d'une fuite de la pipe de sortie du WC avec sanibroyeur",
-        tarif: "Entre 120 et 200 € TTC",
+        tarif: "Entre 120 € et 200 € TTC",
         responsable: "Propriétaire",
         # resume: [:p, :p_1, :p_1_1, :p_1_1_2, :p_1_1_2_1]
       }
@@ -166,7 +166,7 @@ class Incident < ApplicationRecord
       label: "Non",
       final_answer: {
         result: "Réparation d'une fuite de la pipe de sortie du WC sans sanibroyeur",
-        tarif: "Entre 120 et 200 € TTC",
+        tarif: "Entre 120 € et 200 € TTC",
         responsable: "Propriétaire"
       }
     },
@@ -174,7 +174,7 @@ class Incident < ApplicationRecord
       label: "Socle",
       final_answer: {
         result: "Réparation d'une fuite du robinet d'arrêt du WC",
-        tarif: "Entre 100 et 150 € TTC",
+        tarif: "Entre 100 € et 150 € TTC",
         responsable: "Propriétaire"
       }
     },
@@ -182,7 +182,7 @@ class Incident < ApplicationRecord
       label: "Entre la cuvette et le réservoir",
       final_answer: {
         result: "Réparation d'une fuite du robinet d'arrêt du WC",
-        tarif: "Entre 100 et 150 € TTC",
+        tarif: "Entre 100 € et 150 € TTC",
         responsable: "Propriétaire"
       }
     },
@@ -192,7 +192,7 @@ class Incident < ApplicationRecord
       label: "Oui",
       final_answer: {
         result: "Débouchage de WC avec sanibroyeur",
-        tarif: "Entre 150 et 250 € TTC",
+        tarif: "Entre 150 € et 250 € TTC",
         responsable: "Locataire"
       }
     },
@@ -200,7 +200,7 @@ class Incident < ApplicationRecord
       label: "Non",
       final_answer: {
         result: "Débouchage de WC sans sanibroyeur",
-        tarif: "Entre 100 et 180 € TTC",
+        tarif: "Entre 100 € et 180 € TTC",
         responsable: "Locataire"
       }
     },
@@ -216,7 +216,7 @@ class Incident < ApplicationRecord
       label: "Engorgement de douche ou baignoire",
       final_answer: {
         result: "Débouchage de douche ou de baignoire",
-        tarif: "Entre 100 et 200 € TTC",
+        tarif: "Entre 100 € et 200 € TTC",
         responsable: "Locataire"
       }
     },
@@ -226,7 +226,7 @@ class Incident < ApplicationRecord
       label: "D'un tuyau d'évacuation (tuyau PVC)",
       final_answer: {
         result: "Réparation d'une fuite du tuyau d'évacuation",
-        tarif: "Entre 150 et 200 € TTC",
+        tarif: "Entre 150 € et 200 € TTC",
         responsable: "Propriétaire"
       }
     },
@@ -234,7 +234,7 @@ class Incident < ApplicationRecord
       label: "De la vanne d'entrée (la vanne qui coupe l'eau dans l'appartement)",
       final_answer: {
         result: "Réparation d'une fuite de la vanne principale de l'appartement ou avant la vanne",
-        tarif: "Entre 150 et 300 € TTC",
+        tarif: "Entre 150 € et 300 € TTC",
         responsable: "Propriétaire"
       }
     },

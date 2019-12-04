@@ -42,7 +42,7 @@
     border-radius: 5px 5px 0 0;
     margin-bottom: 15px;
     border-bottom: 2px solid #357376;
-    padding: 6px 0;
+    padding: 10px 0;
     font-weight: bolder;
     letter-spacing: 1px;
 }
@@ -81,8 +81,16 @@
 
 .incident-history {
     width: 100%;
-    margin-left: 15px;
     margin-bottom: 40px;
+
+    a{
+      text-decoration: none;
+      color: $hover-green;
+      &:hover {
+        zoom: 1.03;
+      }
+    }
+
 
   h1{
     font-size: 22px;
@@ -91,7 +99,7 @@
     border-radius: 5px 5px 0 0;
     margin-bottom: 15px;
     border-bottom: 2px solid #357376;
-    padding: 6px 0;
+    padding: 10px 0;
     font-weight: bolder;
     letter-spacing: 1px;
   }
@@ -101,6 +109,12 @@
     padding: 3px 10px;
     margin-bottom: 0;
   }
+}
+
+.incident-content {
+  height: 120px;
+  overflow: hidden;
+  overflow-y: scroll;
 }
 
 .incident-line {
@@ -131,7 +145,7 @@
     border-radius: 5px 5px 0 0;
     margin-bottom: 15px;
     border-bottom: 2px solid #357376;
-    padding: 6px 0;
+    padding: 10px 0;
     font-weight: bolder;
     letter-spacing: 1px;
   }
@@ -224,7 +238,7 @@
 
   h1 {
     // color: white;
-    // font-size: 26px;
+    // font-size: 210px;
     // background-color: $hover-green;
     // text-align: center;
     // border-radius: 5px 5px 0 0;
@@ -237,7 +251,7 @@
     border-radius: 5px 5px 0 0;
     margin-bottom: 15px;
     border-bottom: 2px solid #357376;
-    padding: 6px 0;
+    padding: 10px 0;
     font-weight: bolder;
     letter-spacing: 1px;
   }
