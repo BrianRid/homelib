@@ -34,9 +34,8 @@
             </div>
             <!-- Delete -->
             <div class="incident-delete">
-              <%= link_to incident_path(@incident), method: :delete, data: { confirm: "Voulez-vous supprimer cet déclaration d'incident ?" } do %>
-                <i class="far fa-trash-alt"></i>
-              <% end  %>
+              <button id="delete-incident-btn" class="btn"><i class="far fa-trash-alt"></i></button>
+              <%= link_to "", incident_path(@incident), method: :delete, id: "delete-incident-link", class: "hidden" %>
             </div>
           </div>
         </div>

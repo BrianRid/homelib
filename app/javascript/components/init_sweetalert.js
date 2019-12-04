@@ -1,6 +1,7 @@
 import swal from 'sweetalert';
 
-const sweetAlert = (selector, options = {}, callback = () => {}) => {
+// Custom function for pay rent
+const sweetAlertRent = (selector, options = {}, callback = () => {}) => {
   const swalButtons = document.querySelectorAll(selector);
   if (swalButtons) { // protect other pages
     swalButtons.forEach((swalButton) => {
@@ -30,4 +31,16 @@ const sweetAlert = (selector, options = {}, callback = () => {}) => {
   }
 };
 
-export { sweetAlert };
+// General function
+const initSweetalert = (selector, options = {}, callback = () => {}) => {
+  const swalButton = document.querySelector(selector);
+  if (swalButton) { // protect other pages
+    swalButton.addEventListener('click', () => {
+      swal(options).then(callback); // <-- add the `.then(callback)`
+    });
+  }
+};
+
+
+export { initSweetalert };
+export { sweetAlertRent };

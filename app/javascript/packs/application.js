@@ -9,7 +9,8 @@ import { initLightGallery } from '../components/init_lightgallery';
 import { readMore } from '../components/worker_read_more';
 import {hideSubmit} from '../components/submit_incident';
 import {hideSubmitAnswers} from '../components/submit_incident';
-import { sweetAlert } from '../components/init_sweetalert';
+import { sweetAlertRent } from '../components/init_sweetalert';
+import { initSweetalert } from '../components/init_sweetalert';
 import "../plugins/flatpickr";
 import { getUploadFileName, getUploadPhotoName } from "../components/fileupload"
 // import { loadDynamicNameText } from "../components/animate_name_dashboard";
@@ -26,7 +27,6 @@ readMore();
 hideSubmit();
 hideSubmitAnswers();
 // loadDynamicNameText();
-// Activate a WARNIG sweetAlert before to pay a rent
 
 const file2 = document.getElementById('document_file');
 if (file2) {
@@ -38,7 +38,21 @@ getUploadPhotoName();
 }
 
 
-sweetAlert('.btn-pay-rent');
+// Activate a WARNIG sweetAlert before to pay a rent
+sweetAlertRent('.btn-pay-rent');
+
+// Active sweetAlert before to delete an incident
+initSweetalert('#delete-incident-btn', {
+  title: "Êtes-vous sûr de vouloir supprimer cet incident?",
+  text: "Cette action ne pourra pas être inversée",
+  icon: "warning",
+  buttons: ["Annuler", true]
+}, (value) => {
+  if (value) {
+    const link = document.querySelector('#delete-incident-link');
+    link.click();
+  }
+});
 
 // if(document.querySelector("#dashboard")){
 //
