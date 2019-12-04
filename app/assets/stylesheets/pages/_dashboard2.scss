@@ -4,6 +4,9 @@
 .row {
   margin: 0;
 }
+.welcome {
+  margin-bottom: 30px;
+}
 
 .display-name {
   h2 {
@@ -13,12 +16,20 @@
   }
 }
 
+.loc-info {
+  font-size: 20px;
+  color: $hover-green;
+  letter-spacing: 1px;
+  padding-left: 15px;
+}
+
+
 #appart2 {
   background-color: white;
     position: relative;
     margin-top: -240px;
     border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
   // margin-right: 200px;
   // width:60%;
 }
@@ -120,7 +131,7 @@
 .incident-line {
   display:flex;
   align-items: center;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
   margin-bottom: 10px;
 }
 
@@ -191,7 +202,7 @@
   height: 150px;
   overflow: hidden;
   overflow-y: scroll;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .loyers-content {
@@ -260,7 +271,7 @@
 .lower-right {
   width: 40%;
   border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 
@@ -303,7 +314,7 @@
     color:white;
     margin: 10px;
     border-radius: 3px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
     padding: 10px;
     cursor: pointer;
     &:hover {

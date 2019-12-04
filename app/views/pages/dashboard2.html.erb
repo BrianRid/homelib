@@ -4,8 +4,10 @@
 
 <div class="container">
   <div class="row w-100">
-    <div class="display-name d-flex col-6 mt-4">
-      <h1> <span id="name-typed-text" data-user="<%= current_user.full_name %>"></span> </h1>
+    <div class="display-name d-flex flex-column col-6 mt-4">
+      <h1 class= "welcome"><%= current_user.full_name %> </h1>
+      <p class="loc-info"> Vous êtes locataire depuis le <%= I18n.l(current_user.rentals[0].start_date,  format: '%d %B %y', locale: :'fr').capitalize %> </p>
+      <p class="loc-info"> Votre loyer est de <strong><%= current_user.rentals[0].loyer %>€</strong>  par mois </p>
     </div>
 
     <div class="col-4 offset-8">
