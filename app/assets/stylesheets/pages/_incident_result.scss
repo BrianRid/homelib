@@ -19,27 +19,48 @@
     margin-bottom: 0px;
   }
   h1 {
-    background-color: #357376;
-    color: white;
-    font-size: 20px;
-    padding: 10px 8px;
+    // background-color: #357376;
+    // color: white;
+    // font-size: 20px;
+    // padding: 10px 8px;
+    // border-radius: 3px;
+    font-size: 22px;
+    color: #357376;
+    text-align: center;
+    border-radius: 5px 5px 0 0;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #357376;
+    padding: 6px 0;
+    font-weight: bolder;
+    letter-spacing: 1px;
   }
   .incident-description {
     margin: 30px;
-    .fa-calendar-alt {
-      margin-right: 15px;
-      font-size: 24px;
-      margin-top: -2px;
+    h4 {
+      color: #555555;
+      font-size: 18px;
+      line-height: 1.5;
+      font-weight: bold;
+      .fa-calendar-alt:before {
+        padding-right: 10px;
+        font-size:20px;
+      }
+      .fa-exclamation-triangle:before {
+        padding-right: 10px;
+        font-size: 18px;
+        margin: -1px;
+      }
+      .fa-money-bill-wave:before {
+        padding-right: 10px;
+        font-size: 18px;
+        margin: -1px;
+      }
+      .fa-gavel:before {
+        padding-right: 10px;
+        font-size:20px;
+      }
     }
-    .fa-exclamation-triangle {
-      font-size: 20px;
-    }
-    .fa-money-bill-wave {
-      font-size: 20px;
-    }
-    .fa-gavel {
-      font-size: 25px;
-    }
+
   }
 }
 .incident-left-upper {
@@ -64,31 +85,37 @@
   padding: 20px;
 
   h5 {
-    margin-bottom: 10px;
+    font-size: 15px;
+    color: #357376;
+    text-align: center;
+    border-radius: 5px 5px 0 0;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #357376;
+    padding: 6px 0;
+    font-weight: bolder;
+    letter-spacing: 1px;
   }
-
   .question {
     margin-bottom: 0px;
     font-weight: bold;
-  }
-  .reponse {
-    margin-bottom: 5px;
-    color: #357376;
   }
 }
 
 /* Right side */
 .incident-right {
-  // align-self: flex-start;
+  align-self: flex-start;
 }
 
 .incident-workers div > h2 {
-  color: white;
-  font-size: 25px;
-  font-size: 20px;
-  background-color: #357376;
-  padding: 10px 8px;
-  border-radius: 3px;
+  font-size: 22px;
+  color: #357376;
+  text-align: center;
+  border-radius: 5px 5px 0 0;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #357376;
+  padding: 6px 0;
+  font-weight: bolder;
+  letter-spacing: 1px;
 
   &:not(:first-child) {
     margin-top: 35px;

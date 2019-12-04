@@ -6,30 +6,27 @@
         <div class="incident-result">
             <h1 style="text-align: center;">Déclaration de l'incident</h1>
             <div class="incident-description">
-              <!-- Date -->
+                  <!-- Date -->
               <div class="incident-date d-flex">
-                <h5><strong><i class="far fa-calendar-alt"></i></strong></h5>
-                <p> <%= Date.today.strftime("%d.%m.%Y") %></p>
+                <h4><i class="far fa-calendar-alt"><%= Date.today.strftime("%d.%m.%Y") %></i></h4>
               </div>
               <!-- Category -->
               <div class="incident-category d-flex">
-                <h5><strong><i class="fas fa-exclamation-triangle"></i></strong></h5>
-                <p><%= @incident.reparation %></p>
+                <h4><i class="fas fa-exclamation-triangle"><%= @incident.reparation %></i></h4>
               </div>
               <!-- Price -->
               <div class="incident-price d-flex">
-                <h5><strong><i class="fas fa-money-bill-wave"></i></strong></h5>
-                <p><%= @incident.tarif %></p>
+                <h4><i class="fas fa-money-bill-wave"><%= @incident.tarif %></i></h4>
               </div>
               <!-- Responsability -->
 
               <div class="incident-responsability d-flex">
-                <h5><strong><i class="fas fa-gavel"></i></strong></h5>
-                <p><%= @incident.responsable %></p>
+                <h4><i class="fas fa-gavel"><%= @incident.responsable %></i></h4>
               </div>
+
               <!-- Summary -->
               <div class="incident-summary">
-                <h5><strong>Recapitulatif de l'incident</strong></h5>
+                <h5><strong>Recapitulatif</strong></h5>
                 <% @resume.each do |t| %>
                   <p class="reponse"><%= Incident::TREE[t][:label] %></p>
                   <p class="question"><%= Incident::TREE[t][:next_question] %></p>
@@ -53,7 +50,7 @@
       <div class="incident-workers">
         <div class="container-fluid">
           <!-- Only Favorite Workers -->
-          <h2>Réparateurs selectionnés par votre propriétaire <i class="fas fa-star" style="font-size:15px;"></i></h2>
+          <h2><i class="fas fa-star" style="font-size:15px; padding-right:5px;"></i>Réparateurs validés par le propriétaire </h2>
           <ul class="">
             <% @workers_favorite.each_with_index do |worker, idx| %>
               <li>
@@ -62,7 +59,7 @@
             <% end %>
           </ul>
           <!-- Only NONE favorite Workers -->
-          <h2>Autres réparateurs selectionnés par nos soins</h2>
+          <h2>Autres réparateurs selectionnés par HomeLib</h2>
           <ul class="">
             <% @workers_other.each_with_index do |worker, idx| %>
               <li>
