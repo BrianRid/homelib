@@ -122,7 +122,7 @@
               <p class="m-0 p-1"><%= doc.date %></p>
             </div>
             <div class="telechargement">
-              <%= link_to("📥", cl_image_path(doc.file.key), class: "download" ) %>
+              <%= link_to("📥", cl_image_path(doc.file.key), class: "download" ) if doc.file.attached? %>
             </div>
             <div class="delete">
               <%= link_to "🗑", document_path(@documents[0]),  method: :delete, class: "destroy" %>
@@ -161,24 +161,23 @@
 <!-- modale Insert doc-->
         <div class="modal fade" id="new_doc_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
-            <div class="modal-content">
+            <div class="modal-content body">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Importer un document</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div class="modal-body">
-                <div id="form" class="banner d-flex justify-content-center align-items-center" style="padding: 275px 0 ;background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url(https://images.unsplash.com/photo-1462899006636-339e08d1844e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80);">
+              <div class="modal-body d-flex justify-content-center">
                   <div class="d-flex justify-content-center" style="width:80%">
                     <div class="w-100 text-center">
-                      <h3 class="text-light pb-4 ">Nouveau document</h3>
+                      <h3 class="pb-4 ">Nouveau document</h3>
                         <div class="container d-flex justify-content-center">
                           <%= simple_form_for @document do |f| %>
                             <%= f.input :name, placeholder: 'Nom du document', label: false %>
                             <%= f.input :date , placeholder: 'Date du document', label: false, as: :string, required: false, input_html: {class: "datepicker bg-white"} %>
                             <%= f.input :file, label: 'Choisir un fichier', label_html: {class: "btn btn-primary m-0 w-100", id: 'file-pick'},:input_html => { :class => 'text-white d-none m-0'}%>
-                            <div class="mb-4"><span id="file-upload-value" class="text-white"></span></div>
+                            <div class="mb-4"><span id="file-upload-value"></span></div>
                             <%= f.submit "Valider", class: "btn btn-info ml-0 text-white w-100" %>
                           <% end %>
                         </div>
@@ -191,4 +190,3 @@
           </div>
         </div>
       </div>
-
