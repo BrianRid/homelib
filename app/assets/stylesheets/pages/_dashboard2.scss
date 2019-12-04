@@ -169,6 +169,7 @@
   height:70px;
   align-items: center;
   padding: 10px;
+  border-bottom: 1px solid #357376;
   .btn {
     width: 95px;
   }
@@ -368,7 +369,7 @@
 .carousel{
   position: relative;
   width: 100%;
-  height: 600px;
+  height: 500px;
   object-fit: cover;
   margin: 0 auto;
   background-color:#D7D7D7;
@@ -376,7 +377,7 @@
   .carousel-caption {
     position: absolute;
     transform: translate(-50%, -50%);
-    bottom: 15%;
+    bottom: 25%;
     left: 50%;
   }
 }
@@ -395,6 +396,17 @@ img.carousel-img {
 
 .carousel-wrapper {
   padding: 12px;
+  h1 {
+    font-size: 22px;
+    color: #357376;
+    text-align: center;
+    border-radius: 5px 5px 0 0;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #357376;
+    padding: 10px 0;
+    font-weight: bolder;
+    letter-spacing: 1px;
+  }
 }
 
 
