@@ -91,14 +91,14 @@ class Incident < ApplicationRecord
       final_answer: nil
     },
     p_2: {
-      label: "Salle de bain (douche, baignoir)",
+      label: "Salle de bain (douche, baignoire)",
       next_question: "Quelle est la nature de votre problème ?",
       next_question_answers: [:p_2_1, :p_2_2],
       final_answer: nil
     },
     p_3: {
-      label: "Tuyauterie et canalisation (hors wc, douche, evier, machines)",
-      next_question: "Vous avez une fuite au niveau:",
+      label: "Tuyauterie et canalisation (hors wc, douche, évier, machines)",
+      next_question: "Vous avez une fuite au niveau :",
       next_question_answers: [:p_3_1, :p_3_2, :p_3_3],
       final_answer: nil
     },
@@ -110,7 +110,7 @@ class Incident < ApplicationRecord
     },
     p_6: {
       label: "Chaudière, chauffe-eau et ballon d'eau chaude",
-      next_question: "Quelle est votre besoin ?",
+      next_question: "Quel est votre besoin ?",
       next_question_answers: [:p_6_1, :p_6_2],
       final_answer: nil
     },
@@ -126,13 +126,13 @@ class Incident < ApplicationRecord
     # plomberie - WC
     p_1_1: {
       label: "Fuite",
-      next_question: "D'ou coule l'eau",
+      next_question: "D'ou coule l'eau ?",
       next_question_answers: [:p_1_1_1, :p_1_1_2, :p_1_1_3, :p_1_1_4],
       final_answer: nil
     },
     p_1_2: {
       label: "Engorgement",
-      next_question: "Avez vous un saniboyeur ?",
+      next_question: "Avez-vous un saniboyeur ?",
       next_question_answers: [:p_1_2_1, :p_1_2_2],
       final_answer: nil
     },
@@ -149,7 +149,7 @@ class Incident < ApplicationRecord
     },
     p_1_1_2: {
       label: "Près de la pipe de sortie",
-      next_question: "Avez vous un saniboyeur ?",
+      next_question: "Avez-vous un saniboyeur ?",
       next_question_answers: [:p_1_1_2_1, :p_1_1_2_2],
       final_answer: nil
     },
@@ -213,7 +213,7 @@ class Incident < ApplicationRecord
       final_answer: nil
     },
     p_2_2: {
-      label: "Engorgement de douche ou baignoire",
+      label: "Engorgement de douche ou de baignoire",
       final_answer: {
         result: "Débouchage de douche ou de baignoire",
         tarif: "Entre 100€ et 200€ TTC",
@@ -310,7 +310,7 @@ class Incident < ApplicationRecord
       }
     },
     p_4_1_3: {
-      label: "Au niveau flexible",
+      label: "Au niveau du flexible",
       final_answer: {
         result: "Changement des flexibles (robinet de lavabo / évier)",
         tarif: "Entre 100€ et 150€ TTC",
