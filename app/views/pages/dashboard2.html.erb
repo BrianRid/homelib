@@ -173,9 +173,10 @@
                           <%= simple_form_for @document, remote: true do |f| %>
                             <%= f.input :name, placeholder: 'Nom du document', label: false %>
                             <%= f.input :date , placeholder: 'Date du document', label: false, as: :string, required: false, input_html: {class: "datepicker bg-white"} %>
-                            <%= f.input :file, label: 'Choisir un fichier', label_html: {class: "btn btn-primary m-0 w-100", id: 'file-pick'},:input_html => { :class => 'text-white d-none m-0'}%>
+                            <%= f.input :file, label: "<i class='fas fa-file-upload'></i> Choisir un document".html_safe, label_html: {class: "m-0 w-100", id: 'file-pick2'}, :input_html => { :class => 'text-white d-none m-0'}%>
+
                             <div class="mb-4"><span id="file-upload-value"></span></div>
-                            <%= f.submit "Valider", class: "btn btn-info ml-0 text-white w-100 validate" %>
+                            <%= f.submit "Valider", class: "btn btn-info ml-0 w-100 validate" %>
                           <% end %>
                         </div>
                     </div>
