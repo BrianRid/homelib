@@ -50,6 +50,10 @@
   }
 }
 
+.carac {
+  color: $hover-green;
+}
+
 .carac h1{
     font-size: 22px;
     color: #357376;
@@ -60,6 +64,7 @@
     padding: 10px 0;
     font-weight: bolder;
     letter-spacing: 1px;
+
 }
 
 // form incidents
@@ -171,6 +176,7 @@
 
 .rent-line {
   display: flex;
+  color: $hover-green;
   height:70px;
   align-items: center;
   padding: 10px;
@@ -195,6 +201,9 @@
 
 .rent-status {
   flex: 0 0 130px;
+  .pics {
+    padding: 0 5px;
+  }
   // padding: 0px;
 }
 
@@ -241,10 +250,12 @@
   display: flex;
   align-items: center;
   padding: 10px;
+  color: $hover-green;
 }
 
 .document-name{
   flex-grow: 1;
+
 }
 
 .document-date {
