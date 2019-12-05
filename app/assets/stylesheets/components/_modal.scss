@@ -4,18 +4,28 @@
 }
 
 .modal-header {
-  background-color: #1D4D4F;
+  background-color: white;
 }
 .modal-title {
-  color: white;
+  color: $dark-green;
 }
 .close {
-  color: white;
+  color: $dark-green;
   text-shadow: 0 1px 0 black;
   opacity: 1;
+     &:hover {
+        zoom: 1.08;
+  };
+}
+
+#file-pick2 {
+  font-family: "Monserrat", sans-serif;
+  &:hover {
+        zoom: 1.08;
+  };
 }
 div.w-100.text-center {
-  border: 1px solid;
+  border: Opx solid;
   border-radius: 20px;
   padding: 12% 0;
 }
@@ -26,4 +36,32 @@ div.w-100.text-center {
 
 .modal-footer {
   border-top: none;
+}
+
+// css des formulaires en modale
+.edit_incident {
+  width: 80% !important;
+}
+.new_document {
+  width: 80% !important;
+}
+
+#form{
+  height: calc(100vh - 70px);
+}
+
+.btn-login {
+  color: $dark-green;
+}
+
+a {
+  color: $grey;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+/* line 13, node_modules/bootstrap/scss/mixins/_hover.scss */
+a:hover {
+  color: $light-green;
+  text-decoration: none;
 }
