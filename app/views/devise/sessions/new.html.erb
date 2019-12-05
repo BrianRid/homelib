@@ -1,28 +1,27 @@
 <% page_heading "Connectez-vous a votre espace personnel" # title %>
 
-<div id="form" class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url(https://images.unsplash.com/photo-1462899006636-339e08d1844e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80);">
-  <div class="d-flex justify-content-center mt-n5">
-     <div>
-      <h1 class='text-center'><h3 class="text-light">Connexion </h3>
-      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="form-inputs text-white">
-          <%= f.input :email,
-                      placeholder: 'Insérez votre e-mail', label: false,
-                      required: false,
-                      autofocus: true,
-                      input_html: { autocomplete: "email" } %>
-          <%= f.input :password,
-                      placeholder: 'Insérez votre mot de passe', label: false,
-                      required: false,
-                      input_html: { autocomplete: "current-password" } %>
-          <%= f.input :remember_me, label: 'Se souvenir de moi', as: :boolean if devise_mapping.rememberable? %>
-        </div>
-        <div class="form-actions d-flex align-items-center justify-content-between" style="width: 100%">
-          <%= f.button :submit, "Se connecter", class: 'btn btn-primary  ml-0 text-white' %>
-       <span class="ml-2">   <%= render "devise/shared/links" %> </span>
-        </div>
-      <% end %>
-    </div>
+<div id="form" class="banner d-flex justify-content-center align-items-center" style="background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url(https://images.unsplash.com/photo-1462899006636-339e08d1844e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80);">
+  <div >
+    <h1 class='text-center'><h3 class="text-light">Connexion </h3>
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-inputs text-white">
+        <%= f.input :email,
+                    placeholder: 'Insérez votre e-mail', label: false,
+                    required: false,
+                    autofocus: true,
+                    input_html: { autocomplete: "email" } %>
+        <%= f.input :password,
+                    placeholder: 'Insérez votre mot de passe', label: false,
+                    required: false,
+                    input_html: { autocomplete: "current-password" } %>
+        <%= f.input :remember_me, label: 'Se souvenir de moi', as: :boolean if devise_mapping.rememberable? %>
+      </div>
+      <div class="form-actions d-flex align-items-center justify-content-between" style="width: 100%">
+        <%= f.button :submit, "Se connecter", class: 'btn btn-info ml-0 btn-login' %>
+     <span class="ml-2">   <%= render "devise/shared/links" %> </span>
+      </div>
+    <% end %>
   </div>
+
 </div>
 

@@ -89,11 +89,10 @@
                           <%= f.input :comment, placeholder: 'Voulez-vous ajouter un commentaire ?', label: false %>
                           <%= f.input :dispo, placeholder: 'Vos disponibilités de rendez-vous', label: false, input_html: {class: "text"}  %>
                           <%= f.input :date , placeholder: 'Date de l\'incident', label: false, as: :string, required: false, input_html: {class: "datepicker bg-white text"} %>
-                          <%= f.input :photos, as: :file, input_html: { multiple: true, :class => 'text-white d-none m-0'}, label: 'Ajoutez des photos ?', label_html: {class: "btn btn-primary m-0 w-100", id: 'file-pick2'}%>
-
+                          <%= f.input :photos, as: :file, input_html: { multiple: true, :class => 'text-white d-none m-0'}, label: "<i class='fas fa-camera-retro'></i> ...  Ajoutez des photos ?".html_safe, label_html: {class: "m-0 w-100", id: 'file-pick2'}  %>
                         </div>
                         <div class="mb-4 d-flex flex-column text-left text " id="file-upload-value"></div>
-                        <%= f.submit "Je valide l'incident", class: "btn btn-info ml-0 text-white w-100" %>
+                        <%= f.submit "Je valide l'incident", class: "btn btn-info ml-0 w-100" %>
                       <% end %>
                     </div>
 
@@ -109,3 +108,4 @@
           </div>
         </div>
       </div>
+
