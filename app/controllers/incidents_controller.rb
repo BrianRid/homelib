@@ -1,7 +1,7 @@
 class IncidentsController < ApplicationController
+  before_action :set_incident, only: [:show, :update, :destroy]
+
   def show
-    @incident = Incident.find(params[:id])
-    authorize(@incident)
     @resume = Incident.resume(@incident.last_answer)
     @category = Incident.category(@resume[0])
     # All workers in the specific category
@@ -13,7 +13,6 @@ class IncidentsController < ApplicationController
 
   def create
     answer = incident_params[:answer].to_sym
-    # raise
     @next_decision = Incident.next_decision(answer)
 
     authorize(Incident.new)
@@ -31,32 +30,32 @@ class IncidentsController < ApplicationController
       @incident.category = @category
       @incident.last_answer = answer
       @incident.date = Date.today
-      if @incident.save
-        redirect_to incident_path(@incident)
-      end
+
+      redirect_to incident_path(@incident) if @incident.save
     end
   end
 
   def update
-    @incident = Incident.find(params[:id])
-    authorize(@incident)
-    if @incident.update(incident_params.merge({status: "déclaré"}))
-      redirect_to dashboard_path , notice: "Incident successfully created"
+    if @incident.update(incident_params.merge(status: "déclaré"))
+      redirect_to dashboard_path, notice: "Incident créé avec succès"
     else
       render :edit
     end
   end
 
   def destroy
-    @incident = Incident.find(params[:id])
-    authorize(@incident)
     @incident.delete
-    redirect_to dashboard_path, notice: "Incident successfully deleted"
+    redirect_to dashboard_path, notice: "Incident supprimé avec succès"
   end
 
   private
 
   def incident_params
     params.require(:incident).permit(:answer, :comment, :dispo, :date)
+  end
+
+  def set_incident
+    @incident = Incident.find(params[:id])
+    authorize(@incident)
   end
 end

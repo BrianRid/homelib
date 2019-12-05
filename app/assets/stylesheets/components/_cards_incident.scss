@@ -78,14 +78,31 @@
 
 /* INCIDENT RESULT */
 .incident-result {
-  width: 80%;
+  position: relative;
+  width: 94%;
   margin: 0 auto;
-  padding: 20px;
+  padding: 8px;
   border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   background-color: white;
+}
 
-  p {
-    margin-left: 15px;
+/* Incident delete */
+.incident-delete {
+  position: absolute;
+  top: 21px;
+  right: 4%;
+
+  #delete-incident-btn {
+    padding: 0;
+  }
+
+  .fa-trash-alt {
+    color: #357376;
+    font-size: 17px;
+
+    &:hover {
+      font-size: 20px;
+    }
   }
 }
