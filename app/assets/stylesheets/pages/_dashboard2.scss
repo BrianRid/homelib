@@ -50,6 +50,10 @@
   }
 }
 
+.carac {
+  color: $hover-green;
+}
+
 .carac h1{
     font-size: 22px;
     color: #357376;
@@ -60,6 +64,7 @@
     padding: 10px 0;
     font-weight: bolder;
     letter-spacing: 1px;
+
 }
 
 // form incidents
@@ -109,13 +114,13 @@
 
 
   h1{
-    font-size: 22px;
+    font-size: 26px;
     color: #357376;
     text-align: center;
     border-radius: 5px 5px 0 0;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
     border-bottom: 2px solid #357376;
-    padding: 10px 0;
+    padding-bottom: 15px;
     font-weight: bolder;
     letter-spacing: 1px;
   }
@@ -131,7 +136,7 @@
   height: 120px;
   overflow: hidden;
   overflow-y: scroll;
-  background-color: white;
+
 }
 
 .incident-line {
@@ -139,6 +144,7 @@
   align-items: center;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
   margin-bottom: 10px;
+  background-color: white;
 }
 
 .table-description {
@@ -156,13 +162,13 @@
 
 
   h1 {
-    font-size: 22px;
+    font-size: 26px;
     color: #357376;
     text-align: center;
     border-radius: 5px 5px 0 0;
     margin-bottom: 15px;
     border-bottom: 2px solid #357376;
-    padding: 10px 0;
+    padding-bottom: 15px;
     font-weight: bolder;
     letter-spacing: 1px;
   }
@@ -170,6 +176,7 @@
 
 .rent-line {
   display: flex;
+  color: $hover-green;
   height:70px;
   align-items: center;
   padding: 10px;
@@ -194,6 +201,9 @@
 
 .rent-status {
   flex: 0 0 130px;
+  .pics {
+    padding: 0 5px;
+  }
   // padding: 0px;
 }
 
@@ -240,10 +250,12 @@
   display: flex;
   align-items: center;
   padding: 10px;
+  color: $hover-green;
 }
 
 .document-name{
   flex-grow: 1;
+
 }
 
 .document-date {
@@ -283,13 +295,13 @@
     // padding: 5px;
     // margin-bottom: 15px;
 
-    font-size: 22px;
+    font-size: 26px;
     color: #357376;
     text-align: center;
     border-radius: 5px 5px 0 0;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
     border-bottom: 2px solid #357376;
-    padding: 10px 0;
+    padding-bottom: 15px;
     font-weight: bolder;
     letter-spacing: 1px;
   }
@@ -332,13 +344,13 @@ img.carousel-img {
 .carousel-wrapper {
   padding: 12px;
   h1 {
-    font-size: 22px;
+    font-size: 26px;
     color: #357376;
     text-align: center;
     border-radius: 5px 5px 0 0;
     margin-bottom: 15px;
     border-bottom: 2px solid #357376;
-    padding: 10px 0;
+    padding-bottom: 15px;
     font-weight: bolder;
     letter-spacing: 1px;
   }

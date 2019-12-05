@@ -68,7 +68,6 @@
                   <p> <%=incident.category.capitalize%> </p>
                   <p> <%=incident.date.strftime("%d-%b-%y")%> </p>
                   <%= render 'incidents/incident_status', incident: incident %>
-                  <p><%=  %></p>
                   <p><%= incident.tarif %></p>
                 </div>
                 <% end %>
