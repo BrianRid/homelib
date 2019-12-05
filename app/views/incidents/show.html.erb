@@ -18,7 +18,7 @@
             </div>
             <!-- Price -->
             <div class="incident-price d-flex">
-              <i class="fas fa-money-bill-wave"></i><h4><%= @incident.tarif %></h4>
+              <i class="fas fa-money-bill-wave"></i><h4><%= @incident.tarif %><i class="fas fa-medal"></i></h4>
             </div>
             <!-- Responsability -->
             <div class="incident-responsability d-flex">
@@ -46,7 +46,7 @@
       <div class="incident-workers">
         <div class="container-fluid">
           <!-- Only Favorite Workers -->
-          <h2><i class="fas fa-star" style="font-size:15px; padding-right:5px;"></i>Réparateurs validés par le propriétaire </h2>
+          <h2><i class="fas fa-medal" style="font-size:15px; padding-right:5px;"></i>Réparateurs certifiés par le propriétaire </h2>
           <ul class="">
             <% @workers_favorite.each_with_index do |worker, idx| %>
               <li>

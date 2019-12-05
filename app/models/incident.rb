@@ -46,12 +46,6 @@ class Incident < ApplicationRecord
 
   TREE = {
     # categories
-    p: {
-      label: "Plomberie",
-      next_question: "Votre problème concerne ?",
-      next_question_answers: [:p_1, :p_2, :p_3, :p_4, :p_6, :p_7],
-      final_answer: nil
-    },
     v: {
       label: "Vitrerie",
       next_question: "Votre problème concerne ?",
@@ -62,6 +56,12 @@ class Incident < ApplicationRecord
       label: "Electricité",
       next_question: "Votre problème concerne ?",
       next_question_answers: [:e_1, :e_2],
+      final_answer: nil
+    },
+    p: {
+      label: "Plomberie",
+      next_question: "Votre problème concerne ?",
+      next_question_answers: [:p_1, :p_2, :p_3, :p_4, :p_6, :p_7],
       final_answer: nil
     },
     s: {
