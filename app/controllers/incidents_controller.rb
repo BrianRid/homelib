@@ -31,7 +31,17 @@ class IncidentsController < ApplicationController
       @incident.last_answer = answer
       @incident.date = Date.today
 
-      redirect_to incident_path(@incident) if @incident.save
+      @incident.save
+      respond_to do |format|
+        format.html { redirect_to incident_path(@incident) }
+        format.js  # <-- will render `app/views/incident/create.js.erb`
+      end
+       # if @incident.save
+    end
+
+    respond_to do |format|
+      format.html # render 'views/incidents/create.html.erb'
+      format.js # render 'views/incidents/create.js.erb'
     end
   end
 

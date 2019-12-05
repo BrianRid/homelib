@@ -25,6 +25,7 @@ initUpdateNavbarOnScroll();
 initLightGallery();
 readMore();
 hideSubmit();
+window.hideSubmitAnswers = hideSubmitAnswers;
 hideSubmitAnswers();
 // loadDynamicNameText();
 
