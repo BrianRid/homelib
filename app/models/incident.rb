@@ -55,7 +55,7 @@ class Incident < ApplicationRecord
     v: {
       label: "Vitrerie",
       next_question: "Votre problème concerne ?",
-      next_question_answers: [:v_1, :v_2],
+      next_question_answers: [:v_1, :v_2, :v_3],
       final_answer: nil
     },
     e: {
@@ -371,6 +371,135 @@ class Incident < ApplicationRecord
         tarif: "Entre 180 € et 260 € TTC",
         responsable: "Propriétaire"
       }
-    }
+    },
+
+    ################ VITRERIE #############################
+    v_1: {
+      label: "Vitre cassée",
+      next_question: "Quel type de vitrage a été cassé ?",
+      next_question_answers: [:v_1_1, :v_1_2, :v_1_3, :v_1_4],
+      final_answer: nil
+    },
+    v_2: {
+      label: "Fenêtre à remplacer",
+      next_question: "Quel type de fenêtre préférez-vous ?",
+      next_question_answers: [:v_2_1, :v_2_2, :v_2_3, :v_2_4],
+      final_answer: nil
+    },
+    v_3: {
+      label: "Autre",
+      next_question: "Quel est votre besoin ?",
+      next_question_answers: [:v_3_1, :v_3_2, :v_3_3, :v_3_4, :v_3_5],
+      final_answer: nil
+    },
+    # vitrerie - Vitre cassee => Avec final answer
+    v_1_1: {
+      label: "Simple vitrage",
+      final_answer: {
+        result: "Changement de vitre cassée Simple Vitrage",
+        tarif: "Entre 150 € et 300 € TTC",
+        responsable: "Locataire"
+      }
+    },
+    v_1_2: {
+      label: "Double vitrage",
+      final_answer: {
+        result: "Changement de vitre cassée Double Vitrage",
+        tarif: "Entre 150 € et 500 € TTC",
+        responsable: "Locataire"
+      }
+    },
+    v_1_3: {
+      label: "Survitrage",
+      final_answer: {
+        result: "Changement de vitre cassée Survitrage",
+        tarif: "Entre 150 € et 400 € TTC",
+        responsable: "Locataire"
+      }
+    },
+    v_1_4: {
+      label: "Autre",
+      final_answer: {
+        result: "Changement de vitre cassée type inconnu",
+        tarif: "Entre 200 € et 500 € TTC",
+        responsable: "Locataire"
+      }
+    },
+
+    # vitrerie - Fenetre a remplacer => Avec final answer
+    v_2_1: {
+      label: "En bois",
+      final_answer: {
+        result: "Fourniture et pose d'une fenêtre en bois",
+        tarif: "Entre 650 € et 1000 € TTC",
+        responsable: "Propriétaire"
+      }
+    },
+    v_2_2: {
+      label: "En PVC",
+      final_answer: {
+        result: "Fourniture et pose d'une fenêtre en PVC",
+        tarif: "Entre 500 € et 800 € TTC",
+        responsable: "Propriétaire"
+      }
+    },
+    v_2_3: {
+      label: "En aluminum",
+      final_answer: {
+        result: "Fourniture et pose d'une fenêtre en aluminium",
+        tarif: "Entre 800 € et 1300 € TTC",
+        responsable: "Propriétaire"
+      }
+    },
+    v_2_4: {
+      label: "Autre",
+      final_answer: {
+        result: "Fourniture et pose d'une fenêtre autres matériaux",
+        tarif: "Entre 500 € et 1400 € TTC",
+        responsable: "Propriétaire"
+      }
+    },
+
+    # vitrerie - Autre besoin => Avec final answer
+    v_3_1: {
+      label: "Des joins à remplacer",
+      final_answer: {
+        result: "Changement de joints de vitre",
+        tarif: "Entre 150 € et 300 € TTC",
+        responsable: "Propriétaire"
+      }
+    },
+    v_3_2: {
+      label: "Un trou à percer pour la climatisation",
+      final_answer: {
+        result: "Perçage d'un trou dans une vitre",
+        tarif: "Entre 100 € et 250 € TTC",
+        responsable: "Propriétaire"
+      }
+    },
+    v_3_3: {
+      label: "Problème d'un fenêtre de toit (velux)",
+      final_answer: {
+        result: "Problème lié à une fenêtre de toit",
+        tarif: "Entre 200 € et 500 € TTC",
+        responsable: "Propriétaire"
+      }
+    },
+    v_3_4: {
+      label: "Poignée (crémone) à remplacer",
+      final_answer: {
+        result: "Remplacement d'une crémone de fenêtre",
+        tarif: "Entre 150 € et 250 € TTC",
+        responsable: "Propriétaire"
+      }
+    },
+    v_3_5: {
+      label: "Autre",
+      final_answer: {
+        result: "Problème de vitrerie inconnu",
+        tarif: "Entre 150 € et 500 € TTC",
+        responsable: "Propriétaire ou Locataire"
+      }
+    },
   }
 end
