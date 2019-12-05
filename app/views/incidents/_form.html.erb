@@ -1,8 +1,9 @@
- <div class="container col-8 offset-2" style="align-items: center;">
-  <%= simple_form_for Incident.new do |f| %>
+ <div class="container" style="align-items: center;">
+  <%= simple_form_for Incident.new, remote: true do |f| %>
     <div>
     <%= f.input :answer, label: "#{decision[:question] unless decision[:question] == "Voulez-vous déclarer un incident ?"}", collection: decision[:answers], as: :radio_buttons %>
     </div>
     <%= f.submit "OK", class: "btn btn-primary d-none" %>
   <% end %>
  </div>
+
