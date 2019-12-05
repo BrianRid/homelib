@@ -16,7 +16,7 @@ class IncidentsController < ApplicationController
     @next_decision = Incident.next_decision(answer)
 
     authorize(Incident.new)
-    if @next_decision.nil?
+    if @next_decision.nil? && !request.env["HTTP_ACCEPT"].include?('javascript')
       # creation incident
       @results = Incident.final_result(answer)
       @resume = Incident.resume(answer)
