@@ -216,7 +216,7 @@ class Incident < ApplicationRecord
       label: "Engorgement de douche ou baignoire",
       final_answer: {
         result: "Débouchage de douche ou de baignoire",
-        tarif: "Entre 100 € et 200 € TTC",
+        tarif: "Entre 100€ et 200€ TTC",
         responsable: "Locataire"
       }
     },
@@ -226,7 +226,7 @@ class Incident < ApplicationRecord
       label: "D'un tuyau d'évacuation (tuyau PVC)",
       final_answer: {
         result: "Réparation d'une fuite du tuyau d'évacuation",
-        tarif: "Entre 150 € et 200 € TTC",
+        tarif: "Entre 150€ et 200€ TTC",
         responsable: "Propriétaire"
       }
     },
@@ -234,7 +234,7 @@ class Incident < ApplicationRecord
       label: "De la vanne d'entrée (la vanne qui coupe l'eau dans l'appartement)",
       final_answer: {
         result: "Réparation d'une fuite de la vanne principale de l'appartement ou avant la vanne",
-        tarif: "Entre 150 € et 300 € TTC",
+        tarif: "Entre 150€ et 300€ TTC",
         responsable: "Propriétaire"
       }
     },
@@ -242,7 +242,7 @@ class Incident < ApplicationRecord
       label: "D'un autre tuyau",
       final_answer: {
         result: "Réparation d'une fuite du tuyau après la vanne principale de l'appartement",
-        tarif: "Entre 120 € et 200 € TTC",
+        tarif: "Entre 120€ et 200€ TTC",
         responsable: "Propriétaire"
       }
     },
@@ -272,7 +272,7 @@ class Incident < ApplicationRecord
       label: "Reparation d'une fuite de ballon d'eau chaude",
       final_answer: {
         result: "Réparation d'une fuite du ballon d'eau chaude",
-        tarif: "Entre 150 € et 300 € TTC",
+        tarif: "Entre 150€ et 300€ TTC",
         responsable: "Propriétaire"
       }
     },
@@ -280,7 +280,7 @@ class Incident < ApplicationRecord
     p_2_1_1: {
       label: "Du robinet",final_answer: {
         result: "Fourniture et pose d'un robinet",
-        tarif: "Entre 150 € et 350 € TTC",
+        tarif: "Entre 150€ et 350€ TTC",
         responsable: "Propriétaire"
       }
     },
@@ -288,7 +288,7 @@ class Incident < ApplicationRecord
       label: "Du tuyau d'évacuation (sous la douche)",
       final_answer: {
         result: "Réparation d'une fuite du tuyau d'évacuation de la douche",
-        tarif: "Entre 100 € et 200 € TTC",
+        tarif: "Entre 100€ et 200€ TTC",
         responsable: "Propriétaire"
       }
     },
@@ -297,7 +297,7 @@ class Incident < ApplicationRecord
       label: "Directement du robinet",
       final_answer: {
         result: "Fourniture et pose d'un robinet",
-        tarif: "Entre 150 € et 300 € TTC",
+        tarif: "Entre 150€ et 300€ TTC",
         responsable: "Propriétaire"
       }
     },
@@ -305,7 +305,7 @@ class Incident < ApplicationRecord
       label: "Autour du robinet",
       final_answer: {
         result: "Fourniture et pose d'un robinet",
-        tarif: "Entre 150 € et 300 € TTC",
+        tarif: "Entre 150€ et 300€ TTC",
         responsable: "Propriétaire"
       }
     },
@@ -313,7 +313,7 @@ class Incident < ApplicationRecord
       label: "Au niveau flexible",
       final_answer: {
         result: "Changement des flexibles (robinet de lavabo / évier)",
-        tarif: "Entre 100 € et 150 € TTC",
+        tarif: "Entre 100€ et 150€ TTC",
         responsable: "Propriétaire"
       }
     },
@@ -327,7 +327,7 @@ class Incident < ApplicationRecord
       label: "Siphon en plastique (PVC)",
       final_answer: {
         result: "Changement du siphon (lavabo / évier) en PVC",
-        tarif: "Entre 80 € et 150 € TTC",
+        tarif: "Entre 80€ et 150€ TTC",
         responsable: "Propriétaire"
       }
     },
@@ -335,7 +335,7 @@ class Incident < ApplicationRecord
       label: "Siphon en laiton (métallique)",
       final_answer: {
         result: "Changement du siphon (lavabo / évier) en laiton",
-        tarif: "Entre 100 € et 160 € TTC",
+        tarif: "Entre 100€ et 160€ TTC",
         responsable: "Propriétaire"
       }
     },
@@ -343,7 +343,7 @@ class Incident < ApplicationRecord
       label: "Oui",
       final_answer: {
         result: "Débouchage d'un lavabo / évier avec sanispeed",
-        tarif: "Entre 150 € et 250 € TTC",
+        tarif: "Entre 150€ et 250€ TTC",
         responsable: "Locataire"
       }
     },
@@ -351,7 +351,7 @@ class Incident < ApplicationRecord
       label: "Non",
       final_answer: {
         result: "Débouchage d'un lavabo / évier sans sanispeed",
-        tarif: "Entre 100 € et 180 € TTC",
+        tarif: "Entre 100€ et 180€ TTC",
         responsable: "Locataire"
       }
     },
@@ -360,7 +360,7 @@ class Incident < ApplicationRecord
       label: "Central avec le robinet à boisseau",
       final_answer: {
         result: "Réparation du chauffage collectif (avec le robinet à boisseau)",
-        tarif: "Entre 150 € et 250 € TTC",
+        tarif: "Entre 150€ et 250€ TTC",
         responsable: "Syndic"
       }
     },
@@ -368,7 +368,7 @@ class Incident < ApplicationRecord
       label: "Individuel",
       final_answer: {
         result: "Réparation d'une chaudière à gaz ou électrique en fonction de la marque",
-        tarif: "Entre 180 € et 260 € TTC",
+        tarif: "Entre 180€ et 260€ TTC",
         responsable: "Propriétaire"
       }
     }
