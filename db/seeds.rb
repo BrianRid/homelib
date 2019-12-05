@@ -117,13 +117,13 @@ puts 'alain'
 alain = User.create!({
   email:  "ad@gmail.com",
   password: "123456",
-  first_name: "Alain",
-  last_name: "DELOIN",
+  first_name: "Brian",
+  last_name: "RIDOLCE",
   address: "33 rue du Laos",
-  phone: "06 14 14 14 14",
+  phone: "06 59 57 41 74",
 })
 alain.avatar.attach(
-  io: URI.open('https://upload.wikimedia.org/wikipedia/commons/a/a9/Delon_Le_Gu%C3%A9pard_%28cropped%29.jpg'),
+  io: URI.open('https://res.cloudinary.com/dqhszujt5/image/upload/v1575563017/_JBU3257-1_Julien_Bienvenu_v2_cua55i.jpg'),
   filename: "#{alain.first_name}_avatar",
   content_type: 'image/jpg',
 )
@@ -184,7 +184,11 @@ i1 = Incident.create!({
   status: "finalisé",
   dispo: "matin tôt",
   category: "plomberie",
-  tarif: "Entre 100 € et 250 € TTC"
+  tarif: "Entre 100 € et 250 € TTC",
+  reparation: "",
+  responsable: "Propriétaire",
+  last_answer: "p_3_2",
+  comment: "",
 })
 
 i2 = Incident.create!({
@@ -193,7 +197,11 @@ i2 = Incident.create!({
   status: "finalisé",
   dispo: "matin tôt",
   category: "serrurerie",
-  tarif: "Entre 150 € et 250 € TTC"
+  tarif: "Entre 150 € et 250 € TTC",
+  reparation: "",
+  responsable: "Propriétaire",
+  last_answer: "p_1_1_1",
+  comment: "",
 })
 
 i3 = Incident.create!({
@@ -202,7 +210,11 @@ i3 = Incident.create!({
   status: "finalisé",
   dispo: "matin tôt",
   category: "serrurerie",
-  tarif: "Entre 200 € et 350 € TTC"
+  tarif: "Entre 200 € et 350 € TTC",
+  reparation: "",
+  responsable: "Propriétaire",
+  last_answer: "p_1_1_1",
+  comment: "",
 })
 
 i4 = Incident.create!({
@@ -211,7 +223,11 @@ i4 = Incident.create!({
   status: "finalisé",
   dispo: "soir tard",
   category: "plomberie",
-  tarif: "Entre 400 € et 550 € TTC"
+  tarif: "Entre 400 € et 550 € TTC",
+  reparation: "",
+  responsable: "Propriétaire",
+  last_answer: "p_3_2",
+  comment: "",
 })
 
 puts 'Creating rental 1'
@@ -255,11 +271,6 @@ r1.photos.attach(
 )
 r1.photos.attach(
   io: URI.open('https://res.cloudinary.com/dqhszujt5/image/upload/v1575466071/Legendre-14_bp5ewb.jpg'),
-  filename: "r1_8",
-  content_type: 'image/jpg',
-)
-r1.photos.attach(
-  io: URI.open('https://res.cloudinary.com/dqhszujt5/image/upload/v1575466073/Legendre-12_myyoyf.jpg'),
   filename: "r1_8",
   content_type: 'image/jpg',
 )
