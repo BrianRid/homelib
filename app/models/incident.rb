@@ -126,7 +126,7 @@ class Incident < ApplicationRecord
     # plomberie - WC
     p_1_1: {
       label: "Fuite",
-      next_question: "D'ou coule l'eau ?",
+      next_question: "D'où coule l'eau ?",
       next_question_answers: [:p_1_1_1, :p_1_1_2, :p_1_1_3, :p_1_1_4],
       final_answer: nil
     },

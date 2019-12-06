@@ -25,11 +25,11 @@
               <i class="fas fa-gavel"></i><h4><%= @incident.responsable %></h4>
             </div>
             <div class="incident-certification d-flex">
-              <i class="fas fa-medal"></i><p>Intervention directement prise en charge par le propiétaire</p>
+              <i class="fas fa-medal"></i><p>Montant pris en charge par le propriétaire</p>
             </div>
             <!-- Summary -->
             <div class="incident-summary">
-              <h5><strong>Recapitulatif</strong></h5>
+              <h5><strong>Récapitulatif</strong></h5>
               <% @resume.each do |t| %>
                 <p class="reponse"><%= Incident::TREE[t][:label] %></p>
                 <p class="question"><%= Incident::TREE[t][:next_question] %></p>
