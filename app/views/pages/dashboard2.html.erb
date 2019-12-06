@@ -9,7 +9,7 @@
     <div class="display-name d-flex flex-column col-6 mt-4">
       <h1 class= "welcome">Bonjour, <%= current_user.full_name %> </h1>
       <br>
-      <p class="loc-info"><i class="fas fa-calendar-check"></i>   Vous êtes locataire depuis le <%= I18n.l(current_user.rentals[0].start_date,  format: '%d %B %y', locale: :'fr').capitalize %> </p>
+      <p class="loc-info"><i class="fas fa-calendar-check"></i>   Vous êtes locataire depuis le <%= I18n.l(current_user.rentals[0].start_date,  format: '%d %B %Y', locale: :'fr').capitalize %> </p>
       <p class="loc-info"><i class="fas fa-money-check-alt"></i> Votre loyer est de <strong><%= current_user.rentals[0].loyer %>€</strong>  par mois </p>
     </div>
 
@@ -21,6 +21,7 @@
         <div class="carac p-3">
           <h1><i class="far fa-building"></i>   Caractéristiques</h1>
           <p class="d-flex justify-content-left m-0"><i class="fas fa-location-arrow px-2"></i><%= @flat.address %></p>
+          <p class="d-flex justify-content-left m-0"><i class="fas fa-map-marked-alt px-2"></i><%= @flat.city %></p>
           <p class="d-flex justify-content-left m-0"><i class="fas fa-home px-2"></i><%= @flat.nb_rooms %> chambres</p>
           <p class="d-flex justify-content-left m-0"><i class="fas fa-arrows-alt px-2"></"></i><%= @flat.area %>m2</p>
           <% if @flat.furnished? %>
