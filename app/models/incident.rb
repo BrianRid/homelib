@@ -49,13 +49,13 @@ class Incident < ApplicationRecord
     v: {
       label: "Vitrerie",
       next_question: "Votre problème concerne ?",
-      next_question_answers: [:v_1, :v_2],
+      next_question_answers: [:v_1, :v_2, :v_3],
       final_answer: nil
     },
     e: {
       label: "Electricité",
       next_question: "Votre problème concerne ?",
-      next_question_answers: [:e_1, :e_2],
+      next_question_answers: [:e_1, :e_2, :e_3, :e_4, :e_5, :e_6],
       final_answer: nil
     },
     p: {
@@ -371,6 +371,517 @@ class Incident < ApplicationRecord
         tarif: "Entre 180€ et 260€ TTC",
         responsable: "Propriétaire"
       }
-    }
+    },
+
+    ################ VITRERIE #############################
+    v_1: {
+      label: "Vitre cassée",
+      next_question: "Quel type de vitrage a été cassé ?",
+      next_question_answers: [:v_1_1, :v_1_2, :v_1_3, :v_1_4],
+      final_answer: nil
+    },
+    v_2: {
+      label: "Fenêtre à remplacer",
+      next_question: "Quel type de fenêtre préférez-vous ?",
+      next_question_answers: [:v_2_1, :v_2_2, :v_2_3, :v_2_4],
+      final_answer: nil
+    },
+    v_3: {
+      label: "Autre",
+      next_question: "Quel est votre besoin ?",
+      next_question_answers: [:v_3_1, :v_3_2, :v_3_3, :v_3_4, :v_3_5],
+      final_answer: nil
+    },
+    # vitrerie - Vitre cassee => Avec final answer
+    v_1_1: {
+      label: "Simple vitrage",
+      final_answer: {
+        result: "Changement de vitre cassée Simple Vitrage",
+        tarif: "Entre 150 € et 300 € TTC",
+        responsable: "Locataire"
+      }
+    },
+    v_1_2: {
+      label: "Double vitrage",
+      final_answer: {
+        result: "Changement de vitre cassée Double Vitrage",
+        tarif: "Entre 150 € et 500 € TTC",
+        responsable: "Locataire"
+      }
+    },
+    v_1_3: {
+      label: "Survitrage",
+      final_answer: {
+        result: "Changement de vitre cassée Survitrage",
+        tarif: "Entre 150 € et 400 € TTC",
+        responsable: "Locataire"
+      }
+    },
+    v_1_4: {
+      label: "Autre",
+      final_answer: {
+        result: "Changement de vitre cassée type inconnu",
+        tarif: "Entre 200 € et 500 € TTC",
+        responsable: "Locataire"
+      }
+    },
+
+    # vitrerie - Fenetre a remplacer => Avec final answer
+    v_2_1: {
+      label: "En bois",
+      final_answer: {
+        result: "Fourniture et pose d'une fenêtre en bois",
+        tarif: "Entre 650 € et 1000 € TTC",
+        responsable: "Propriétaire"
+      }
+    },
+    v_2_2: {
+      label: "En PVC",
+      final_answer: {
+        result: "Fourniture et pose d'une fenêtre en PVC",
+        tarif: "Entre 500 € et 800 € TTC",
+        responsable: "Propriétaire"
+      }
+    },
+    v_2_3: {
+      label: "En aluminum",
+      final_answer: {
+        result: "Fourniture et pose d'une fenêtre en aluminium",
+        tarif: "Entre 800 € et 1300 € TTC",
+        responsable: "Propriétaire"
+      }
+    },
+    v_2_4: {
+      label: "Autre",
+      final_answer: {
+        result: "Fourniture et pose d'une fenêtre autres matériaux",
+        tarif: "Entre 500 € et 1400 € TTC",
+        responsable: "Propriétaire"
+      }
+    },
+
+    # vitrerie - Autre besoin => Avec final answer
+    v_3_1: {
+      label: "Des joins à remplacer",
+      final_answer: {
+        result: "Changement de joints de vitre",
+        tarif: "Entre 150 € et 300 € TTC",
+        responsable: "Propriétaire"
+      }
+    },
+    v_3_2: {
+      label: "Un trou à percer pour la climatisation",
+      final_answer: {
+        result: "Perçage d'un trou dans une vitre",
+        tarif: "Entre 100 € et 250 € TTC",
+        responsable: "Propriétaire"
+      }
+    },
+    v_3_3: {
+      label: "Problème d'un fenêtre de toit (velux)",
+      final_answer: {
+        result: "Problème lié à une fenêtre de toit",
+        tarif: "Entre 200 € et 500 € TTC",
+        responsable: "Propriétaire"
+      }
+    },
+    v_3_4: {
+      label: "Poignée (crémone) à remplacer",
+      final_answer: {
+        result: "Remplacement d'une crémone de fenêtre",
+        tarif: "Entre 150 € et 250 € TTC",
+        responsable: "Propriétaire"
+      }
+    },
+    v_3_5: {
+      label: "Autre",
+      final_answer: {
+        result: "Problème de vitrerie inconnu",
+        tarif: "Entre 150 € et 500 € TTC",
+        responsable: "Propriétaire ou Locataire"
+      }
+    },
+
+    ################ ELECTRICITE #############################
+    e_1: {
+      label: "Prise électrique",
+      next_question: "De quel type de prise s'agit-il ?",
+      next_question_answers: [:e_1_1, :e_1_2, :e_1_3, :e_1_4],
+      final_answer: nil
+    },
+    e_2: {
+      label: "Lumière",
+      next_question: "Combien de pièces sont concernées par la panne ?",
+      next_question_answers: [:e_2_1, :e_2_2],
+      final_answer: nil
+    },
+    e_3: {
+      label: "Radiateur, convecteur, sèche serviette",
+      next_question: "Vous avez besoin de :",
+      next_question_answers: [:e_3_1, :e_3_2, :e_3_3],
+      final_answer: nil
+    },
+    e_4: {
+      label: "Chaudière, chauffe eau ou ballon d'eau chaude",
+      next_question: "Votre problème est lié :",
+      next_question_answers: [:e_4_1, :e_4_2, :e_4_3],
+      final_answer: nil
+    },
+    e_5: {
+      label: "Tout l'appartement/la maison",
+      final_answer: {
+        result: "Problème d'électricité dans tout l'appartement",
+        tarif: "Entre 100 € et 250 € TTC",
+        responsable: "Propriétaire"
+      }
+    },
+    e_6: {
+      label: "Autre",
+      final_answer: {
+        result: "Problème d'électricité inconnu",
+        tarif: "Entre 100 € et 300 € TTC",
+        responsable: "Propriétaire ou Locataire"
+      }
+    },
+
+    # electricite - Prise électrique => Avec final answer
+    e_1_1: {
+      label: "Une ou plusieurs prises electrique",
+      final_answer: {
+        result: "Réparation d'une panne d'une ou de plusieurs prises",
+        tarif: "Entre 150 € et 250 € TTC",
+        responsable: "Propriétaire"
+      }
+    },
+    e_1_2: {
+      label: "Prise coaxiale (télévision)",
+      final_answer: {
+        result: "Réparation d'une panne de prise coaxiale",
+        tarif: "Entre 100 € et 150 € TTC",
+        responsable: "Propriétaire"
+      }
+    },
+    e_1_3: {
+      label: "Prise RJ45 (internet)",
+      final_answer: {
+        result: "Réparation d'une panne de prise RJ45",
+        tarif: "Entre 100 € et 150 € TTC",
+        responsable: "Propriétaire"
+      }
+    },
+    e_1_4: {
+      label: "Autre",
+      final_answer: {
+        result: "Problème d'électricité inconnu",
+        tarif: "Entre 100 € et 300 € TTC",
+        responsable: "Propriétaire ou Locataire"
+      }
+    },
+
+    # electricite - Lumiere
+    e_2_1: {
+      label: "Tout l'appartement/la maison",
+      final_answer: {
+        result: "Réparation d'une panne d'éclairage dans tout l'appartement",
+        tarif: "Entre 100 € et 250 € TTC",
+        responsable: "Propriétaire"
+      }
+    },
+    e_2_2: {
+      label: "Une pièce",
+      next_question: "Quel type d’interrupteur possédez-vous ?",
+      next_question_answers: [:e_1_2_1, :e_1_2_2, :e_1_2_3, :e_1_2_4],
+      final_answer: nil
+    },
+    # electricite - Lumiere/Une pièce => Avec final answer
+    e_1_2_1: {
+      label: "Classique",
+      final_answer: {
+        result: "Remplacement d'un interrupteur classique",
+        tarif: "Entre 100 € et 150 € TTC",
+        responsable: "Propriétaire"
+      }
+    },
+    e_1_2_2: {
+      label: "Va et vient",
+      final_answer: {
+        result: "Remplacement d'un interrupteur 'va-et-vient'",
+        tarif: "Entre 100 € et 150 € TTC",
+        responsable: "Propriétaire"
+      }
+    },
+    e_1_2_3: {
+      label: "Poussoir",
+      final_answer: {
+        result: "Remplacement d'un interrupteur poussoir",
+        tarif: "Entre 100 € et 150 € TTC",
+        responsable: "Propriétaire"
+      }
+    },
+    e_1_2_4: {
+      label: "Variateur",
+      final_answer: {
+        result: "Remplacement d'un interrupteur variateur",
+        tarif: "Entre 120 € et 180 € TTC",
+        responsable: "Propriétaire"
+      }
+    },
+
+    # electricite -Radiateur, convecteur, seche serviette => Avec final answer
+    e_3_1: {
+      label: "Réparation d'un radiateur/convecteur/sèche serviette",
+      final_answer: {
+        result: "Réparation d'une panne de radiateurs / sèche-serviette électrique",
+        tarif: "Entre 180 € et 240 € TTC",
+        responsable: "Propriétaire"
+      }
+    },
+    e_3_2: {
+      label: "Remplacement d'un radiateur/convecteur/sèche serviette",
+      final_answer: {
+        result: "Fourniture et pose d'un radiateur électrique ou d'un sèche-serviettes",
+        tarif: "Entre 400 € et 550 € TTC",
+        responsable: "Propriétaire"
+      }
+    },
+    e_3_3: {
+      label: "Installation d'un radiateur/convecteur/sèche serviette",
+      final_answer: {
+        result: "Pose d'un convecteur/radiateur électrique ou d'un sèche-serviettes",
+        tarif: "Entre 100 € et 150 € TTC",
+        responsable: "Propriétaire"
+      }
+    },
+
+    # electricite - Chauffage/chaudiere/ballond'eau chaude
+    e_4_1: {
+      label: "Au chauffage",
+      next_question: "Votre problème concerne-t-il :",
+      next_question_answers: [:e_4_1_1, :e_4_1_2],
+      final_answer: nil
+    },
+    e_4_2: {
+      label: "A l'eau chaude",
+      next_question: "Quel appareil utilisez-vous pour chauffer l'eau ?",
+      next_question_answers: [:e_4_2_1, :e_4_2_2, :e_4_2_3],
+      final_answer: nil
+    },
+    e_4_3: {
+      label: "Au chauffage et à l'eau chaude",
+      next_question: "Votre appareil à chauffer est-il :",
+      next_question_answers: [:e_4_1_2_1, :e_4_1_2_2],
+      final_answer: nil
+    },
+    # electricite - Chauffage/Radiateur electrique ou chaudiere
+    e_4_1_1: {
+      label: "Radiateur éléctrique",
+      next_question: "Vous avez besoin de :",
+      next_question_answers: [:e_3_1, :e_3_2, :e_3_3], # renvoi au reponse chauffage
+      final_answer: nil
+    },
+    e_4_1_2: {
+      label: "Chaudière",
+      next_question: "Votre appareil à chauffer est-il :",
+      next_question_answers: [:e_4_1_2_1, :e_4_1_2_2],
+      final_answer: nil
+    },
+
+    # electricite - Chauffage/Chaudiere
+    e_4_1_2_1: {
+      label: "Centrale",
+      final_answer: {
+        result: "Réparation du chauffage collectif",
+        tarif: "Entre 100 € et 150 € TTC",
+        responsable: "Propriétaire ou Syndic"
+      }
+    },
+    e_4_1_2_2: {
+      label: "Individuel",
+      next_question: "Vous vous chauffez :",
+      next_question_answers: [:e_4_1_2_2_1, :e_4_1_2_2_2, :e_4_1_2_2_3],
+      final_answer: nil
+    },
+
+    # electricite - Chauffage/chaudiere/indivuduelle
+    e_4_1_2_2_1: {
+      label: "Au gaz",
+      next_question: "Quelle est la marque de votre chaudière ?",
+      next_question_answers: [:e_4_1_2_2_1_1, :e_4_1_2_2_1_2, :e_4_1_2_2_1_3, :e_4_1_2_2_1_4, :e_4_1_2_2_1_5, :e_4_1_2_2_1_6],
+      final_answer: nil
+    },
+    e_4_1_2_2_2: {
+      label: "A l'éléctricité",
+      next_question: "Quelle est la marque de votre chaudière ?",
+      next_question_answers: [:e_4_1_2_2_2_1, :e_4_1_2_2_2_3, :e_4_1_2_2_2_6],
+      final_answer: nil
+    },
+    e_4_1_2_2_3: {
+      label: "Autre (par exemple au fioul)",
+      final_answer: {
+        result: "Réparation de chaudière autre qu'au gaz et qu'à l'électricité",
+        tarif: "Entre 200 € et 300 € TTC",
+        responsable: "Propriétaire ou Syndic"
+      }
+    },
+
+    # electricite - Marque de chaudiere :
+    e_4_1_2_2_1_1: {
+      label: "ELM Leblanc",
+      final_answer: {
+        result: "Réparation d'une chaudière au gaz de marque ELM le Blanc",
+        tarif: "Entre 149 € et 260 € TTC",
+        responsable: "Propriétaire ou Syndic"
+      }
+    },
+    e_4_1_2_2_2_1: {
+      label: "ELM Leblanc",
+      final_answer: {
+        result: "Réparation d'une chaudière électrique de marque ELM le Blanc",
+        tarif: "Entre 180 € et 260 € TTC",
+        responsable: "Propriétaire ou Syndic"
+      }
+    },
+    e_4_1_2_2_1_2: {
+      label: "Frisquet",
+      final_answer: {
+        result: "Réparation d'une chaudière au gaz de marque Frisquet",
+        tarif: "Entre 149 € et 260 € TTC",
+        responsable: "Propriétaire ou Syndic"
+      }
+    },
+    e_4_1_2_2_1_3: {
+      label: "Saunier Duval",
+      final_answer: {
+        result: "Réparation d'une chaudière au gaz de marque Saunier Duval",
+        tarif: "Entre 149 € et 260 € TTC",
+        responsable: "Propriétaire ou Syndic"
+      }
+    },
+    e_4_1_2_2_2_3: {
+      label: "Saunier Duval",
+      final_answer: {
+        result: "Réparation d'une chaudière électrique de marque Saunier Duval",
+        tarif: "Entre 180 € et 260 € TTC",
+        responsable: "Propriétaire ou Syndic"
+      }
+    },
+    e_4_1_2_2_1_4: {
+      label: "Chaffoteaux",
+      final_answer: {
+        result: "Réparation d'une chaudière au gaz de marque Chaffoteaux",
+        tarif: "Entre 169 € et 260 € TTC",
+        responsable: "Propriétaire ou Syndic"
+      }
+    },
+    e_4_1_2_2_1_5: {
+      label: "De Dietrich",
+      final_answer: {
+        result: "Réparation d'une chaudière au gaz de marque De Dietrich",
+        tarif: "Entre 149 € et 260 € TTC",
+        responsable: "Propriétaire ou Syndic"
+      }
+    },
+    e_4_1_2_2_1_6: {
+      label: "Autre",
+      final_answer: {
+        result: "Réparation d'une chaudière au gaz marque inconnue",
+        tarif: "Entre 149 € et 260 € TTC",
+        responsable: "Propriétaire ou Syndic"
+      }
+    },
+    e_4_1_2_2_2_6: {
+      label: "Autre",
+      final_answer: {
+        result: "Réparation d'une chaudière électrique de marque inconnue",
+        tarif: "Entre 180 € et 260 € TTC",
+        responsable: "Propriétaire ou Syndic"
+      }
+    },
+
+    # electricite - Chauffage/Eau chaude
+    e_4_2_1: {
+      label: "Chaudière",
+      next_question: "Vous avez besoin de :",
+      next_question_answers: [:e_4_2_1_1, :e_4_2_1_2],
+      final_answer: nil
+    },
+    e_4_2_2: {
+      label: "Ballon d'eau chaude",
+      next_question: "Quelle est la marque de votre de ballon d'eau chaude ?",
+      next_question_answers: [:e_4_2_2_1, :e_4_2_2_2, :e_4_2_2_3, :e_4_2_2_4, :e_4_2_2_5, :e_4_2_2_6],
+      final_answer: nil
+    },
+    e_4_2_3: {
+      label: "Autre",
+      final_answer: {
+        result: "Réparation d'un appareil de chauffage inconnu",
+        tarif: "Entre 180 € et 350 € TTC",
+        responsable: "Propriétaire ou Syndic"
+      }
+    },
+    # electricite - Chauffage/Ballon d'eau chaude
+    e_4_2_1_1: {
+      label: "Centrale",
+      final_answer: {
+        result: "Réparation du chauffage collectif",
+        tarif: "Entre 100 € et 150 € TTC",
+        responsable: "Propriétaire ou Syndic"
+      }
+    },
+    e_4_2_1_2: {
+      label: "Individuel",
+      next_question: "Vous vous chauffez :",
+      next_question_answers: [:e_4_1_2_2_1, :e_4_1_2_2_2, :e_4_1_2_2_3],
+      final_answer: nil
+    },
+    # electricite - Marque de Ballon d'eau chaudde :
+    e_4_2_2_1: {
+      label: "Sauter",
+      final_answer: {
+        result: "Réparation d'un ballon d'eau chaude électrique de marque Sauter",
+        tarif: "Entre 180 € et 300 € TTCC",
+        responsable: "Propriétaire ou Syndic"
+      }
+    },
+    e_4_2_2_2: {
+      label: "Fleck",
+      final_answer: {
+        result: "Réparation d'un ballon d'eau chaude électrique de marque Fleck",
+        tarif: "Entre 180 € et 300 € TTC",
+        responsable: "Propriétaire ou Syndic"
+      }
+    },
+    e_4_2_2_3: {
+      label: "Thermor",
+      final_answer: {
+        result: "Réparation d'un ballon d'eau chaude électrique de marque Thermor",
+        tarif: "Entre 180 € et 300 € TTCC",
+        responsable: "Propriétaire ou Syndic"
+      }
+    },
+    e_4_2_2_4: {
+      label: "Chaffoteaux",
+      final_answer: {
+        result: "Réparation d'un ballon d'eau chaude électrique de marque Chaffoteaux",
+        tarif: "Entre 180 € et 300 € TTC",
+        responsable: "Propriétaire ou Syndic"
+      }
+    },
+    e_4_2_2_5: {
+      label: "De Dietrich",
+      final_answer: {
+        result: "Réparation d'un ballon d'eau chaude électrique de marque De Dietrich",
+        tarif: "Entre 180 € et 300 € TTC",
+        responsable: "Propriétaire ou Syndic"
+      }
+    },
+    e_4_2_2_6: {
+      label: "Autre",
+      final_answer: {
+        result: "Réparation d'un ballon d'eau chaude électrique de marque inconnue",
+        tarif: "Entre 180 € et 300 € TTC",
+        responsable: "Propriétaire ou Syndic"
+      }
+    },
   }
 end
